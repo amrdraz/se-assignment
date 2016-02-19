@@ -1,0 +1,40 @@
+.container {
+  position: absolute;
+  height: 100%;
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
+  ms-box-sizing: border-box;
+  webkit-box-sizing: border-box;
+  moz-box-sizing: border-box;
+  background: #90A4AE;
+}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+#text {
+  text-shadow: 2px 1px 4px rgba(150, 150, 150, 1);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 3.3em;
+  color: white;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#author {
+  text-shadow: 2px 1px 4px rgba(150, 150, 150, 1);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2.3em;
+  color: white;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
