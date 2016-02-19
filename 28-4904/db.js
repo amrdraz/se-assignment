@@ -1,13 +1,20 @@
 var mongo = require('mongodb').MongoClient;
+var assert = require('assert');
 var DB = null;
-var dbURL = 'mongodb://localhost:27017/inspire-me';
+var dbURL = 'mongodb://localhost:27017/dbtest';
 
 /**
  * function that connects to the mongodb instance initialized.
  * @param  {Function} cb callback for when connection is complete
  */
 exports.connect = function(cb) {
-    // You do this one
+    
+  MongoClient.connect(dbURL, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server.");
+  db.close();
+});
+
 };
 
 /**
@@ -20,6 +27,19 @@ exports.connect = function(cb) {
 exports.db = function() {
     if (DB === null) throw Error('DB Object has not yet been initialized');
     return DB;
+
+   var findQuotes = function(db, callback) {
+   var cursor =db.collection('quotes').find( );
+   cursor.each(function(err, doc) {
+      assert.equal(err, null);
+      if (doc != null) {
+         console.dir(doc);
+      } else {
+         callback();
+      }
+   });
+};
+
 };
 
 /**
