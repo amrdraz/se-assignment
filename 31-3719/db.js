@@ -20,7 +20,8 @@ function db() {
 
 function clear_db(cb) {
 	_db.collection('quotes').deleteMany({}, function(err, res) {
-		console.log(res)
+		if(err)
+			throw err
 		cb()
 	})
 }
@@ -33,5 +34,3 @@ function close(cb){
 exports.db = db;
 exports.connect = connect
 exports.close = close
-
-
