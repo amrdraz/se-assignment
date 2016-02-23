@@ -5,6 +5,7 @@ var url = 'mongodb://localhost:27017/se_1'
 var _db
 
 function connect(cb) {
+	if(_db) cb(null)
 	mongo.connect(url, function(err, db) {
  			if(err)
  				throw err
@@ -28,6 +29,7 @@ function clear_db(cb) {
 }
 
 function close(cb){
+	if(_db)
 	_db.close()
 	cb()
 }
