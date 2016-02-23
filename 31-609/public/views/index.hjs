@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>inspire me more</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+
+  <body class="HomePage">
+    <div class="quote">
+      {{ quote }}
+    </div>
+
+    <div class="author">
+      {{ name }}
+    </div>
+  </body>
+</html>
