@@ -1,7 +1,7 @@
 var ob = require("../quotes.json")
 var db = require("./db.js")
 
-var _db = db.db()
+// var _db = db.db()
 
 function getElementByIndexElseRandom (arr, index) {
 	 index = index === undefined ? Math.floor(Math.random() * arr.length) : index
@@ -39,7 +39,7 @@ function seed(cb) {
 
 
 function getQuotesFromDB(cb) {
-	_db.collection("quotes").find({}).toArray(function(err, quotes) {
+	db.db().collection("quotes").find({}).toArray(function(err, quotes) {
 		if(err)
 			cb(err, null)
 		else
