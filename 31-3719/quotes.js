@@ -43,7 +43,7 @@ function getQuotesFromDB(cb) {
 function getQuoteFromDB(cb, index) {
 	getQuotesFromDB(function(err, quotes) {
 		if(err)
-			cb(err, quotes)
+			cb(err, null)
 		else
 			cb(err, getElementByIndexElseRandom(quotes, index))
 	})

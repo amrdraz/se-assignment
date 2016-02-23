@@ -20,7 +20,7 @@ function db() {
 	return _db
 }
 
-function clearDb(cb) {
+function clearDB(cb) {
 	_db.collection('quotes').deleteMany({}, function(err, res) {
 		if(err)
 			throw err
@@ -37,4 +37,4 @@ function close(cb){
 exports.db = db;
 exports.connect = connect
 exports.close = close
-exports.clearDb = clearDb
+exports.clearDB = clearDB

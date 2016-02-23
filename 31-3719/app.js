@@ -51,7 +51,8 @@ app.get('/index.html', function(req, res) {
 // })
 
  app.use(function(req, res) {
-     res.send('404: Page not Found', 404);
+     // res.send('404: Page not Found', 404);
+     res.status(404).send("404: Page not found.")
   });
 
 module.exports = app

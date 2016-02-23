@@ -2,23 +2,33 @@
   "name": "youssef",
   "version": "1.0.0",
   "description": "SE random quotes assignment",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "public" : "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "mongod",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/joe3141/se-assignment.git"
   },
   "keywords": [
-    "random_quotes"
+    "random_quotes", "inspiration", "REST tut"
   ],
   "author": "youssef",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/joe3141/se-assignment/issues"
+  },
+  "dependencies" : {
+    "chai" : "^3.5.0",
+    "express" : "^4.13.4",
+    "mongodb" : "^2.1.7",
+    "supertest" : "^1.2.0",
+    "mocha" : "^2.4.5",
+    "istanbul" : "^0.4.2"
   }
 }
