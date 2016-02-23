@@ -23,14 +23,7 @@ function seed(cb) {
 		if(err)
 			cb(err, c)
 		else if(c === 0){
-			ob.map(function(q) {
-				collection.insertOne(q, function(err, res) {
-					if(err)
-						cb(err, res)
-						throw err
-				})
-			})
-			cb(err, true)
+			collection.insertMany(ob, function(err, res) {cb(err, true)})
 		}else{
 			cb(err, false)
 		}
