@@ -36,4 +36,14 @@ app.get('/', function(req, res) {
 	res.render("public/index.html")
 })
 
+app.get('index', function(req, res) {
+	res.render("public/index.html")
+})
+
+app.get('/index.html', function(req, res) {
+	res.render("public/index.html")
+})
+
+
+
 module.exports = app
