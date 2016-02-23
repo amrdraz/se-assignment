@@ -18,21 +18,21 @@ function getQuoteFromJSON(index) {
 
 
 function seed(cb) {
-	var collection = _db.collection("quotes")
+	var collection = db.db().collection("quotes")
 	collection.count(function(err, c) {
 		if(err)
-			cb(err, null)
+			cb(err, c)
 		else if(c === 0){
-			ob.foreach(function(q) {
+			ob.map(function(q) {
 				collection.insertOne(q, function(err, res) {
 					if(err)
-						cb(err, null)
+						cb(err, res)
 						throw err
 				})
 			})
-			cb(null, true)
+			cb(err, true)
 		}else{
-			cb(null, false)
+			cb(err, false)
 		}
 	})
 }
@@ -41,18 +41,18 @@ function seed(cb) {
 function getQuotesFromDB(cb) {
 	db.db().collection("quotes").find({}).toArray(function(err, quotes) {
 		if(err)
-			cb(err, null)
+			cb(err, quotes)
 		else
-			cb(null, quotes)
+			cb(err, quotes)
 	})
 }
 
 function getQuoteFromDB(cb, index) {
 	getQuotesFromDB(function(err, quotes) {
 		if(err)
-			cb(err, null)
+			cb(err, quotes)
 		else
-			cb(null, getElementByIndexElseRandom(quotes, index))
+			cb(err, getElementByIndexElseRandom(quotes, index))
 	})
 }
 

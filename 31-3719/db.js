@@ -5,7 +5,7 @@ var url = 'mongodb://localhost:27017/se_1'
 var _db
 
 function connect(cb) {
-	if(_db) cb(null)
+	//if(_db) cb(null)
 	mongo.connect(url, function(err, db) {
  			if(err)
  				throw Error("Cannot connect to mongo")
@@ -16,11 +16,11 @@ function connect(cb) {
 }
 
 function db() {
-	if(_db === null) throw Error('DB Object has not yet been initialized')
+	//if(_db === null) throw Error('DB Object has not yet been initialized')
 	return _db
 }
 
-function clear_db(cb) {
+function clearDb(cb) {
 	_db.collection('quotes').deleteMany({}, function(err, res) {
 		if(err)
 			throw err
@@ -37,3 +37,4 @@ function close(cb){
 exports.db = db;
 exports.connect = connect
 exports.close = close
+exports.clearDb = clearDb

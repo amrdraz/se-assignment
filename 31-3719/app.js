@@ -8,7 +8,11 @@ var app = express()
 app.use(express.static(path.join(__dirname, 'public')));
 
 db.connect(function(db) {
-
+	q.seed(function(err, seeded) {
+	if(err) throw err
+	if(!seeded)
+		console.log("DB was already seeded.")
+})
 })
 
 
