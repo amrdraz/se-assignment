@@ -8,7 +8,7 @@ function connect(cb) {
 	if(_db) cb(null)
 	mongo.connect(url, function(err, db) {
  			if(err)
- 				throw err
+ 				throw Error("Cannot connect to mongo")
 
  			_db = db
  			cb(db)
