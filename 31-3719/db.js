@@ -15,6 +15,7 @@ function connect(cb) {
 }
 
 function db() {
+	if(_db === null) throw Error('DB Object has not yet been initialized')
 	return _db
 }
 
