@@ -2,5 +2,9 @@
 $(document).ready(function(){
     $("body").click(function(){
         $("body").css("background", randomColor());
-    });
+        $('blockquote.quote').text('test');
+        $('div.author').text('test');
+
+
+         });
 });
