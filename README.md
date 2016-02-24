@@ -399,6 +399,7 @@ describe('seed', function() {
     });
 });
 
+
 describe('getQuotesFromDB', function() {
     it('should return all quote documents in the database', function(done) {
         // TODO: there should be 102 documents in the db

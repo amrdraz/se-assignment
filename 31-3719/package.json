@@ -1,0 +1,34 @@
+{
+  "name": "youssef",
+  "version": "1.0.0",
+  "description": "SE random quotes assignment",
+  "main": "server.js",
+  "directories": {
+    "test": "test",
+    "public" : "public"
+  },
+  "scripts": {
+    "start" : "mongod",
+    "test": "istanbul cover _mocha"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joe3141/se-assignment.git"
+  },
+  "keywords": [
+    "random_quotes", "inspiration", "REST tut"
+  ],
+  "author": "youssef",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joe3141/se-assignment/issues"
+  },
+  "dependencies" : {
+    "chai" : "^3.5.0",
+    "express" : "^4.13.4",
+    "mongodb" : "^2.1.7",
+    "supertest" : "^1.2.0",
+    "mocha" : "^2.4.5",
+    "istanbul" : "^0.4.2"
+  }
+}
