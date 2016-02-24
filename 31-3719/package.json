@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start" : "mongod",
-    "test": "mocha"
+    "test": "istanbul cover _mocha"   // it generates both the tests and the coverage. 
   },
   "repository": {
     "type": "git",
