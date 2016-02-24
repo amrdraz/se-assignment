@@ -1,4 +1,5 @@
 var obj = require("../quotes.json")
+var db = require("./db.js")
 
  function getElementByIndexElseRandom(array , indx){
   //  var s = 'Test the indx : '.concat(indx);
@@ -19,3 +20,8 @@ function getQuotesFromJSON(){
   return obj;
 
 }
+
+function seed(function (err, seeded) {
+
+
+});
