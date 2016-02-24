@@ -7,10 +7,11 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
  * function that connects to the mongodb instance initialized.
  * @param  {Function} cb callback for when connection is complete
  */
-exports.connect = function(cb) {
-
-    // You do this one
-};
+exports.connect = function(dbURL ,  function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+     db.close();
+ });
 
 /**
  * used to get access to the db object to query the database
