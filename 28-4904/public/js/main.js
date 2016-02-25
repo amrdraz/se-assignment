@@ -1,3 +1,4 @@
+
 // Code for detecting button click
 var myFirstLine = document.getElementById("FirstLine");
 var mySecondLine = document.getElementById("SecondLine");

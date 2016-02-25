@@ -14,7 +14,7 @@ exports.connect = function()
    {
    assert.equal(null, err);
    DB = db;
-   findQuotes();
+   //findQuotes();
    console.log("Connected correctly to server.");
    });  
 };

@@ -1,12 +1,42 @@
-getElementByIndexElseRandom(array [, index])
+var fs = require("fs");
+var quotesJson = require('./quotes.json');
+var quotesContents = fs.readFileSync('./quotes.json');
+var jsonContent = JSON.parse(quotesContents);
 
-getQuotesFromJSON()
+var db = require('./db.js');
+db.connect();
 
-getQuoteFromJSON(index)
+exports.getRandomNumber = function()
+{
+	return Math.floor(Math.random() * 10) + 1
+}
 
-seed(cb)
+exports.getQuotesFromJSON = function()
+{
+	return jsonContent;
+}
 
-getQuotesFromDB(cb)
+exports.getQuoteFromJSON = function(index)
+{
+	return jsonContent[index];
+}
 
-getQuoteFromDB(cb [, index])
+exports.getQuotesFromDB = function(cb)
+{
 
+}
+
+exports.getQuoteFromDB = function(cb ,index)
+{
+
+}
+
+exports.getElementByIndexElseRandom = function(array ,index) 
+{
+
+}
+
+exports.seed = function(cb)
+{
+
+}
