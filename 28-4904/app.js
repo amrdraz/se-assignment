@@ -1,9 +1,6 @@
 var express = require('express');
 var app = express();
 
-// Adding Quotes.json file to global variable appdata
-app.locals.appdata = require('./quotes.json');
-
 // Adding static public files
 app.use(express.static('public'));
 

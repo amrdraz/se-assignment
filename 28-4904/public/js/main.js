@@ -1,9 +1,9 @@
-// Writing Code for detecting button click
-var myFirstText = document.getElementById("FirstLine");
-var mySecondText = document.getElementById("SecondLine")
+// Code for detecting button click
+var myFirstLine = document.getElementById("FirstLine");
+var mySecondLine = document.getElementById("SecondLine");
 
-myFirstText.onclick = function() 
+myFirstLine.onclick = function() 
 {
-	myFirstText.innerHTML = " Quote Goes Here! ";
-	mySecondText.innerHTML = " Author Name Here! ";
-}
+	myFirstLine.innerHTML = " Quote Goes Here! ";
+	mySecondLine.innerHTML = " Author Name Here! ";
+};
