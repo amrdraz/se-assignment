@@ -1,14 +1,11 @@
 
-var mongo = require('mongodb').MongoClient;
-var DB;
-mongo.connect('mongodb://localhost:27017/app', function (err, db) {
-	if(error)
-		throw error;
-    DB = db;
-});
+
+var DB = require("./db.js");
+var json = require("../quotes.json");
 
 
-var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
+
+exports.getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
 {
 	var result = 0 ;
 
@@ -23,20 +20,16 @@ var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , i
 
 
 
-
-var getQuotesFromJSON = function getQuotesFromJSON()
+exports.getQuotesFromJSON = function getQuotesFromJSON()
 {
-	var json = require("../quotes.json");
-	
 	return json;
 }
 
 
 
-
-var getQuoteFromJSON = function getQuoteFromJSON(index)
+exports.getQuoteFromJSON = function getQuoteFromJSON(index)
 {
-	var jsonArray = getQuotesFromJSON().toArray();
+	var jsonArray = getQuotesFromJSON();
 
 	var quote = getElementByIndexElseRandom(jsonArray , index);
 
@@ -45,8 +38,7 @@ var getQuoteFromJSON = function getQuoteFromJSON(index)
 
 
 
-
-var seed = function seed(callback)
+exports.seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
 
@@ -57,8 +49,7 @@ var seed = function seed(callback)
 
 
 
-
-var getQuotesFromDB = function getQuotesFromDB (callback)
+exports.getQuotesFromDB = function getQuotesFromDB (callback)
 {
 	DB.collection("quotes").find().toArray(function(err , result){
 
@@ -71,8 +62,7 @@ var getQuotesFromDB = function getQuotesFromDB (callback)
 
 
 
-
-var getQuoteFromDB = function getQuoteFromDB(callback , index)
+exports.getQuoteFromDB = function getQuoteFromDB(callback , index)
 {
 	var quote;
 	DB.collectoin("quotes").find().toArray(function(err , result){
