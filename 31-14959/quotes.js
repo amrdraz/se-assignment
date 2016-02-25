@@ -33,10 +33,7 @@ exports.getQuotesFromDB = function getQuotesFromDB(cb){
 
 }
 exports.getQuoteFromDB = function getQuoteFromDB(cb ,indx){
-    getQuotesFromDB(function (err , quotes){
-      cb(err,getElementByIndexElseRandom(quotes,indx) );
-
+  db.db().collection("quotes").find({}).toArray(function(err, quotes) {
+      cb(err , getElementByIndexElseRandom(quotes,indx));
     });
-
-
 }
