@@ -21,7 +21,16 @@ function getQuotesFromJSON(){
 
 }
 
-function seed(function (err, seeded) {
+exports.seed = function seed(cb){
+    var collection = db.db().collection("quotes");
+    collection.count( function ( err , c) { //check thier count
+      if(c ==0)
+        collection.insertMany(obj , function(err, result) {cb(err,true)});
+      else
+          cb(err, false);
 
 
-});
+
+    });
+
+}

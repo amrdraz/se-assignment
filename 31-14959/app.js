@@ -1,13 +1,18 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var db = require("./db")
+var q = require("./quotes")
 app.listen(3000);
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/' , function (req,res ){
   res.render("/public/index.html");
-
-
-
+});
+db.connect( function (db){
+    q.seed( function (err , seed){
+      if(!seed)
+        console.log("Kolo Fol");
+    });
 });
 
 // var router = express.Router();

@@ -11,11 +11,11 @@ exports.connect = function(cb) {
       if(DB!= null)
         cb(DB); //if it was connect
       else{
-        mongo.connect(url, function(err, db) {
+        mongo.connect(dbURL, function(err, db) {
             if(err)
               throw Error("Error while Connecting");
             DB = db;
-            console.log("Connected correctly to server");
+            console.log("Connected correctly to database");
             cb(db);
        });
    }
