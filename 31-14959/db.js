@@ -15,12 +15,11 @@ exports.connect = function(cb) {
             if(err)
               throw Error("Error while Connecting");
             DB = db;
-            console.log("Connected correctly to database");
+            console.log("Connected correctly to database" + db);
             cb(db);
        });
    }
 }
-
 
 /**
  * used to get access to the db object to query the database
