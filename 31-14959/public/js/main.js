@@ -1,10 +1,11 @@
 //change the background color randomly using randomColorjs class
 $(document).ready(function(){
     $("body").click(function(){
-        $("body").css("background", randomColor());
-        $('blockquote.quote').text('test');
-        $('div.author').text('test');
+      	$.get("/api/quote", function(data, status) {
+          $("body").css("background", randomColor());
+          $('blockquote.quote').text(data.text);
+          $('div.author').text(data.author);
 
-
-         });
+            });
+       });
 });
