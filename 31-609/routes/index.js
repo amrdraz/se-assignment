@@ -2,7 +2,7 @@ var database = require('../db');
 var quotes = require('../quotes');
 
 module.exports = function(app){
-
+  
   var home = function(request, response){
     response.render('index.hjs', {
       quote: 'Click me to spread happiness',

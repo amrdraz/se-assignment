@@ -1,4 +1,4 @@
-// tests/quotes.js
+// tests/test.js
 
 var assert = require('chai').assert;
 var app = require('../app.js');

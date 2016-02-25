@@ -1,16 +1,22 @@
 {
-  "name": "31-609",
+  "name": "InspireMeMore",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web application that gives you inspirational quotes whenever you feel down",
   "main": "app.js",
   "directories": {
-    "test": "test"
+    "public": {
+      "css": "contains the sylting sheets",
+      "js": "contains the Javascript code",
+      "views": "contains all the views of the application"
+    },
+    "routes": "contains the routes of the application",
+    "test": "contains the testing scripts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "istanbul cover ./test/test.js",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Kareem Ashraf Mokhtar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",

@@ -2,7 +2,7 @@ var database = require('./db');
 
 var getElementByIndexElseRandom = function (array , index) {
   if(typeof index == "undefined")
-  index = Math.floor(Math.random() * array.length);
+    index = Math.floor(Math.random() * array.length);
 
   return array[index];
 };
