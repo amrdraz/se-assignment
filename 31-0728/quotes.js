@@ -1,6 +1,7 @@
 
 
-var DB = require("./db.js");
+var db = require("./db.js");
+var DB = db.db();
 var json = require("../quotes.json");
 
 
@@ -42,7 +43,7 @@ exports.seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
 
-	DB.db().collection("quotes").insert(json);
+	DB.collection("quotes").insert(json);
 
 	callback(null , true);
 }
@@ -51,7 +52,7 @@ exports.seed = function seed(callback)
 
 exports.getQuotesFromDB = function getQuotesFromDB (callback)
 {
-	DB.db().collection("quotes").find().toArray(function(err , result){
+	DB.collection("quotes").find().toArray(function(err , result){
 
 		if(err)
 			callback(err , null);
@@ -65,7 +66,7 @@ exports.getQuotesFromDB = function getQuotesFromDB (callback)
 exports.getQuoteFromDB = function getQuoteFromDB(callback , index)
 {
 	var quote;
-	DB.db().collectoin("quotes").find().toArray(function(err , result){
+	DB.collectoin("quotes").find().toArray(function(err , result){
 
 		if(err)
 			callback(err , null)
