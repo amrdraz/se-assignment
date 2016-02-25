@@ -13,7 +13,7 @@
     "test": "contains the testing scripts"
   },
   "scripts": {
-    "test": "istanbul cover ./test/test.js",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "Kareem Ashraf Mokhtar",
@@ -22,10 +22,10 @@
     "body-parser": "^1.15.0",
     "chai": "*",
     "express": "*",
+    "hjs": "*",
     "istanbul": "*",
     "mocha": "^2.4.5",
     "mongodb": "*",
-    "supertest": "*",
-    "hjs": "*"
+    "supertest": "*"
   }
 }

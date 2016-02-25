@@ -7,11 +7,14 @@ var Quote = require('../quotes.js');
 var db = require('../db.js');
 
 before(function(done) {
-    // use this after you have completed the connect function
-    // db.connect(function(err, db) {
-    //    if (err) return done(err);
-    //    else done();
-    // });
+    db.connect(function(err, db) {
+      if(err) {
+        return done(err);
+      }
+      else {
+        done();
+      }
+    });
 });
 
 describe("getElementByIndexElseRandom", function() {
@@ -20,7 +23,7 @@ describe("getElementByIndexElseRandom", function() {
         // TODO
     });
     it("should return the first element if we also pass the index 0", function() {
-        // TODO
+        assert.equal(arr[0], Quote.getElementByIndexElseRandom(arr, 0));
     });
     it("should return the last element if we also pass the index", function() {
         // TODO
