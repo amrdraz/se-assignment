@@ -42,7 +42,7 @@ exports.seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
 
-	DB.collection("quotes").insert(json);
+	DB.db().collection("quotes").insert(json);
 
 	callback(null , true);
 }
@@ -51,7 +51,7 @@ exports.seed = function seed(callback)
 
 exports.getQuotesFromDB = function getQuotesFromDB (callback)
 {
-	DB.collection("quotes").find().toArray(function(err , result){
+	DB.db().collection("quotes").find().toArray(function(err , result){
 
 		if(err)
 			callback(err , null);
@@ -65,7 +65,7 @@ exports.getQuotesFromDB = function getQuotesFromDB (callback)
 exports.getQuoteFromDB = function getQuoteFromDB(callback , index)
 {
 	var quote;
-	DB.collectoin("quotes").find().toArray(function(err , result){
+	DB.db().collectoin("quotes").find().toArray(function(err , result){
 
 		if(err)
 			callback(err , null)
