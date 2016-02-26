@@ -50,9 +50,12 @@ var seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
 
-	DB.collection("quotes").insert(json);
+	DB.quotes.insert(json , function(err , seed){
 
-	callback(null , true);
+		callback(err,seed);
+
+	});
+
 }
 
 
