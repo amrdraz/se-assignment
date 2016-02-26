@@ -3,8 +3,7 @@ var app = express();
 var path = require('path');
 var db = require("./db")
 var q = require("./quotes")
-//server
-app.listen(3000);
+
 //connecting database
 db.connect( function (_db){
     db.clearDB(function(){
