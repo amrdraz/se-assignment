@@ -7,10 +7,12 @@ var q = require("./quotes")
 app.listen(3000);
 //connecting database
 db.connect( function (db){
-    q.seed( function (err , seed){
-      if(!seed)
-        console.log("Kolo Fol");
+    db.clearDB(function(){
+      q.seed( function (err , seed){
+        if(seed)
+          console.log("Mlena l-DB");
     });
+  });
 });
 //midlware
 app.use(express.static(path.join(__dirname, 'public')));
