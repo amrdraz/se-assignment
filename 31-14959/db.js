@@ -8,9 +8,6 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
  * @param  {Function} cb callback for when connection is complete
  */
 exports.connect = function(cb) {
-      if(DB!= null)
-        cb(DB); //if it was connect
-      else{
         mongo.connect(dbURL, function(err, db) {
             if(err)
               throw Error("Error while Connecting");
@@ -18,7 +15,6 @@ exports.connect = function(cb) {
             console.log("Connected correctly to database" + db);
             cb(db);
        });
-   }
 }
 
 /**
@@ -37,11 +33,10 @@ exports.db = function() {
  * clears all collections in the database calling the callback when done
  * @param  {Function} done callback indicating the operation is complete
  */
-exports.clearDB = function(done) {
-    DB.listCollections().toArray().then(function (collections) {
-        collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();
-        });
-        done();
-    }).catch(done);
+exports.clearDB = function(done) { //edited
+  var collection = DB.collection("quotes").remove( {} , function (err , remove){
+    if(err )throw err;
+    console.log('DB cleared');
+    done();
+  } );
 };

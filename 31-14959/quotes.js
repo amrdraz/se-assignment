@@ -1,39 +1,39 @@
 var obj = require("../quotes.json")
 var db = require("./db.js")
 
- function getElementByIndexElseRandom(array , indx){
+var getElementByIndexElseRandom = exports.getElementByIndexElseRandom =  function getElementByIndexElseRandom(array , indx){
    var sz = array.length;
    if(indx<0 || indx >=sz || indx == undefined)
       return array[parseInt(Math.random()*sz)];
     else
-      return arr[indx];
+      return array[indx];
 }
-function getQuotesFromJSON(){
-  // console.log(obj[0].author);
+exports.getQuotesFromJSON =  function getQuotesFromJSON(){
   return obj;
 }
-function getQuoteFromJSON(index) {
-  return obj[indx];
+exports.getQuoteFromJSON = function getQuoteFromJSON(indx) {
+    if(indx  == undefined )
+      return obj[parseInt(Math.random()*102)];
+    else {
+      return obj[indx];
+    }
 }
-
 exports.seed = function seed(cb){
-    var collection = db.db().collection("quotes");
+    var collection = db.db().collection('quotes');
     collection.count( function ( err , c) { //check thier count
-      if(c ==0)
-        collection.insertMany(obj , function(err, result) {cb(err,true)});
+      if(c == 0)
+        collection.insert(obj, function(err, result) {cb(err,true)});
       else
           cb(err, false);
     });
 }
 exports.getQuotesFromDB = function getQuotesFromDB(cb){
-
   db.db().collection("quotes").find({}).toArray(function(err, quotes) {
       cb(err,quotes);
     });
-
 }
 exports.getQuoteFromDB = function getQuoteFromDB(cb ,indx){
   db.db().collection("quotes").find({}).toArray(function(err, quotes) {
-      cb(err , getElementByIndexElseRandom(quotes,indx));
+      cb(err, getElementByIndexElseRandom(quotes,indx));
     });
 }

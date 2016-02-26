@@ -5,7 +5,7 @@ var db = require("./db")
 var q = require("./quotes")
 //server
 app.listen(3000);
-//database
+//connecting database
 db.connect( function (db){
     q.seed( function (err , seed){
       if(!seed)
@@ -27,15 +27,13 @@ app.get('/index.html' , function (req,res ){
 // Router apis
 app.get('/api/quotes' , function (req,res ){
   q.getQuotesFromDB( function (err , quotes){
-      res.json(quetes);
+      res.json(qutes);
   });
-
 });
 app.get('/api/quote' , function (req,res ){
   q.getQuoteFromDB( function (err , quote){
       res.json(quote);
   });
-
 });
 
 
