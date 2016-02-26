@@ -1,0 +1,17 @@
+{
+  "name": "31-8027",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.12.4",
+        "mongodb": "~2.0.55",
+        "mocha": "~1.16.2",
+        "supertest":"~1.2.0",
+        "chai":"~3.5.0",
+        "istanbul":"~0.4.2"
+    
+  }
+}
