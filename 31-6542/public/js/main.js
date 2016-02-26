@@ -12,6 +12,6 @@ router.get('/index', function(req, res, next) {
 router.get('/index.html', function(req, res) {
     res.render('index', { title: 'Hello, World!' });
 });*/
-console.log('hithere correct');
+console.log('hithere correct ');
 module.exports = router;
 
