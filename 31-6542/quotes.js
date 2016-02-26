@@ -1,4 +1,4 @@
-
+var fs = require('fs');
 
 var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
 {
@@ -13,7 +13,11 @@ var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , i
     		return array[index];
 }
 
-var x = getElementByIndexElseRandom([1, 3, 4], 0) ;
-var y = getElementByIndexElseRandom([1, 3, 4]) ;
-console.log(x);
-console.log(y);
+
+var getQuotesFromJSON = function getQuotesFromJSON()
+{
+	var allQuotes = fs.readFileSync("quotes.json");
+	return JSON.parse(allQuotes);
+}
+var q = getQuotesFromJSON();
+console.log(q);
