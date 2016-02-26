@@ -19,5 +19,11 @@ var getQuotesFromJSON = function getQuotesFromJSON()
 	var allQuotes = fs.readFileSync("quotes.json");
 	return JSON.parse(allQuotes);
 }
-var q = getQuotesFromJSON();
-console.log(q);
+
+var getQuoteFromJSON = function getQuoteFromJSON(index)
+{
+	var retrievedQuotes = getQuotesFromJSON();
+	return getElementByIndexElseRandom(retrievedQuotes, index);
+}
+var x = getQuoteFromJSON();
+console.log(x);
