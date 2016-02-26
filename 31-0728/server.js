@@ -1,3 +1,4 @@
+console.log("hi!");
 
 var app = require('./app');
 var debug = require('debug')('31-0728:server');

@@ -1,0 +1,23 @@
+
+
+
+body{
+		cursor: pointer;
+		padding-top: 20%;
+		padding-left: 50px;
+		padding-right: 50px;
+		background-color: #FAEBD7;
+		text-align: center;
+	}
+	#quote{
+		text-align: center;
+     	font-family: 'Times New Roman', Georgia, Serif;	
+     }
+
+	#author{
+     	font-family: 'Times New Roman', Georgia, Serif;	
+     	position: absolute;
+		right: 40px;
+		bottom: 40px;
+		font-size: 50px;
+	}

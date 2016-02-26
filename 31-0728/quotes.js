@@ -1,12 +1,17 @@
 
 
 var db = require("./db.js");
-var DB = db.db();
+var DB ;
+
+db.connect(function(db){
+	DB = db;
+});
+
 var json = require("../quotes.json");
 
 
 
-exports.getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
+var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
 {
 	var result = 0 ;
 
@@ -21,17 +26,19 @@ exports.getElementByIndexElseRandom = function getElementByIndexElseRandom(array
 
 
 
-exports.getQuotesFromJSON = function getQuotesFromJSON()
+var getQuotesFromJSON = function getQuotesFromJSON()
 {
+	console.log("hi quotes");
 	return json;
 }
 
 
 
-exports.getQuoteFromJSON = function getQuoteFromJSON(index)
+var getQuoteFromJSON = function getQuoteFromJSON(index)
 {
+	console.log("hi quote");
 	var jsonArray = getQuotesFromJSON();
-
+	console.log();
 	var quote = getElementByIndexElseRandom(jsonArray , index);
 
 	return quote;
@@ -39,7 +46,7 @@ exports.getQuoteFromJSON = function getQuoteFromJSON(index)
 
 
 
-exports.seed = function seed(callback)
+var seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
 
@@ -50,9 +57,9 @@ exports.seed = function seed(callback)
 
 
 
-exports.getQuotesFromDB = function getQuotesFromDB (callback)
+var getQuotesFromDB = function getQuotesFromDB (callback)
 {
-	DB.collection("quotes").find().toArray(function(err , result){
+	DB.get("quotes").find({} , {} , function(err , result){
 
 		if(err)
 			callback(err , null);
@@ -63,17 +70,26 @@ exports.getQuotesFromDB = function getQuotesFromDB (callback)
 
 
 
-exports.getQuoteFromDB = function getQuoteFromDB(callback , index)
-{
-	var quote;
-	DB.collectoin("quotes").find().toArray(function(err , result){
+var getQuoteFromDB = function getQuoteFromDB(callback , index)
+{	
 
+	DB.get("quotes").find({} , {} ,function(err , result){
+	
 		if(err)
 			callback(err , null)
 		else
-		{
-			quote = getElementByIndexElseRandom(result , index);
+		{	
+			var quote = getElementByIndexElseRandom(result , index);
 			callback(null , quote);
 		}
-	});
-} 
+   });
+}
+
+
+
+exports.getElementByIndexElseRandom = getElementByIndexElseRandom;
+exports.getQuotesFromJSON = getQuotesFromJSON;
+exports.getQuoteFromJSON = getQuoteFromJSON;
+exports.seed = seed;
+exports.getQuotesFromDB = getQuotesFromDB;
+exports.getQuoteFromDB = getQuoteFromDB;

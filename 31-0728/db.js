@@ -1,29 +1,25 @@
 
 
-var mongo = require('mongodb').MongoClient;
+var mongo = require('mongodb');
 var DB = null;
 var dbURL = 'mongodb://localhost:27017/inspire-me';
+var monk = require('monk');
 
 
-
-exports.connect = function(cb) {
-	mongo.connect(dbURL , function(err , db){
-		if(err)
-			throw err;
-		DB = db;
-	});
+var connect = function connect(callback) {
+	DB = monk(dbURL);
+	callback(DB);
 };
 
 
 
-exports.db = function() {
-    if (DB === null) throw Error('DB Object has not yet been initialized');
-    return DB;
-};
+var db = function() {
+    return DB;            
+}
 
 
 
-exports.clearDB = function(done) {
+var clearDB = function(done) {
     DB.listCollections().toArray().then(function (collections) {
         collections.forEach(function (c) {
             DB.collection(c.name).removeMany();   
@@ -32,3 +28,8 @@ exports.clearDB = function(done) {
     }).catch(done);
 };
 
+
+
+exports.connect = connect;
+exports.db = db;
+exports.clearDB = clearDB;
