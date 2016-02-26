@@ -1,8 +1,11 @@
 var fs = require('fs');
 var dbFile= require('./db.js');
 var allQuotes = fs.readFileSync("../quotes.json");
-dbFile.connect();
-var db = dbFile.db();
+var db;
+dbFile.connect(function(connectedDB){
+	db=connectedDB;
+});
+
 //var app=require('./app');
 var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
 {
@@ -34,22 +37,32 @@ var seed = function seed(cb)
 {
 	//var db = express.db;
 	
-	db.myQuotes.insert()(JSON.parse(allQuotes))
+	db.myQuotes.insert()(JSON.parse(allQuotes),function(err,seeded)
+	{
+		if (err)
+			cb(err,true);
+		else
+			cb(null,false);
+	});
 
 }
-seed(null);
-	/*
-	var myQuotes = db.get('Quotes');
-	/*
-	console.log('hi'+myQuotes.find());
-	myQuotes.insert({ "username" : "testuser1", "email" : "testuser1@testdomain.com" });
-	console.log(myQuotes.find().pretty());
-}
-/*
+
+
 var getQuotesFromDB = getQuotesFromDB(cb) 
 {
-
+	db.get('myQuotes').find({},{},function(err,quotes)
+	{
+		if (err)
+		{
+			cb(err,null);
+		}
+		else
+		{
+			cb(null,quotes);
+		}
+	});
 }
+/*
 var getQuoteFromDB = getQuoteFromDB(cb [, index])
 {
 
