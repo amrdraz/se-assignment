@@ -130,7 +130,7 @@ getElementByIndexElseRandom([1, 3, 4], 0) // always 1
 getQuotesFromJSON() // basically returns the whole object.
 ```
 
-##### `getQuoteFromJSON(index)`
+##### `getQuoteFromJSON([index])`
 
 - returns a random quote from the quotes.json file if index is not passed else the on int the index position.
 
