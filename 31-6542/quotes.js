@@ -25,5 +25,4 @@ var getQuoteFromJSON = function getQuoteFromJSON(index)
 	var retrievedQuotes = getQuotesFromJSON();
 	return getElementByIndexElseRandom(retrievedQuotes, index);
 }
-var x = getQuoteFromJSON();
-console.log(x);
+console.log(getQuoteFromJSON());

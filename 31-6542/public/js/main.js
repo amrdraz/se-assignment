@@ -5,9 +5,13 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/helloworld', function(req, res) {
-    res.render('helloworld', { title: 'Hello, World!' });
+/*
+router.get('/index', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
+router.get('/index.html', function(req, res) {
+    res.render('index', { title: 'Hello, World!' });
+});*/
 console.log('hithere correct');
 module.exports = router;
 
