@@ -14,20 +14,20 @@ db.connect( function (db){
 });
 //midlware
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', __dirname + '/public');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 // router
-app.get('/' , function (req,res ){
-  res.render("/public/index.html");
-});
 app.get('/index' , function (req,res ){
-  res.render("/public/index.html");
+  res.render("index.html");
 });
-app.get('/index.html' , function (req,res ){
-  res.render("/public/index.html");
+app.get('/' , function (req,res ){
+  res.render("index.html");
 });
 // Router apis
 app.get('/api/quotes' , function (req,res ){
   q.getQuotesFromDB( function (err , quotes){
-      res.json(qutes);
+      res.json(quotes);
   });
 });
 app.get('/api/quote' , function (req,res ){
@@ -40,8 +40,8 @@ app.get('/api/quote' , function (req,res ){
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-     res.send('404: Page not Found', 404);
-     // next(err);
+     res.status(404).send('Page Not Found');
+    //  next(err);
 });
 
 module.exports = app;

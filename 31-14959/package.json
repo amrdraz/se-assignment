@@ -1,19 +1,34 @@
 {
-  "name": "Ashraaf",
+  "name": "ashraaf",
   "version": "1.0.0",
   "description": "Random quotes generator ",
   "main": "app.js",
   "directories": {
-    "test": "test",
-    "public" : "public"
+    "test": "test"
   },
-  "dependencies" : {
-    "chai" : "~3.5.0",
-    "express" : "4.13.4",
-    "mongodb" : "~2.1.7",
-    "mongodb" : "~1.4.0",
-    "supertest" : "~1.2.0",
-    "mocha" : "~2.4.5",
-    "istanbul" : "~0.4.2"
-  }
+  "dependencies": {
+    "chai": "~3.5.0",
+    "express": "4.13.4",
+    "mongodb": "~1.4.0",
+    "supertest": "~1.2.0",
+    "mocha": "~2.4.5",
+    "istanbul": "~0.4.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2shraaf/se-assignment.git"
+  },
+  "keywords": [
+    "quotes"
+  ],
+  "author": "ashraaf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2shraaf/se-assignment/issues"
+  },
+  "homepage": "https://github.com/2shraaf/se-assignment#readme"
 }

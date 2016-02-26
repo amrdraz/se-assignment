@@ -12,7 +12,7 @@ exports.connect = function(cb) {
             if(err)
               throw Error("Error while Connecting");
             DB = db;
-            console.log("Connected correctly to database" + db);
+            // console.log("Connected correctly to database" + db);
             cb(db);
        });
 }
@@ -36,7 +36,7 @@ exports.db = function() {
 exports.clearDB = function(done) { //edited
   var collection = DB.collection("quotes").remove( {} , function (err , remove){
     if(err )throw err;
-    console.log('DB cleared');
+    // console.log('DB cleared');
     done();
   } );
 };
