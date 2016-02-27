@@ -8,7 +8,7 @@ var db = require('./db.js');
 
 function getRandomNumber()
 {
-	return Math.floor(Math.random() * 10) + 1
+	return Math.floor(Math.random() * 4) + 1
 }
 
 exports.getQuotesFromJSON = function()
@@ -28,15 +28,24 @@ exports.getQuoteFromJSON = function(index)
 	}
 }
 
-/*
-getQuoteFromDB(function (err, quote) {
-    // any of quote object in the database  
-})
-getQuoteFromDB(function (err, quote) {
-    // is Kevin Kruse assuming it's the first document in the database
-    quote.author;  
-}, 0)
-*/
+exports.getQuotesFromDB = function () 
+{
+    db.connect(function(content)
+	{
+		quotes = content
+		return quotes;			
+	}); 
+}
+
+exports.getQuoteFromDB = function (index) 
+{
+    db.connect(function(content)
+	{
+		var jsonContent = JSON.parse(content);
+		quote = jsonContent[index];
+		return quote;			
+	});  
+}
 
 exports.getElementByIndexElseRandom = function(array ,index) 
 {

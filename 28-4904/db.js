@@ -17,7 +17,7 @@ exports.connect = function(cb)
                 var strJson = "[";
                 for (var i = 0; i < intCount;) 
                 {
-                strJson += strJson = '{"author":"' + docs[i].author + '","text":"' + docs[i].text + '"}';
+                strJson += strJson = '{"author": "' + docs[i].author + '","text": "' + docs[i].text + '"}';
                 i = i + 1;
                     if (i < intCount) 
                     {
@@ -26,6 +26,7 @@ exports.connect = function(cb)
                 }
                 strJson += ']';
                 cb( strJson );
+                //console.log(strJson);
              }
         });
     });

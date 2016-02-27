@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
 var quotes = require("./quotes.js");
+var db = require('./db.js');
+
+function getRandomNumber()
+{
+	return Math.floor(Math.random() * 4) + 1
+}
 
 // Adding static public files
 app.use(express.static('public'));
@@ -8,19 +14,23 @@ app.use(express.static('public'));
 // Route to Server.js
 var server = require('./server.js');
 app.use('/',server);
-app.use('/showquote',server);
 
 // Route to Quotes.json
 app.get('/api/quotes',function(req, res) 
 {
-	var content = quotes.getQuotesFromJSON();
-	res.send(content);
+	db.connect(function(content)
+	{
+		res.send( content );			
+	});
 });
 // Route to Quote
 app.get('/api/quote',function(req, res) 
 {
- 	var content = quotes.getQuoteFromJSON();
-	res.send(content);
+ 	db.connect(function(content)
+	{
+		var jsonContent = JSON.parse(content);
+		res.send( jsonContent[getRandomNumber()] );			
+	});
 });
 
 // Error Handling
