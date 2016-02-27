@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+<html>
 <head>
+	
+	<link rel="stylesheet" href="../css/style.css">
 	<title>Inspire Me , Please :)</title>
 	
 </head>
@@ -7,13 +10,20 @@
 	<h1 id='title'> Yalla click to be motivated :P</h1>
 	<h1 id='author'>-Esso el 7elwa</h1>
 </body>
+</html>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
 	
 	$('body').click(function(){
 		$.ajax({url: "api/quote", success: function(result){
+				var letters = '0123456789ABCDEF'.split('');
+    			var color = '#';
+    			for (var i = 0; i < 6; i++ ) {
+        			color += letters[Math.floor(Math.random() * 16)];
+    			}
+    			document.body.style.backgroundColor = color;
 				$('#title').html(result.text);
-		        $('#author').html(result.author);
+		        $('#author').html('-'+result.author);
     	}});
 		console.log("asdas");
 		
