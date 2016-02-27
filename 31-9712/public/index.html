@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="./css/style.css">
+<script src=""></script>
+<script src="../public/js/main.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>inspire me</title>
+</head>
+<body>
+<blockquote id="quote" class="quote">Click or tap on the page to get inspired</blockquote>
+<h2 id="author" class="author"></h2>
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+
+
+    var quote = $(".quote")
+    var author = $(".author")
+
+    $("body").click(function () {
+        $.get("/api/quote", function (data, status) {
+            var rndclr = Math.random() * 360;
+            var clrstr = "hsl(" + rndclr + ", 55%, 80%)";
+            $("body").css("background", clrstr);
+            document.getElementById("quote").innerText=data.text;
+            document.getElementById("author").innerText = data.author;
+        })
+    })
+</script>
+</body>
+</html>
