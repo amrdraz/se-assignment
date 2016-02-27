@@ -1,7 +1,7 @@
 // db.js
 var mongo = require('mongodb').MongoClient;
 var DB = null;
-var dbURL = 'mongodb://localhost:27017/inspire-me';
+var dbURL = 'mongodb://localhost:27017/db';
 
 /**
  * function that connects to the mongodb instance initialized.
@@ -16,8 +16,9 @@ exports.connect = function(cb) {
   mongo.connect(dbURL, function(err, db) {
     if (err) 
     	throw(err);
-   else{ DB = db;
-    cb();
+   else{ 
+    DB = db;
+    cb(err,DB);
 }
   })
 };

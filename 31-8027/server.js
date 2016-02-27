@@ -1,18 +1,11 @@
-var http = require('http');
-var fs = require('fs');
+#!/usr/bin/env node
 
-var handleRequest = function handleRequest(request, response){
-    if (request.url==='/index.html') {
-        response.writeHeader(200, {'Content-type':'text/html'});
-        response.end(fs.readFileSync('./app/index.html'));
-    } else {
-        response.writeHeader(404, {'Content-type':'text/html'});
-        response.end(fs.readFileSync('./app/404.html'));
-    }
-};
-var server = http.createServer(handleRequest);
+/**
+ * Module dependencies.
+ */
 
-var PORT = 8080; 
-server.listen(PORT, function(){
-    console.log("Server listening on: http://localhost:%s", PORT);
+var app = require('./app');
+
+app.listen(3000, function() {
+	console.log("Server is up!");
 });
