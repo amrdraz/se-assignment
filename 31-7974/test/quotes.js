@@ -158,7 +158,13 @@ describe('API', function() {
         request
           .get('/api/quote')
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, done);
+          .expect(200)
+          .end(function(err, res){
+            if (err) throw err;
+            res = JSON.parse(res.text);
+            assert(typeof res.author != "undefined" && typeof res.text != "undefined" && res._id != "undefined", 'You should return a json object with an author and a text');
+            done();
+          });
       });
 
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
