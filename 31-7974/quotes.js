@@ -1,4 +1,3 @@
-var server = require('./server.js');
 var db = require('./db.js');
 
 var getElementByIndexElseRandom = function(arr, index) {
@@ -30,10 +29,35 @@ var getQuoteFromDB = function(cb, index) {
 	});
 }
 
+var seed = function(cb) {
+	db.db().collection('quotes').find().toArray(function(err, docs) {
+		if (docs.length == 0) {
+			console.log('empty');
+			var fs = require('fs');
+			fs.readFile('../quotes.json', 'utf8', function (err, data) {
+				if (err) 
+					throw err;
+				var json = JSON.parse(data);
+
+				db.db().collection('quotes').insert(json, function(err, doc) {
+					if(err)
+						throw err;
+					cb(err, true);
+				});
+			});
+		}
+		else {
+			console.log('not empty');
+			cb(err, false);
+		}
+	});
+}
+
 module.exports = {
 	getElementByIndexElseRandom : getElementByIndexElseRandom,
 	getQuotesFromJSON : getQuotesFromJSON,
 	getQuoteFromJSON : getQuoteFromJSON,
 	getQuotesFromDB : getQuotesFromDB,
-	getQuoteFromDB : getQuoteFromDB
+	getQuoteFromDB : getQuoteFromDB,
+	seed : seed
 };

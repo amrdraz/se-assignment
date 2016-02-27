@@ -1,5 +1,7 @@
 var express = require('express');
 var path = require('path');
+var db = require('./db');
+var quotes = require('./quotes');
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -11,16 +13,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var routes = require('./routes/index')(app);
 
-app.listen(3000, function() {
-  console.log("Running !!!");
-});
-
 app.use(function(req, res, next) {
-    res.render('404.hjs');
+    res.status(404).render('404.hjs');
 });
 
-require('./server').connectToDB(function() {
-	console.log('connected to Database');
+db.connect(function(err, d) {
+	if (err)
+		throw err;
+	else {
+		console.log('connected');
+		console.log('tried seeding?');
+
+		quotes.seed(function(err, seeded) {
+			if (seeded)
+				console.log('seeded succesfully');
+			else
+				console.log('didn\'t seed');
+		});
+	}
 });
 
 module.exports = app;
