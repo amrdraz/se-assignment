@@ -9,10 +9,7 @@ var dbURL = 'mongodb://localhost:27017/db';
  */
 exports.connect = function(cb) {
     // You do this one
-  /*Db.connect(configuration.url(), function(err, db) {
-  assert.equal(null, err);
-
-  db.close();*/
+  
   mongo.connect(dbURL, function(err, db) {
     if (err) 
     	throw(err);
