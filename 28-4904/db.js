@@ -1,55 +1,42 @@
-var mongo = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectID;
+var mongodb = require('mongodb')
+var MongoClient = mongodb.MongoClient;
 var dburl = 'mongodb://localhost:27017/app';
 var assert = require('assert');
-var DB;
+var DB = null;
 
-/**
- * function that connects to the mongodb instance initialized.
- * @param  {Function} cb callback for when connection is complete
- */
-exports.connect = function()
+exports.connect = function(cb)
 {
-   mongo.connect(dburl, function(err, db) 
-   {
-   assert.equal(null, err);
-   DB = db;
-   //findQuotes();
-   console.log("Connected correctly to server.");
-   });  
-};
-
-var findQuotes = function() 
-   {
-    var cursor = DB.collection('quotes').find();
-    cursor.each(function(err, doc) 
+    MongoClient.connect(dburl, function(err, db) 
     {
-      assert.equal(err, null);
-      if (doc != null) 
-      {
-        console.log(doc);
-        //return doc;
-      }
-   });
-  };
+        DB = db;
+        var quotes = DB.collection('quotes').find().toArray(function(err, docs) 
+        {
+            var intCount = docs.length;
+             if (intCount > 0) 
+             {
+                var strJson = "[";
+                for (var i = 0; i < intCount;) 
+                {
+                strJson += strJson = '{"author":"' + docs[i].author + '","text":"' + docs[i].text + '"}';
+                i = i + 1;
+                    if (i < intCount) 
+                    {
+                        strJson += ',';
+                    }
+                }
+                strJson += ']';
+                cb( strJson );
+             }
+        });
+    });
+}
 
-/**
- * used to get access to the db object to query the database
- * throws an error if db not initialized.
- * example use case assuming you required the module as db
- *     db.db().find(.... etc
- * @return {MongoDBObject} 
- */
 exports.db = function() 
 {
   if (DB === null) throw Error('DB Object has not yet been initialized');
     return DB;
 };
 
-/**
- * clears all collections in the database calling the callback when done
- * @param  {Function} done callback indicating the operation is complete
- */
 exports.clearDB = function(done) 
 {
     DB.listCollections().toArray().then(function (collections) 
@@ -61,3 +48,14 @@ exports.clearDB = function(done)
       done();
     }).catch(done);
 };
+
+/*
+Try 1
+
+var collection = db.collection('quotes').find();
+      collection.toArray(function(err,result)
+      {
+        
+      });
+
+*/
