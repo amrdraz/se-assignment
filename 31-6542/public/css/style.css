@@ -1,13 +1,14 @@
 html, body {
-  padding: 50px;
+  padding: 100px;
   height: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Lato,Arial,sans-serif;
+  text-align: center;
+  line-height: 90px;
+  
 }
 h1 {
-    text-align: center;
-	 height: 90px;
-  	line-height: 90px;
-  	font-family: fantasy;
+
+  	
 }
 a {
   color: #00B7FF;
