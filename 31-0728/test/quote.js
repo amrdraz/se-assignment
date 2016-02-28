@@ -6,12 +6,12 @@ var request = require('supertest');
 var Quote = require('../quotes.js');
 var db = require('../db.js');
 
-before(function(done) {
+/*before(function(done) {
 
      db.connect(function(db) {
         done();
      });
-});
+});*/
 
 describe("getElementByIndexElseRandom", function() {
     var arr = [1, 2, 3, 43, 5];
