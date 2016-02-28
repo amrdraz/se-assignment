@@ -191,6 +191,7 @@ describe('API', function() {
         .expect('Content-Type', /json/)
         .end(function(err,res){
             assert.isArray(res.body);
+            expect(res.body[0]).to.have.all.keys(['_id', 'author','text']);
             done();
 
         });
