@@ -12,7 +12,7 @@ exports.connect = function connect(cb)
 {
 
     DB = monk(dbURL);
-    cb(DB);
+    cb(null,DB);
     
 };
     // You do this one
@@ -35,13 +35,12 @@ exports.db = function() {
  * clears all collections in the database calling the callback when done
  * @param  {Function} done callback indicating the operation is complete
  */
-exports.clearDB = function(done) {
-    DB.listCollections().toArray().then(function (collections) {
-        collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();   
-        });
-        done();
-    }).catch(done);
+exports.clearDB = function(done) 
+{
+    DB.get('myQuotes').drop();
+    done();
+    
+
 };
 
 

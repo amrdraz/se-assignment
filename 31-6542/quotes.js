@@ -2,7 +2,7 @@ var fs = require('fs');
 var dbFile= require('./db.js');
 var allQuotes = fs.readFileSync("../quotes.json");
 var db;
-dbFile.connect(function(connectedDB){
+dbFile.connect(function(err,connectedDB){
 	db=connectedDB;
 });
 
@@ -35,14 +35,23 @@ var getQuoteFromJSON = function getQuoteFromJSON(index)
 
 var seed = function seed(cb)
 {
-	
-	
-	db.get('myQuotes').insert(getQuotesFromJSON(),function(err,seeded)
-	{
+	db.get('myQuotes').find({},{},function(err,quotesinDB)
+	{	
+
 		if (err)
+		{
 			cb(err,false);
+		}
+		else if (quotesinDB.length)
+		{
+			cb(null,false);
+		}
 		else
-			cb(null,true);
+		{
+			db.get('myQuotes').insert(getQuotesFromJSON());
+			cd(null,true);
+			
+		}
 	});
 
 }
@@ -74,11 +83,11 @@ var getQuoteFromDB = function getQuoteFromDB(cb , index)
 			cb(null,getElementByIndexElseRandom(quotesArr,index));
 	});
 }
-/*
-seed(function(err,seeded)
-{
-	console.log(seeded);
-});*/
+
+// seed(function(err,seeded)
+// {
+// 	console.log(seeded);
+// });
 exports.getElementByIndexElseRandom = getElementByIndexElseRandom;
 exports.getQuotesFromJSON = getQuotesFromJSON;
 exports.getQuoteFromJSON = getQuoteFromJSON;

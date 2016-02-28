@@ -9,7 +9,7 @@ router.get('/index.html', function(req, res) {
     res.render('index');
 });
 router.get('/index', function(req, res) {
-  res.render('index');
+  res.render('index.html');
 });
 
 console.log("Server listening on: http://localhost:3000");
