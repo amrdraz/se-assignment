@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 //importing the quotes JSON file
 var quotesList = require('../quotes.json');
 //importing db.js to use its function here
 var db = require("./db.js")
 
 //the name of the following functions defines themself
+=======
+var quotesList = require('../quotes.json');
+var db = require("./db.js")
+
+>>>>>>> 5ae9d3b5aa6d8da6df309fc15e473dd8684cb91b
 function getElementByIndexElseRandom (array, index) {
     index = index === undefined ? Math.floor(Math.random() * array.length) : index;
     return array[index];
@@ -29,9 +35,13 @@ function seed(cb) {
         if(err)
             cb(err, c)
         else if(c === 0){
+<<<<<<< HEAD
             collection.insert(quotesList, function(err, res) {
                 cb(err, true)
             });
+=======
+            collection.insert(quotesList, function(err, res) {cb(err, true)})
+>>>>>>> 5ae9d3b5aa6d8da6df309fc15e473dd8684cb91b
         }else{
             cb(err, false)
         }
@@ -59,7 +69,11 @@ function getQuoteFromDB(cb, index) {
 }
 
 
+<<<<<<< HEAD
 //exporting stuff
+=======
+
+>>>>>>> 5ae9d3b5aa6d8da6df309fc15e473dd8684cb91b
 exports.getElementByIndexElseRandom=getElementByIndexElseRandom;
 exports.getQuotesFromJSON=getQuotesFromJSON;
 exports.getQuoteFromJSON=getQuoteFromJSON;
