@@ -1,14 +1,14 @@
+ 
 /*
-var quotesfile = require('../../quotes.js');
-var QoutesArray ;
+ document.body.addEventListener('click', function(){
+                  $.getJSON( '/api/quote', function( data ) {
+                	var text = data.text ; 
+                	document.getElementById('h1quote').textContent = text;
+                  });
+                  
+              
+              
+            }, true); 
 
-var getQuotes = module.exports.getQuotes = function (quotes){
-QoutesArray = quote ; 
-document.getElementById('h1quote').textContent(quote.text);
-};
-
-document.body.addEventListener('click', function(){
-var quote = quotesfile.getElementByIndexElseRandom(QoutesArray);
-document.getElementById('h1quote').textContent(quote.text);
-}, true); 
+            */
 

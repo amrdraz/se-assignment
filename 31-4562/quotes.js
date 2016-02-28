@@ -1,3 +1,5 @@
+// establishing connection to database 
+
 var databaseConnection = require('./db');
 var db = databaseConnection.db();
 
@@ -13,14 +15,14 @@ var getElementByIndexElseRandom = module.exports.getElementByIndexElseRandom = f
 }
 
 
-function getQuotesFromJSON(){
+var getQuotesFromJSON = module.exports.getQuotesFromJSON = function (){
 
 	var jasonQuotes = require('../quotes.json');
 	return jasonQuotes;
 
 }
 
-function getQuoteFromJSON(index){
+var getQuoteFromJSON = module.exports.getQuoteFromJSON = function getQuoteFromJSON(index){
 	var quotes = getQuotesFromJSON();
 	var randomQoute
 	if(isNaN(index)){
@@ -32,9 +34,9 @@ function getQuoteFromJSON(index){
 }
 
 
-function seed( cb ){
+var seed = module.exports.seed =  function seed( cb ){
 
-var collection = db.get('qoutesCollection');
+var collection = db.get('quotesCollection');
 
 var quotes = getQuotesFromJSON();
 
@@ -59,7 +61,7 @@ collection.find({} , {} , function(err,res){
 		}
 	
 	}else{
-		seeded = false;
+		
 		error = err;
 	}
 	cb(error,seeded);
@@ -67,16 +69,17 @@ collection.find({} , {} , function(err,res){
 
 
 }
-
 /*
+
 seed(function (err, seeded) {
 
  console.log("test   "+err + "   " + seeded);
 });
 */
 
+
 var getQuotesFromDB = module.exports.getQuotesFromDB = function  (cb){
-	var collection = db.get('qoutesCollection');
+	var collection = db.get('quotesCollection');
 
 	collection.find({},{},function(err,res){
       var quotes = [];
@@ -88,7 +91,9 @@ var getQuotesFromDB = module.exports.getQuotesFromDB = function  (cb){
       	 error = null;
       	
       	}else{ 
-      	 error = 'No quotes in the database'
+      	seed(function (err1, seeded) {
+            error = err;
+      	});
       	}
       
       }else{
@@ -107,7 +112,7 @@ getQuotesFromDB(function (err, quotes) {
 */
 
 var getQuoteFromDB = module.exports.getQuoteFromDB =   function  (cb , index){
-   var collection = db.get('qoutesCollection');
+   var collection = db.get('quotesCollection');
    
    getQuotesFromDB(function(err,quotes){
     var quote = getElementByIndexElseRandom(quotes,index);
@@ -125,5 +130,4 @@ getQuoteFromDB(function (err, quote) {
     // is Kevin Kruse assuming it's the first document in the database
    console.log(quote.author);  
 }, 0)
-
 */

@@ -1,12 +1,37 @@
 doctype html
 html. 
     <head>
-
+      <title>#{title}</title>
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body >
-      <h1 id='h1quote'>
-     
+    <body  id='body'  >
+      <div id='divTextContainer'>
+      <h1 id='h1quote' >
+        Click or tap on the page to get inspired 
       </h1>
+      </div>
+      <div id='divAuthorContainer'>
+      	<h1 id='h1Author'> </h1>
+      </div>
       <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
-     <script type="text/javascript" src='/js/main.js'></script> 
+      <script type="text/javascript" >
+      	        document.body.addEventListener('click', function(){
+                  $.getJSON( '/api/quote', function( data ) {
+                	var text = data.text ; 
+                	var author = data.author;
+                	document.getElementById('h1quote').textContent = text;
+                	document.getElementById('h1Author').textContent = author;
+                  });
+                  
+                  var Red = Math.ceil(Math.random()*255);
+                  var Blue = Math.ceil(Math.random()*255);
+                  var Green = Math.ceil(Math.random()*255);
+                  
+                  
+                  document.getElementById('body').style.backgroundColor =  "#"+(Red).toString(16)+(Green).toString(16)+(Blue).toString(16);
+                  document.getElementById('h1quote').style.color = '#FFFFFF' ;
+
+              
+                }, true); 
+      </script> 
     </body>
