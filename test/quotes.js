@@ -128,13 +128,11 @@ Quote.getQuoteFromDB(function(error,quote)
 	   	  {
 	   	  	console.log(quote._id);
 	   	  	console.log(quotes[0]._id);
-	   	  	if (quotes[0]._id== quote._id )
-            {
-	   	  		assert.equal(true,true);
+console.log(quotes[0]._id== quote._id);
+	   	  
+	   	  		assert.equal(quotes[0]._id,quote.id);
                 done();
-            }
-	   	  	else
-	   	  		assert.equal(true,false);
+       
                
     	  },0);
 		});
@@ -151,8 +149,6 @@ describe('API', function() {
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
         // TODO: test with supertest
 
-
-test('Correct users returned', function (t) {
         
     });
 
