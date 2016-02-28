@@ -1,0 +1,29 @@
+{
+  "name": "se-assignment",
+  "version": "1.0.0",
+  "description": "## Objective",
+  "main": "server.js",
+  "dependencies": {
+    "mocha": "*",
+    "supertest": "*",
+    "chai": "*",
+    "istanbul": "*",
+    "express": "*",
+    "mongo": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hania6/se-assignment.git"
+  },
+  "author": "hania6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hania6/se-assignment/issues"
+  },
+  "homepage": "https://github.com/hania6/se-assignment#readme"
+}

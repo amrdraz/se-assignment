@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <title>Inspire MEEEEEEEEEEE</title>
+  <style>
+    
+ 
+  </style> <script type="text/javascript" src="jquery-2.2.1.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<div>
+ 
+  <p>Click to generate</p>
+  
+
+ 
+</div>
+  <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+    $.ajax(
+    {
+      url: "/quotes",
+     
+     success: function(result){
+        $('div').html(result[Math.floor(Math.random()*result.length)]);}
+  }
+);
+</script>
+</body>
