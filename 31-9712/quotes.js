@@ -9,18 +9,11 @@ function getElementByIndexElseRandom (array, index) {
     return array[index];
 }
 function getQuotesFromJSON (){
-    fetch('./quotes.json').then(function(res) {
-        return res.json();
-    })
+   return quotesList;
 }
 
 function getQuoteFromJSON (index){
-    fetch('./quotes.json').then(function(res) {
-        if(index==undefined){
-            index=  Math.floor(Math.random() * res.length)
-        }
-        return res.json[index];
-    })
+    return getElementByIndexElseRandom(quotesList,index);
 }
 
 function seed(cb) {

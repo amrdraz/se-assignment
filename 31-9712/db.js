@@ -15,7 +15,7 @@ function connect(cb) {
         if(err)
             throw Error("Connection failed");
         DB = db;
-        cb(db)
+        cb(db);
     })
 }
 

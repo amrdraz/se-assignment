@@ -48,6 +48,12 @@ app.get('/api/quote', function(req, res) {
     })
 });
 
+//for 404 pages -page not founds-
+app.use(function(req, res) {
+    res.status(404).send("404: Page not found.")
+});
+
+
 //Make this app run on port 3000
 app.listen(3000,function (){
     console.log('running on port 3000');
