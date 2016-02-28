@@ -1,7 +1,7 @@
 var mongo = require('mongodb').MongoClient;
 var DB = null;
 var monk = require('monk');
-var dbURL = 'mongodb://localhost:27017/inspire-me';
+var dbURL = 'localhost:27017/inspire-me';
 
 /**
  * function that connects to the mongodb instance initialized.

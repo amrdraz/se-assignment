@@ -35,9 +35,9 @@ var getQuoteFromJSON = function getQuoteFromJSON(index)
 
 var seed = function seed(cb)
 {
-	//var db = express.db;
 	
-	db.get('myQuotes').insert(JSON.parse(allQuotes),function(err,seeded)
+	
+	db.get('myQuotes').insert(getQuotesFromJSON(),function(err,seeded)
 	{
 		if (err)
 			cb(err,false);
@@ -50,6 +50,7 @@ var seed = function seed(cb)
 
 var getQuotesFromDB = function getQuotesFromDB(cb) 
 {
+	//console.log('hi');
 	db.get('myQuotes').find({},{},function(err,quotes)
 	{
 		if (err)
@@ -78,7 +79,6 @@ seed(function(err,seeded)
 {
 	console.log(seeded);
 });*/
-
 exports.getElementByIndexElseRandom = getElementByIndexElseRandom;
 exports.getQuotesFromJSON = getQuotesFromJSON;
 exports.getQuoteFromJSON = getQuoteFromJSON;
@@ -86,4 +86,11 @@ exports.seed = seed;
 exports.getQuotesFromDB = getQuotesFromDB;
 exports.getQuoteFromDB = getQuoteFromDB;
 //seed(null);
-//console.log(getQuoteFromJSON());*/
+/*
+console.log(getQuotesFromDB(function(err,quotes)
+	{
+		if (err)
+			console.log('%ARAAAAAA');
+		else
+			console.log('gsdsdgkwe');
+	}));*/

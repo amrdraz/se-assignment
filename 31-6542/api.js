@@ -3,10 +3,18 @@ var quotes = require('./quotes.js');
 var router = express.Router();
 router.get('/quotes', function(req, res, next) 
 {
-  res.send(quotes.getQuotesFromJSON());	
+  quotes.getQuotesFromDB(function (err,quotes)
+  	{
+  		res.json(quotes);
+  	});
 });
+
 router.get('/quote', function(req, res, next) 
 {
-  res.send(quotes.getQuoteFromJSON());	
+  quotes.getQuoteFromDB(function (err,Onequote)
+  	{
+  		res.json(Onequote);
+  	});
+
 });
 module.exports = router;
