@@ -1,9 +1,6 @@
 
 var assert = require('chai').assert;
-var chai = require('chai');
 var app = require('../app.js');
-var mocha = require('mocha');
-var istanbul = require('istanbul');
 var request = require('supertest');
 var Quote = require('../quotes.js');
 var db = require('../db.js');
