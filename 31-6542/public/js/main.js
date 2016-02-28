@@ -1,17 +1,14 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-router.get('/index.html', function(req, res) {
-    res.render('index', { title: 'Hello, World!' });
-});
-console.log('hithere correct ');
-module.exports = router;
-
+	$('body').click(function(){
+		$.ajax({url: "api/quote", success: function(result){
+				var letters = '0123456789ABCDEF'.split('');
+    			var color = '#';
+    			for (var i = 0; i < 6; i++ ) {
+        			color += letters[Math.floor(Math.random() * 16)];
+    			}
+    			document.body.style.backgroundColor = color;
+				$('#title').html(result.text);
+		        $('#author').html('-'+result.author);
+    	}});
+		console.log("asdas");
+		
+	});
