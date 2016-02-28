@@ -93,8 +93,9 @@ describe('seed', function() {
     it('should not seed db again if db is not empty returning false in the callback', function(done) {
         // TODO: assert that seeded is false
         se(function (err, seed){
+            console.log(seed);
         assert.isNotTrue(seed, 'db is empty');
-        done(false);
+        done();
 
      }) 
 

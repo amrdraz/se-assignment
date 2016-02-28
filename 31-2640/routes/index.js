@@ -9,8 +9,10 @@ var quote = require('../quotes.js');
 
 router.get('/api/quote',function(req,res){
 	 quote. getQuoteFromDB(function(error,quote){
-	 	if (error)
+	 	if (error){
 	 		res.send("error");
+	 		throw error;
+	 	}
 	 	else	
 	 		res.json(quote);
 	 		 	
@@ -21,8 +23,10 @@ router.get('/api/quote',function(req,res){
 
 router.get('/api/quotes',function(req,res){
 	quote.getQuotesFromDB(function(error,quote){
-		if (error)
+		if (error){
+			throw error;
 			res.send("errorr");
+		}
 		else
 			res.json(quote);
 	});
