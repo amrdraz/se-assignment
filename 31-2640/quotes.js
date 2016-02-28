@@ -38,13 +38,15 @@ return array;
     var seed = function seed(cb){
 
       var array = getQuotesFromJSON();  
-      DB.collection('quotes').insert(array,function(error,seed){
-        if (error) {
-            cb(error,false);
-        }else
-        cb(null,true);
+      DB.collection('quotes').count(function(error,count){
+        if(count==0){
+        DB.collection('quotes').insert(array,function(error,seed){cb(error,true)})
+    }else
+    cb(error,false);
 
-      });
+})
+
+
     
     };
 
