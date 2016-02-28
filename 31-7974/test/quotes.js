@@ -6,13 +6,13 @@ var request = require('supertest');
 var Quote = require('../quotes.js');
 var db = require('../db.js');
 
-before(function(done) {
-    // use this after you have completed the connect function
-    db.connect(function(err, db) {
-       if (err) return done(err);
-       else done();
-    });
-});
+// before(function(done) {
+//     // use this after you have completed the connect function
+//     db.connect(function(err, db) {
+//        if (err) return done(err);
+//        else done();
+//     });
+// });
 
 function contains(array, json) {
     var element = JSON.stringify(json); 

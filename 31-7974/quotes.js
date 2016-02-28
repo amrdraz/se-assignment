@@ -29,13 +29,6 @@ var getQuoteFromDB = function(cb, index) {
 	});
 }
 
-// db.connect(function(err, d) {
-// 	getQuoteFromDB(function(err, quote) {
-// 		var json = JSON.parse(quote);
-// 		console.log(json);
-// 	});
-// });
-
 var seed = function(cb) {
 	db.db().collection('quotes').find().toArray(function(err, docs) {
 		if (docs.length == 0) {

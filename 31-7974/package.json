@@ -7,10 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha",
     "start": "node server.js",
-    "coverage": "node ./node_modules/.bin/istanbul"
-
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
   },
   "author": "",
   "license": "ISC",
