@@ -5,7 +5,7 @@ var $quotes= $('.quote');
     $(".background").click(function(){
              
         $.ajax({ url: 'http://localhost:3000/api/quote', success: function (post) {
-            console.log(post)
+            //console.log(post)
             $('.author').html(post[0].author);
             $('.quote').html(post[0].text);
         }

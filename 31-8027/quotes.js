@@ -1,6 +1,4 @@
-
-var r=require("fs");
-
+var r=require('fs');
 var db = require('./db.js');
 
 function getElementByIndexElseRandom(array , index){
@@ -16,7 +14,7 @@ else{
 //console.log(getElementByIndexElseRandom([1, 2, 3, 43, 5],0));
 
 function getQuotesFromJSON(){
-	var data=JSON.parse(r.readFileSync("../quotes.json"));
+	var data=JSON.parse(r.readFileSync('../quotes.json'));
 	return data;
 }
 
@@ -24,7 +22,7 @@ function getQuotesFromJSON(){
 //console.log(getQuotesFromJSON());
 
 function getQuoteFromJSON(index){
-	var data=JSON.parse(r.readFileSync("../quotes.json"));
+	var data=JSON.parse(r.readFileSync('../quotes.json'));
 	var rnd1 = Math.floor(Math.random() * 102);
 	if (index==undefined){
 		return data[rnd1];
@@ -50,7 +48,7 @@ function seed(cb){
         }
         else{
             cb(null,false);
-            console.log("can't insert");
+            //console.log("can't insert");
         }
     });
 });

@@ -9,7 +9,25 @@ var api=require('./routes/api');
 var app = express();
 app.use(express.static('./public'));
 
+app.set('views',path.join(__dirname,'./public'));
+app.set('view engine', 'jade');
 
+
+
+app.use('/api', function(request, response,next) {
+  
+    request.db=quote;
+    next();
+    
+});
+app.use('/api',api);
+
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 app.get('/', function(request, response) {
   response.render('index.html');
@@ -23,23 +41,6 @@ app.get('/index', function(request, response) {
 app.get('/index.html', function(request, response) {
   response.render('index.html');
 });
-
-app.use('/api', function(request, response,next) {
-  
-    request.db=quote;
-    next();
-  
-});
-app.use('/api',api);
-
-
-// Make our db accessible to our router
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});
-
-
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
