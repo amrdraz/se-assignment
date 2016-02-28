@@ -28,7 +28,7 @@ exports.seed = function(done){
 	db.db().collection('quotes').count(function(error,count){
 		if(!error & count==0){
 			db.db().collection('quotes').insert(quotes, function(err, result) {
-               db.db().close();
+               
                if(err){
                	done(err, false);
                }else{
@@ -46,7 +46,7 @@ exports.seed = function(done){
 };
 exports.getQuotesFromDB= function(done){
 	db.db().collection('quotes').find().toArray(function(err,docs){
-				db.db().close();
+				
 				if(err){
 					done(err,null);
 				}else{

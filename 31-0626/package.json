@@ -4,11 +4,13 @@
   "description": "Se Assignment",
   "main": "server.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "coverage":"coverage"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./test/quote.js",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "coverage":"istanbul cover ./test/quote.js"
   },
   "dependencies": {
  
@@ -17,7 +19,7 @@
         "supertest":"*",
         "istanbul":"*",
         "mocha":"*",
-        "mongodb": "~1.4.0"
+        "mongodb": "*"
   },
   "author": "Patrick Mounir",
   "license": "ISC"

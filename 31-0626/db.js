@@ -6,12 +6,17 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
  * function that connects to the mongodb instance initialized.
  * @param  {Function} cb callback for when connection is complete
  */
-exports.connect = function(done) {
+var connect = exports.connect =
+ function(done) {
    mongo.connect(dbURL,function(err,db){
-    if(err){ console.log("Error has occured");
-    done(err,db);}
-    DB =db;
-    done(null,DB);
+    if(err){ 
+        console.log("Error has occured");
+        done(err,db);
+    }else{
+        DB =db;
+        done(null,DB);
+        }
+    
 
 
    });
@@ -19,8 +24,14 @@ exports.connect = function(done) {
 
 
 exports.db = function() {
-    if (DB === null) throw Error('DB Object has not yet been initialized');
-    return DB;
+    if (DB === null)
+    {
+        throw Error('DB Object has not yet been initialized');
+    }
+     else{
+        return DB;    
+    }
+    
 };
 
 /**
@@ -28,13 +39,14 @@ exports.db = function() {
  * @param  {Function} done callback indicating the operation is complete
  */
 exports.clearDB = function(done) {
-        this.connect(function(err, db){
+        connect(function(err, db){
             if(err){
                 done(err);
+            }else{
+                db.collection('quotes').drop();
+                done(null);
             }
-            db.collection('quotes').drop();
-            
-            done(null);
+           
         });
         
     
