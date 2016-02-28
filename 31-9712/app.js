@@ -48,9 +48,9 @@ app.get('/api/quote', function(req, res) {
     })
 });
 
-//for 404 pages -page not founds-
+//for 404 pages -page not found-
 app.use(function(req, res) {
-    res.status(404).send("404: Page not found.")
+    res.status(404).send("404")
 });
 
 
