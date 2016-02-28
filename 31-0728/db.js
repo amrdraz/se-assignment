@@ -20,12 +20,8 @@ var db = function() {
 
 
 var clearDB = function(done) {
-    DB.listCollections().toArray().then(function (collections) {
-        collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();   
-        });
-        done();
-    }).catch(done);
+    DB.get('quotes').drop();
+    	done();
 };
 
 

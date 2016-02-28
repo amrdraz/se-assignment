@@ -1,11 +1,6 @@
 
-
 var db = require("./db.js");
-var DB ;
-
-db.connect(function(db){
-	DB = db;
-});
+var DB = db.db();
 
 var json = require("../quotes.json");
 
@@ -13,22 +8,17 @@ var json = require("../quotes.json");
 
 var getElementByIndexElseRandom = function getElementByIndexElseRandom(array , index)
 {
-	var result = 0 ;
 
 	if(index === undefined)
-		result = Math.floor((Math.random() * array.length));	
+		return array[Math.floor(Math.random() * array.length)];	
 
-	else 
-		result = index;
-
-	return array[result];
+	return array[index];
 }
 
 
 
 var getQuotesFromJSON = function getQuotesFromJSON()
 {
-	console.log("hi quotes");
 	return json;
 }
 
@@ -36,9 +26,7 @@ var getQuotesFromJSON = function getQuotesFromJSON()
 
 var getQuoteFromJSON = function getQuoteFromJSON(index)
 {
-	console.log("hi quote");
 	var jsonArray = getQuotesFromJSON();
-	console.log();
 	var quote = getElementByIndexElseRandom(jsonArray , index);
 
 	return quote;
@@ -49,12 +37,26 @@ var getQuoteFromJSON = function getQuoteFromJSON(index)
 var seed = function seed(callback)
 {	
 	var json = getQuotesFromJSON();
+	var length = json.length;
+	DB.get('quotes').count({} , function(err , count){
+		if(count === 0)
+		{
+			DB.get('quotes').insert(json , function(err , seed){
+				if(err)
+					callback(err,false);
+				callback(null , true);
+			});
+		}
+		else
+		{
+			DB.get('quotes').insert(json , function(err , seed){
+					callback(err,false);
+			});
+		}
 
-	DB.quotes.insert(json , function(err , seed){
 
-		callback(err,seed);
-
-	});
+	})
+	
 
 }
 
@@ -75,8 +77,7 @@ var getQuotesFromDB = function getQuotesFromDB (callback)
 
 var getQuoteFromDB = function getQuoteFromDB(callback , index)
 {	
-
-	DB.get("quotes").find({} , {} ,function(err , result){
+	getQuotesFromDB(function(err , result){
 	
 		if(err)
 			callback(err , null)
