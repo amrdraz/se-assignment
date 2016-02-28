@@ -11,7 +11,9 @@
         "mocha": "~1.16.2",
         "supertest":"~1.2.0",
         "chai":"~3.5.0",
-        "istanbul":"~0.4.2"
+        "istanbul":"~0.4.2",
+        "consolidate":"~0.14.0",
+        "swig": "~1.4.2"
     
   }
 }

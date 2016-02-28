@@ -6,11 +6,14 @@ var quote=require('./quotes.js');
 var db=require('./db.js');
 var api=require('./routes/api');
 
+var con=require('consolidate');
+
 var app = express();
 app.use(express.static('./public'));
 
-app.set('views',path.join(__dirname,'./public'));
-app.set('view engine', 'jade');
+app.engine('html',con.swig);
+app.set('views',path.join(__dirname,'public'));
+app.set('view engine','html');
 
 
 
