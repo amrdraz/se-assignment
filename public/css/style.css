@@ -1,0 +1,21 @@
+body{
+	background-color: orange;
+}
+    div {
+    	position: fixed;
+      text-align: center;
+     
+      background-position: center;
+      font-family: helvetica;
+      width:100%;
+      height:100%; 
+    }
+    p {
+      font-size: 22px;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+    
