@@ -1,0 +1,15 @@
+{
+"name": "Ahmed-Ghazy",
+"version": "0.0.0",
+"private": true,
+"main": "server.js",
+"dependencies": {
+    "ejs": "latest",
+    "mocha": "latest",
+    "supertest": "latest",
+    "chai": "latest",
+    "istanbul": "latest",
+    "express": "latest",
+    "mongodb": "latest"
+  }
+}
