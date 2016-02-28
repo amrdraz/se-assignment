@@ -1,1 +1,26 @@
-
+{
+  "name": "31-0626",
+  "version": "1.0.0",
+  "description": "Se Assignment",
+  "main": "server.js",
+  "directories": {
+    "test": "test",
+    "coverage":"coverage"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/quote.js",
+    "start": "nodemon server.js",
+    "coverage":"istanbul cover ./test/quote.js"
+  },
+  "dependencies": {
+ 
+        "express": "~4.12.4",
+        "chai": "*",
+        "supertest":"*",
+        "istanbul":"*",
+        "mocha":"*",
+        "mongodb": "*"
+  },
+  "author": "Patrick Mounir",
+  "license": "ISC"
+}
