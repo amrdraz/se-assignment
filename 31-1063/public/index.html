@@ -1,0 +1,34 @@
+<html><head>
+    <title>Inspire Me</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <blockquote class="quote">
+        Click or tap on the page to get inspired
+    </blockquote>
+    <h2 class="author"></h2>
+    <script>
+    var $quote = document.querySelector('.quote');
+    var $author = document.querySelector('.author');
+
+    function getElementByIndexElseRandom(array, index) {
+        index = index === undefined ? Math.floor(Math.random() * array.length) : index;
+        return array[index];
+    }
+    fetch('./quotes.json').then(function(res) {
+        return res.json();
+    }).then(function(quotes) {
+        document.body.addEventListener('click', function() {
+            var quote = getElementByIndexElseRandom(quotes);
+            document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 80%)'
+            $quote.innerHTML = quote.text;
+            $author.innerHTML = quote.author;
+        });
+    });
+    </script>
+
+
+
+</body></html>

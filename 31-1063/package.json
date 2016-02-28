@@ -1,0 +1,15 @@
+{
+    "name": "Inspirational Quotes",
+    "description": "Inspirational Quotes Application",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+    	"mocha" : "*" ,
+    	"supertest" : "*" ,
+    	"chai"  : "*" ,
+    	"istanbul" : "*" ,
+    	"express" : "*" ,
+    	"mongodb" : "*"
+
+    }
+}
