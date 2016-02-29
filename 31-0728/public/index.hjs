@@ -3,6 +3,8 @@
 	<title>Inspire Me!</title>
 
  	<script src="js/jquery.min.js"></script> 
+ 	<script src="js/main.js"></script> 
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 <body>
@@ -14,49 +16,3 @@
 </body>
 
 </html>
-
-<style>
-	
-	body
-	{
-		padding-top: 20%;
-		padding-left: 50px;
-		padding-right: 50px;
-		padding-bottom: 20%;
-		background-color: #78b9f9;
-		text-align: center;
-	}
-	
-	#quote
-	{
-		text-align: center;
-     	font-family: 'Times New Roman', Georgia, Serif;	
-    }
-
-	#author
-	{
-     	font-family: 'Times New Roman', Georgia, Serif;	
-     	position: relative;
-		left: 300px;
-		top: 100px;
-		font-size: 20px;
-	}
-
-</style>
-
-
-<script>
-
-$('body').click(function(){
-		$('body').css('background-color','hsl(' + (Math.random() * 360) + ', 55%, 80%)');
-
-
-		$.getJSON( "api/quote", function( data ) {
-			var text = data.text;
-			var author = data.author;
-			$('#quote').html(text);
-			$('#author').html(author);
-		});
-	});
-
-</script>

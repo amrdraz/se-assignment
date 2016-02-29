@@ -1,11 +1,8 @@
 
-
-$('body').click(function(){
-		var r = Math.floor(Math.random()*256);
-		var g = Math.floor(Math.random()*256);
-		var b = Math.floor(Math.random()*256);
-		$('body').css('background-color',"rgb("+r+","+g+","+b+")");
-
+$(document).ready(function() {
+	
+	$('body').click(function(){
+		$('body').css('background-color','hsl(' + (Math.random() * 360) + ', 55%, 80%)');
 
 		$.getJSON( "api/quote", function( data ) {
 			var text = data.text;
@@ -14,3 +11,4 @@ $('body').click(function(){
 			$('#author').html(author);
 		});
 	});
+});
