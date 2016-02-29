@@ -6,7 +6,8 @@
   "scripts": {
    
     "start": "node ./server.js",
-    "test"  : "mocha  test/quote.js"
+    "test"  : "mocha  test/quote.js",
+"coverage": "istanbul cover _mocha"
   },
   "author": "",
   "license": "ISC",
