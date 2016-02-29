@@ -14,7 +14,7 @@
             $('.quote').html(quote.text);
             $('.author').html(quote.author);}
         })
-        document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 80%)'
+        document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 60%)'
         // $quote.innerHTML = quote.text;
         // $author.innerHTML = quote.author;
     });
