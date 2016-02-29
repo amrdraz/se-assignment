@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+     "test": "node_modules/.bin/mocha -w",
+     "coverage": "istanbul cover _mocha"
   },
   "dependencies": {
     "express": "~4.12.4",
@@ -13,7 +15,8 @@
         "chai":"~3.5.0",
         "istanbul":"~0.4.2",
         "consolidate":"~0.14.0",
-        "swig": "~1.4.2"
+        "swig": "~1.4.2",
+        "should": ">= 0.0.1"
     
   }
 }

@@ -1,6 +1,7 @@
 var r=require('fs');
 var db = require('./db.js');
 
+
 function getElementByIndexElseRandom(array , index){
 	if (index==undefined){
 	var rnd0 = Math.floor(Math.random() * array.length);
@@ -38,6 +39,7 @@ function seed(cb){
 	
     db.connect(function(err, db){
     var collection=db.collection('quote');
+    
     var arrd=collection.find().toArray(function(err,quotes){
         if (err) 
             return cd(err,false);
@@ -60,9 +62,11 @@ function seed(cb){
 
 
 function getQuotesFromDB(cb) {
-    // any of quote object in the database  
+    // any of quote object in the database
+     
     db.connect(function(err, db){
     var collection=db.collection('quote');
+  
   collection.find().toArray(function(err, quotes) {
    if (err) return cb(err,null);
   	cb(null, quotes);
@@ -72,11 +76,10 @@ function getQuotesFromDB(cb) {
 }
 
 
-
 function getQuoteFromDB(cb,index) {
     // any of quote object in the database 
     
-  
+   
     db.connect(function(err, db){
     var collection=db.collection('quote');
     if(index==undefined){
