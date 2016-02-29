@@ -7,6 +7,10 @@
     },
     "dependencies": {
         "express": "^4.13.4",
-	"mongodb": "^2.0.33"
+	       "mongodb": "^2.0.33",
+         "mocha" : "^2.4.5",
+         "chai" : "^3.5.0",
+         "supertest" : "^1.2.0",
+         "istanbul" : "^0.4.2"
     }
 }
