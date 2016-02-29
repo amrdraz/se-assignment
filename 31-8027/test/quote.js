@@ -1,6 +1,7 @@
 // tests/quotes.js
 
 var assert = require('chai').assert;
+var expect=require('chai').expect;
 var app = require('../app.js');
 var request = require('supertest');
 var Quote = require('../quotes.js');
@@ -139,8 +140,14 @@ describe('getQuoteFromDB', function() {
                 var inQuotes=false;
                 var size=quotes.length;
                 var i=0;
+                //console.log(quote);
+               var jsonData=quote;
+               for(var j=0; i<jsonData.length;j++){
+                var counter=jsonData[j];
+               // console.log(counter.author);
+                //console.log(quotes[0].text);
                 while(i<size){
-                    if(quote.text == quotes[i].text && quote.author == quotes[i].author){
+                    if(counter.text == quotes[i].text && counter.author == quotes[i].author){
                         inQuotes=true;
                         break;
                     }
@@ -148,6 +155,8 @@ describe('getQuoteFromDB', function() {
                 }
                 assert(inQuotes==true,"Can't find quote in all quotes");
                 done();
+             }
+              
             });
         });
     });
@@ -182,20 +191,31 @@ describe('API', function() {
 
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
         // TODO: test with supertest
-        request.get('/api/quote').expect('Content-Type',/json/).expect(200).expect(function(err,res){
-          res.body.should.be.a('object');
-           res.body.quote.should.have.property('_id');
-           res.body.quote.should.have.property('text');
-           res.body.quote.should.have.property('author');
-          
-        }).end(done);
+        request.get('/api/quote').expect('Content-Type',/json/).expect(200).end(function(err,res){
+        // expect(res.body).should.be.a('object');
+         //console.log(JSON.parse(res.text));
+           var jsonData=JSON.parse(res.text);
+           for(var i=0; i<jsonData.length;i++){
+            var counter=jsonData[i];
+            // console.log(counter);
+
+             expect(counter).to.have.property('_id');
+              expect(counter).to.have.property('author');
+               expect(counter).to.have.property('text');
+
+           }
+         /* expect(JSON.stringify(res.text).slice(5,8)).equal("_id");
+           expect(JSON.parse(res.text)).to.have.property("text");
+           expect(JSON.parse(res.text)).to.have.property("author");*/
+          done();
+        });
     });
 
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
         // TODO: test with supertest
         request.get('/api/quotes').expect('Content-Type',/json/).expect(200).end(function(err,res){
-          res.body.should.be.a('object');
-           res.body.to.be.a('array');
+          //expect(res.body).should.be.a('object');
+           expect(res.body).to.be.a('array');
            done();
         });
     });

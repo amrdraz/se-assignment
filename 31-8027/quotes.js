@@ -1,7 +1,6 @@
 var r=require('fs');
 var db = require('./db.js');
 
-
 function getElementByIndexElseRandom(array , index){
 	if (index==undefined){
 	var rnd0 = Math.floor(Math.random() * array.length);

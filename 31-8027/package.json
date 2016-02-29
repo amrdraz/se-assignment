@@ -8,6 +8,7 @@
      "coverage": "istanbul cover _mocha"
   },
   "dependencies": {
+    "body-parser": "~1.12.4",
     "express": "~4.12.4",
         "mongodb": "~2.0.55",
         "mocha": "~1.16.2",

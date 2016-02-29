@@ -8,6 +8,7 @@ var app = express();
 var quote=require('./quotes');
 app.use(express.static('./public'));
 
+
 app.engine('html',con.swig);
 app.set('views',path.join(__dirname,'public'));
 app.set('view engine','html');
@@ -26,16 +27,27 @@ app.use(function(req,res,next){
 app.get('/api/quote', function(request, response,next) {
   
   quote.getQuoteFromDB(function(err, q) {
+    if(!err){
     response.json(q);
     next();
+  }
+  else throw err;
+
   });
 });
 
 app.get('/api/quotes', function(request, response,next) {
+
   quote.getQuotesFromDB(function(err, q) {
+
+    if(!err){
     response.json(q);
     next();
+  }
+  else
+    throw err
   });
+
 });
 
 
