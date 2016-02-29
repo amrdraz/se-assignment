@@ -1,0 +1,26 @@
+{
+  "name": "31-4521",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "start": "node server.js"
+  },
+  "author": "Ahmed Magdy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "superagent": "^1.7.2",
+    "supertest": "^1.2.0"
+  }
+}
