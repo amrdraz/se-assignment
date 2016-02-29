@@ -13,8 +13,9 @@
     "test": "contains the testing scripts"
   },
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "start": "node server.js",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
   },
   "author": "Kareem Ashraf Mokhtar",
   "license": "ISC",
@@ -23,7 +24,7 @@
     "chai": "*",
     "express": "*",
     "hjs": "*",
-    "istanbul": "*",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "mongodb": "*",
     "supertest": "*"

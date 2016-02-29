@@ -2,7 +2,7 @@ var database = require('./db');
 
 var getElementByIndexElseRandom = function (array , index) {
   if(typeof index == "undefined")
-    index = Math.floor(Math.random() * array.length);
+  index = Math.floor(Math.random() * array.length);
 
   return array[index];
 };
@@ -18,17 +18,26 @@ var getQuoteFromJSON = function (index) {
   return getElementByIndexElseRandom(getQuotesFromJSON(), index);
 };
 
-var seed = function (callback) { // ask about its functionality
+var seed = function (callback) {
   var db = database.db();
-  var fs = require('fs');
-  var quotes = fs.readFileSync('../quotes.json', 'utf8');
+  var quotes = getQuotesFromJSON();
   var collection = db.collection('quotes');
-  collection.insert(JSON.parse(quotes), function(err, docs) {
-    db.close();
-    if(err)
-    callback(err, false);
-    else
-    callback(err, true);
+
+  collection.count(function(err, count) {
+    if (err)
+    throw err;
+
+    if(count === 0){
+      collection.insert(quotes, function(err, docs) {
+        if(err)
+        throw err;
+        else
+        callback(null, true);
+      });
+    }
+    else{
+      callback(null, false);
+    }
   });
 };
 
