@@ -40,8 +40,8 @@ function seed(cb){
     var collection=db.collection('quote');
     
     var arrd=collection.find().toArray(function(err,quotes){
-        if (err) 
-            return cd(err,false);
+       /* if (err) 
+            return cd(err,false);*/
 
         if(quotes.length==0){
            collection.insert(getQuotesFromJSON());
@@ -64,6 +64,7 @@ function getQuotesFromDB(cb) {
     // any of quote object in the database
      
     db.connect(function(err, db){
+        
     var collection=db.collection('quote');
   
   collection.find().toArray(function(err, quotes) {
@@ -71,6 +72,7 @@ function getQuotesFromDB(cb) {
   	cb(null, quotes);
     
 });
+
 });
 }
 
@@ -80,22 +82,25 @@ function getQuoteFromDB(cb,index) {
     
    
     db.connect(function(err, db){
+       
     var collection=db.collection('quote');
     if(index==undefined){
     	
     	var rnd = Math.floor(Math.random() * 102);
     	
     	collection.find().limit(-1).skip(rnd).toArray(function(err,quote){
-    		 if (err) throw err;
+    
   			 cb(null, quote);
     	});
     }
     else{
     	collection.find().limit(-1).skip(index).toArray(function(err,quote){
-    		 if (err) throw err;
+    		
   			 cb(null, quote);
+          
     	});
     }
+
 });
 }
     		

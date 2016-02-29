@@ -8,19 +8,22 @@ exports.connect = function(cb) {
     // You do this one
  
   mongo.connect(dbURL, function(err, db) {
-    if (err) 
-    	throw(err);
-   else{ 
+   /* if (!err) {*/
     DB = db;
     cb(err,DB);
+/*}
+else
+    cb(err,DB); 
+  });*/
+
+});
 }
-  });
-};
 
 
-module.exports.db = function() {
+exports.db = function() {
 
-    if (DB === null) throw Error('DB Object has not yet been initialized');
+    if (DB === null) 
+        throw Error('DB Object has not yet been initialized');
     return DB;
 };
 
