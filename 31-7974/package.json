@@ -1,0 +1,30 @@
+{
+  "name": "31-7974",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "hjs": "*",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.7",
+    "nodemon": "^1.9.0",
+    "supertest": "^1.2.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.2"
+  }
+}

@@ -1,0 +1,33 @@
+html {
+	cursor: pointer;
+	cursor: hand;
+}
+
+body {
+	background-color: rgb(105,121,102);
+	text-align: center;
+}
+
+.text {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+#click_div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	font-size: 50px;
+}
+
+#author_div {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     margin-right: 10px;
+     margin-bottom: 20px;
+     font-size: 30px;
+}

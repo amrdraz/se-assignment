@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script type="text/javascript" src="/js/jquery-2.2.1.min.js"></script>
+	<script type='text/javascript' src='/js/main.js'></script>
+	<title>Inspire</title>
+</head>
+<body>
+	<div id="click_div" class="text">
+		<p>{{sentence}}</p>
+	</div>
+
+	<div id="author_div" class="text">
+		<p>{{author}}</p>
+	</div>
+</body>
+</html>
