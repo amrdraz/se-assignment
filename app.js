@@ -7,30 +7,20 @@ var fs       = require('fs');
 
 app.use(express.static('./public'));
 
-app.get('/index.html',function(req,res){
-	response.writeHeader(200, {'Content-type':'text/html'});
-            fs.readFile('./public/index.html', function (err, file) {
-                if (err) throw err;
-                res.send(file);
-            });
-});
-
-
 app.get('/index',function(req,res){
-	response.writeHeader(200, {'Content-type':'text/html'});
-            fs.readFile('./public/index.html', function (err, file) {
-                if (err) throw err;
-                res.send(file);
+        fs.readFile('./public/index.html', function (err, file) {
+                res.status(200).end(file);
             });
-});
+    });
 
-app.get('/',function(req,res){
-	response.writeHeader(200, {'Content-type':'text/html'});
-            fs.readFile('./public/index.html', function (err, file) {
-                if (err) throw err;
-                res.send(file);
-            });
-});
+
+// app.get('/index',function(req,res){
+//     req.get('/api/quote');
+// });
+
+// app.get('/',function(req,res){
+//     req.get('/api/quote');
+// });
 
 app.get('/api/quote', function(req, res) {
     quotes.getQuoteFromDB(function(err, row){
