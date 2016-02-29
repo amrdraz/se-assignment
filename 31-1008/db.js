@@ -27,10 +27,13 @@ exports.db = function ()
 
 exports.clearDB = function(cb){
     
-    DB.listCollections().toArray().then(function (collections) {
+    var quotesdb = DB.get('quotes');
+    quotesdb.drop();
+    cb();
+   /* DB.listCollections().toArray().then(function (collections) {
         collections.forEach(function (c) {
             DB.collection(c.name).removeMany();   
         });
         done();
-    }).catch(done);
+    }).catch(done);*/
 }

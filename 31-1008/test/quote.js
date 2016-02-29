@@ -97,7 +97,7 @@ describe('seed', function() {
     });
     it('should have populated the quotes collection with 102 document', function(done) {
         // TODO: check that the database contains 102 document
-        Quotes.getQuotesFromDB(function(err,quotes){
+        Quote.getQuotesFromDB(function(err,quotes){
         assert(quotes.length==102,"Expected was 102 but it is "+ quotes.length+"documents");
         done();
         });
