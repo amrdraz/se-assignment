@@ -16,13 +16,10 @@ var db = module.exports.db  = function() {
 		DB = db;
 		
 		});
-   return DB;
+
 }
 
-else{
-	return DB
-	
-}
+   return DB;
 };
 
 var clearDB = module.exports.clearDB = function(done) {
