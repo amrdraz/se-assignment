@@ -1,14 +1,17 @@
 var fs=require('fs');
-//var database= require('./db');
-// var a =function a(b){
-//   console.log(b);
-// }
-//database.connect(a);
-//database.connect
-//var db =database.db(); //might be redundent
-//var quotesCollection=db.collection('quotes');
+var database= require('./db');
 
+var db=null;
+var quotesCollection;// =db.collection('quotes');
 
+function setDB(DB){
+  db=DB;
+}
+exports.setQuotesCollection=function setQuotesCollection(coll){
+  quotesCollection=coll;
+}
+
+exports.setDB=setDB;
 var getElementByIndexElseRandom= function getElementByIndexElseRandom(array, index) {
     index = index === undefined ? Math.floor(Math.random() * array.length) : index;
     return array[index];
@@ -27,34 +30,49 @@ var getQuoteFromJSON = function getQuoteFromJSON(index){
   var res= getElementByIndexElseRandom(getQuotesFromJSON(),index);
   return res;
 }
-// seed(function (err, seeded) {
-//     // seeded is true when quotes are added to the database
-//     // seeded is false when nothing is added to the db
-//     if(err){ console.log("an error occured at seed!");seeded=false; throw err}
-//     if(quotesCollection===undefined || quotesCollection.count()==0){
-//       quotesCollection.insertMany(getQuotesFromJSON()); //if empty, populate!
-//       seeded=true;
-//     } else{
-//       seeded=false;
-//     }
-// });
-// getQuotesFromDB(function (err, quotes) {
-//     // any of quote object in the database
-//     if(err) throw err;
-//     quotes=quotesCollection.find().toArray();
-//     return quotes;
-// })
-// getQuoteFromDB(function (err, quote) {
-//     // any of quote object in the database
-//     if(err) throw err;
-//     var array=vquotesCollection.find().toArray();
-//      var i =Math.floor(Math.random() * array.length);
-//      quote =array[i];
-//      return quote;
-// })
+function seed(cb) {
+  var seeded;
+   quotesCollection.count(function (err, count) {
+     if (count===0||quotesCollection===undefined) {
+       quotesCollection.insertMany(getQuotesFromJSON());
+       seeded=true;}
+       else seeded =false;
+       if(cb!==undefined)
+       cb(err,seeded)
+     });
+   }
+function getQuotesFromDB(cb) {
+    // any of quote ob0ject in the database
+    // if(err) throw err;
+    quotesCollection.find().toArray(function(err, docs) {
+    //  console.log('hena ' + docs);
+        // if(cb === undefined) return docs;
+        cb(err, docs);
+    });
+}
+function getQuoteFromDB(cb,index) {
+    // any of quote object in the database
+    //if(err) throw err;
+    getQuotesFromDB(function (err,docs){
+      var array=docs;
+      if(index===undefined){
+      var i =Math.floor(Math.random() * array.length);
+      quote =array[i];
+      cb(err,quote);
+      }
+      else{
+        quote =array[index];
+        cb(err,quote);
+      }
+      // return quote;
+    })
+
+}
 // console.log(quotesCollection.findOne());
-//console.log(getQuoteFromJSON(0));
+// console.log(getQuoteFromJSON(0));
 exports.getElementByIndexElseRandom=getElementByIndexElseRandom;
 exports.getQuotesFromJSON=getQuotesFromJSON;
 exports.getQuoteFromJSON=getQuoteFromJSON;
-//exports.seed;
+exports.seed=seed;
+exports.getQuotesFromDB=getQuotesFromDB;
+exports.getQuoteFromDB=getQuoteFromDB;

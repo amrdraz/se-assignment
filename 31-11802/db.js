@@ -8,22 +8,22 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
  * @param  {Function} cb callback for when connection is complete
  */
  //
- exports.connect=mongo.connect(dbURL, function (err, db) {
-    console.log('connected to db');
-    DB = db;});
+ // exports.connect=mongo.connect(dbURL, function (err, db) {
+ //    console.log('connected to db');
+ //    DB = db;});
 
-// function connect(cb){
-//   mongo.connect(dbURL,function (err,db){
-//   if(err) console.log("error connecting to mongodb !")
-//   else{
-//     console.log("Connection established at: "+dbURL)  ;
-//     DB=db;
-//   cb(DB);
-//   }
-//
-// });
-// }
-// exports.connect;
+function connect(cb){
+  mongo.connect(dbURL,function (err,db){
+  if(err) console.log("error connecting to mongodb !")
+  else{
+    console.log("Connection established at: "+dbURL)  ;
+    DB=db;
+   cb(db);
+  }
+
+});
+}
+exports.connect=connect;
 
 // can do above: db.collection('test').find().toArray(function(err,docs){
 //console.log('docs',docs);
