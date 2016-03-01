@@ -36,8 +36,7 @@ function getQuoteFromJSON(index){
 
 function seed(cb){
 	
-    db.connect(function(err, db){
-    var collection=db.collection('quote');
+    var collection=db.db().collection('quote');
     
     var arrd=collection.find().toArray(function(err,quotes){
        /* if (err) 
@@ -52,8 +51,6 @@ function seed(cb){
             //console.log("can't insert");
         }
     });
-});
-
 }
 
 //seed(function(err,seeded){});
