@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var quoteFunctions=require('./quotes.js');
+
 app.use(express.static(__dirname +'/public'));
 
 app.get('/index', function (req, res) {
@@ -20,7 +21,8 @@ app.get('/api/quotes',function(req,res){
 });
 
 app.get('*', function(req, res){
-  res.status(404).send("Not found");
+  res.status(404).sendFile(__dirname + '/public/404.html');
+
 });
 
 module.exports=app;
