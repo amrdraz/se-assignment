@@ -1,0 +1,16 @@
+body{
+	background: black;
+}
+h1 {
+     color: white;
+    position: absolute;
+    top: 48%;
+    left: 25%; 
+}
+p {
+     color: white;
+     font-size: 20;
+    position: absolute;
+    top: 90%;
+    left: 90%; 
+}
