@@ -1,0 +1,29 @@
+html
+
+.quote{
+  font-weight: 400;
+  text-align: center;
+  font-size: 5ex;
+  color: rgb(0,0,0);
+  line-height: 1.5;
+  max-width: 100%; 
+  vertical-align: middle;
+  position: fixed;
+   position: fixed;
+  top: 40%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-100%, -25%);
+}
+
+.author{
+  color: #000;
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  font-weight: 200;
+  font-size: 3ex;
+  max-width: 40%;
+  font-family: sans-serif;
+}
+  
