@@ -1,37 +1,41 @@
-// db.js
+
 var mongo = require('mongodb').MongoClient;
 var DB = null;
-var dbURL = 'mongodb://localhost:27017/inspire-me';
+var dbURL = 'localhost:27017/MyDatabase';
 
-/**
- * function that connects to the mongodb instance initialized.
- * @param  {Function} cb callback for when connection is complete
- */
-exports.connect = function(cb) {
-    // You do this one
+var connect = module.exports.connect = function connect(cb) {
+
+var monk = require('monk');
+var DB = monk(dbURL);
+cb(DB);
+}
+
+var db = module.exports.db  = function() {
+    if (DB == null){
+   connect(function(db){
+		DB = db;
+
+		});
+   return DB;
+}
+
+else{
+	return DB
+
+}
 };
 
-/**
- * used to get access to the db object to query the database
- * throws an error if db not initialized.
- * example use case assuming you required the module as db
- *     db.db().find(.... etc
- * @return {MongoDBObject}
- */
-exports.db = function() {
-    if (DB === null) throw Error('DB Object has not yet been initialized');
-    return DB;
-};
+var clearDB = module.exports.clearDB = function(done) {
+       if (DB == null){
+   connect(function(db){
+    DB = db;
+    });
+   }
 
-/**
- * clears all collections in the database calling the callback when done
- * @param  {Function} done callback indicating the operation is complete
- */
-exports.clearDB = function(done) {
-    DB.listCollections().toArray().then(function (collections) {
-        collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();
-        });
-        done();
-    }).catch(done);
+  var collection = DB.get('quotes');
+    collection.drop();
+      done();
+
+
+
 };

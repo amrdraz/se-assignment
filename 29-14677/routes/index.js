@@ -1,4 +1,7 @@
 
+var database = require('../db');
+var quotes = require('../quotes');
+var fs = require('fs');
 /*
  * GET home page.
  */

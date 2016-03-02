@@ -3,12 +3,22 @@
   , "version": "0.0.1"
   , "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js" ,
+ "test": "node ./node_modules/mocha/bin/mocha",
+"coverage": "istanbul cover node_modules/.bin/_mocha"
   }
   , "dependencies": {
       "express": "2.5.8"
     , "jade": ">= 0.0.1",
 	"nodemon":"*" ,
-  "handlebars":"*"
+  "handlebars":"*" ,
+  "express-handlebars":"*",
+    "chai": "*",
+    "express": "*",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mongodb": "*",
+    "supertest": "*",
+      "monk": "^1.0.1"
   }
 }
