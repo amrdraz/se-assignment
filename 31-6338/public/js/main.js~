@@ -1,0 +1,11 @@
+//$("p1").click();
+//$("p1").click(function(){
+ // $(this).css("background-color", "white");
+//}); 
+$("p1").on("click", function() {
+    $(this).css("background-color", "white");
+});
+//$( "#change_background" ).on( "click", function() {
+ // $("body").first().css("background-color","white");
+//});
+

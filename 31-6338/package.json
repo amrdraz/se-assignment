@@ -1,0 +1,25 @@
+{
+  "name": "31-6338",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server.js",
+	"test":"node_modules/.bin/mocha -w",
+	"coverage":"istanbul cover _mocha"
+		
+  },
+  "dependencies": {
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "mongodb": "~2.1.7",
+     "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "mocha": "~1.20.1",
+    "supertest": "~1.2.0",
+    "chai": "~3.5.0",
+    "istanbul": "~0.4.2",
+    "consolidate": "~0.14.0",
+    "swig": "~1.4.2"
+  }
+}
