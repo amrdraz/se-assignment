@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page not found</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+
+  <body class="notfound">
+    <div class="quote">
+      404: The requested page is not found
+    </div>
+  </body>
+</html>

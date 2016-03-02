@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="HomePage">
+  <head>
+    <title>inspire me more</title>
+    <script type="text/javascript" src="/js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+
+  <body class="HomePage">
+    <div class="quote">
+      {{ quote }}
+    </div>
+
+    <div class="author">
+      {{ name }}
+    </div>
+  </body>
+</html>

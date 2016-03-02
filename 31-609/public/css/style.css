@@ -1,0 +1,47 @@
+html.HomePage {
+  cursor: pointer;
+  cursor: hand;
+}
+
+body.HomePage {
+  background-color: rgba(255, 200 , 50, 0.5);
+}
+
+body.notfound {
+  background-color: rgba(128, 128, 128, 1.0);
+}
+
+.quote {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 50px;
+    font-family: cursive;
+    text-align: center;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.author {
+  font-size: 25px;
+  font-family: cursive;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: 50px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
