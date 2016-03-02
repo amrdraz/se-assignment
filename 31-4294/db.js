@@ -32,9 +32,9 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
     },*/
 
 exports.connect = function(cb) {
-    if(DB) return cd(null, database);
+    if(DB) return cb(null, database);
      mongodb.connect(dbURL, function(err, database) {
-            if(err) return cd(err);
+            if(err) return cb(err);
             DB = database;
             cb(null, DB);
         });
