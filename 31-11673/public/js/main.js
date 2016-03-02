@@ -3,4 +3,10 @@ $(document).click(function() {
 	 y = x[Math.floor(Math.random()*x.length)],
 	$("body").css({"background-color":y});
 
+	$.ajax({url: "/api/quote", success: function(result){
+		
+        $("#sentence").html(result.text);
+        $("#author").html(result.author);
+    }});
+
 });

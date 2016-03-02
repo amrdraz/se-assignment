@@ -1,7 +1,25 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: pink
+  background-color: pink;
+}
+
+#sentence{
+
+	font-size:30px;
+	position: absolute;
+	top: 350px;
+	left:500px;	
+	text-align: center;	
+	 margin-left: 30%$;
+    margin-right: 30%;
+}
+
+#author{
+	font-size:30px;
+	position: absolute;
+	top: 90%;
+	left:90%;	
 }
 
   

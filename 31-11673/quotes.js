@@ -10,13 +10,9 @@ function getElementByIndexElseRandom (array, index) {
 		return array[index];
 };
 
-// function d() {
-
-// }
-
 function getQuotesFromJSON  () {
 	var x = require('fs');
-	var docs = fs.readFileSync('./quotes.json');
+	var docs = x.readFileSync('../quotes.json');
 	return JSON.parse(docs);
 };
 
@@ -28,22 +24,24 @@ function getQuoteFromJSON (index) {
 
 
 function seed (cb) {
-	db.db().collection('quotes').find().toArray(function(err, docs) {
-		if (docs.length==0) {
-			var data = getQuotesFromDB();
-			db.db.collection('quotes').insert(data);
-			cb(err,true);
-		};
-		cb(err,false);
+db.db().collection('quotes').find().toArray(function(err, docs){
+	if(docs.length==0)
+	{
+		var data = getQuotesFromJSON();
+		db.db().collection('quotes').insert(data);
+		cb(err,true)
 	}
-};
+	else
+		cb(err,false);
+});
 
-
+}
 
 function getQuotesFromDB (cb) {
 	db.db().collection('quotes').find().toArray(function(err, docs) {
 		cb(err, docs);
-	})};
+	})
+};
 
 
 function  getQuoteFromDB (cb, index) {
@@ -51,6 +49,14 @@ function  getQuoteFromDB (cb, index) {
 		cb(err, getElementByIndexElseRandom(docs, index));
 	});
 };
+
+db.connect(function(err,db){
+	getQuoteFromDB(function(err,seeded) {
+		console.log(seeded);
+	});
+});
+
+
 
 
 module.exports = {
@@ -60,5 +66,5 @@ module.exports = {
 	seed : seed,
 	getQuotesFromDB : getQuotesFromDB,
 	getQuoteFromDB : getQuoteFromDB	
-};
+}
 

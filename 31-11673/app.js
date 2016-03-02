@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var app =express();
+var db = require('./db.js');
+var quotes = require('./quotes.js');
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
 //var app =require("express");
@@ -10,7 +12,16 @@ var app =express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res, next) {
-  res.render('index.html', {sentence: 'click here to git inspired :D !!' });
+  res.render('index.html');
+});
+
+app.get('/index.html', function(req, res, next) {
+  res.render('index.html');
+});
+
+
+app.get('/index', function(req, res, next) {
+  res.render('index.html');
 });
 
 
@@ -30,18 +41,18 @@ app.get('/api/quote', function(req, res) {
 
 
 
-// db.connect(function(err, d) {
-//   if (err)
-//     throw err;
-//   else {
+db.connect(function(err,db) {
+  if (err)
+    throw err;
+  else {
    
-//     quotes.seed(function(err, seeded) {
-//       if (seeded)
-//         console.log('seeded');
-//       else
-//         console.log('didn\'t seed');
-//     });
-//   }
-// });
+    quotes.seed(function(err, seeded) {
+      if (seeded)
+        console.log('seeded');
+      else
+        console.log('didn\'t seed');
+    });
+  }
+});
 
 module.exports = app;
