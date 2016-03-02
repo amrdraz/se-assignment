@@ -1,0 +1,93 @@
+<!DOCTYPE_html>
+<html>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    	<title>Get Inspired</title>
+	<style type="text/css">
+		body{
+			position: relative;
+			width: 100%;
+	
+			background-color: rgba(100,100,100,1);
+			cursor: pointer;
+		}
+		.center{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			top: 50%;
+			margin: 0;
+			font-family: Verdana, sans-serif;
+			font-style: bold;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+
+		}
+		#author{
+			 position:relative;
+			 font-style: bold;
+			 top :20;
+			 right: 0;
+			color: white;
+     	
+		}
+	
+		
+		p {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+	</style>
+</head>
+<body ng-app = "myApp" ng-controller="myCtrl" ng-click="click()">
+
+<div>
+
+<p id = "#author">{{quote.author}}</p>
+<p id = "#quote" class = "center">{{quote.text}}</p>
+</div>
+ <script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("/quotes")
+    .then(function(response) {
+        $scope.quote = response.data;
+    });
+
+    $scope.click = function(){
+    	$http.get("/quotes")
+    .then(function(response) {
+        $scope.quote = response.data;
+    });
+
+    }
+});
+
+
+</script> 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	alert("click anywhere to generate quotes");
+    $("body").on("click", function(){
+
+    	  var hue = 'rgb(' + (Math.floor((255)*Math.random())) + ',' + (Math.floor((255)*Math.random())) + ',' + (Math.floor((255)*Math.random())) + ')';
+         $(this).css("background-color", hue);
+
+
+
+
+
+    });
+
+  
+}); 
+</script>
+</body>
+</html>

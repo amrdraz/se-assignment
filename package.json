@@ -1,0 +1,31 @@
+{
+  "name": "Sayegh",
+  "version": "1.0.0",
+  "description": "## Objective",
+  "main": "node server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+    "express": "*",
+    "mocha":"*",
+    "istanbul":"*",
+    "mongodb": "*",
+    "body-parser": "*",
+    "chai": "*",
+    "supertest": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sayegh7/se-assignment.git"
+  },
+  "author": "Sayegh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sayegh7/se-assignment/issues"
+  },
+  "homepage": "https://github.com/Sayegh7/se-assignment"
+}
