@@ -4,13 +4,12 @@
   "description": "Se Assignment",
   "main": "server.js",
   "directories": {
-    "test": "test",
-    "coverage":"coverage"
+    "test": "test"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./test/quote.js",
-    "start": "nodemon server.js",
-    "coverage":"istanbul cover ./test/quote.js"
+    "start": "node server.js",
+    "coverage":"./node_modules/.bin/istanbul cover _mocha -- -R spec"
   },
   "dependencies": {
  

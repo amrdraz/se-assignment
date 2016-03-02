@@ -1,6 +1,6 @@
 
 
-		$(document).ready(function(){
+$(document).ready(function(){
 	window.onclick=function(){
 		var red = Math.floor(Math.random()*128)+120;
 		var green = Math.floor(Math.random()*128)+120;
@@ -17,8 +17,6 @@ function changeQuotes(){
 		$.ajax({
  			type: "GET",
  			url: "/api/quote",
-  			
-  			cache: false,
   			success: function(quote){
   				console.log(quote);
   				$('h1').text(quote.text);
