@@ -60,5 +60,9 @@ var getQuoteFromDB = module.exports.getQuoteFromDB = function(cb,index){
 }
 
 exports.seed=seed;
-
+exports.getQuotesFromDB=getQuotesFromDB;
+exports.getQuoteFromDB=getQuoteFromDB;
+exports.getQuotesFromJSON=getQuotesFromJSON;
+exports.getQuoteFromJSON=getQuoteFromJSON;
+exports.getElementByIndexElseRandom=getElementByIndexElseRandom;
 

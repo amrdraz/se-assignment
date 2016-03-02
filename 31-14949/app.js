@@ -44,6 +44,12 @@ app.get('/api/quote', function(req, res) {
         res.json(r)
     })
 });
+app.get('/api/quotes', function(req, res) {
+    var quote = quotes.getQuotesFromDB(function(err, r) {
+        if (err) console.log("Cannot fetchany quote from DB at this moment .. Come back later ")
+        res.json(r)
+    })
+});
 
 // catch 404 and forward to error handler
 
