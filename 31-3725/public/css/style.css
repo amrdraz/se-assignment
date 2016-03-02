@@ -1,0 +1,26 @@
+* {
+  cursor: pointer;
+}
+body {
+  text-align: center;
+  background: #057;
+  color: white;
+  font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  margin: 0 auto
+}
+h1 {
+  font-size: 75px;
+  margin: 267px 100px 0px 100px;
+}
+h2 {
+  font-size: 30px;
+  margin: 100px 0px 0px 0px;
+}
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
