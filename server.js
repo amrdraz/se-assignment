@@ -5,7 +5,7 @@ var quotes = require('./quotes.js');
 //require('./app.js')(app)
 app.use(express.static('./public'));
 
-app.get('/quotes', function(req, res){
+app.get('/api/quotes', function(req, res){
 	quotes.getQuoteFromDB(function(err, quote){
 		if(err) res.end(err);
 		res.json(quote);
