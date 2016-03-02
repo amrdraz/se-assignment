@@ -18,16 +18,16 @@ app.get('/api/quotes', function(req, res, next) {
 var path    = require("path");
 
 
-// app.get('/',function(req,res){
-//   res.sendFile(__dirname+'/public/index.html');
+ app.get('/',function(req,res){
+ 	res.sendFile(__dirname+'/public/index.html');
   
-// });
-// app.get('/index.html',function(req,res ,next){
-// 	 res.sendFile(index.html);
-// });
-// app.get('index',function(req,res, next){
-// 	 res.sendFile(index.html);
-// 	});
+});
+ app.get('/index.html',function(req,res ,next){
+ 	 res.sendFile(__dirname+'/public/index.html');
+ });
+ app.get('index',function(req,res, next){
+ 	 res.sendFile(__dirname+'/public/index.html');
+ 	});
 
 app.get('/api/quote', function(req, res, next) {
 	db.connect(function(error,db){
