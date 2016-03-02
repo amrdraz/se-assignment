@@ -1,7 +1,7 @@
 var mongo = require('mongodb');
 var dbURL = 'mongodb://localhost:27017/inspire-me';
 var Server = mongo.Server;
-var assert=require('assert');
+var assert =require('assert')
 Db = mongo.Db;
 
 

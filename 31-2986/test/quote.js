@@ -248,12 +248,19 @@ describe('API', function() {
 
       .expect(200)
 
+      .expect(function(res){
+       assert.property(res.body,'_id');
+       assert.property(res.body,'text');
+       assert.property(res.body,'author');
+      })
+
       .end(function(err, res){
         
         if (err)
         
           return done(err) 
-        
+         
+       
        }); 
     
     done();  
