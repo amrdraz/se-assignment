@@ -1,0 +1,36 @@
+body{
+
+	background-color: #577
+
+}
+
+h1{
+
+	margin: 200px 50px 0px 50px; 
+
+	font-family: serif; 
+
+	font-style: italic;
+
+	font-size: 50px;
+
+	text-align: center;
+
+	color: #FFFFFF
+
+}
+
+p{
+
+	font-family: monospace;
+
+	font-size: 30px;
+
+	text-align: right;
+
+	color: #FFFFFF;
+
+	margin: 30px 15px 0px 0px; 
+
+	font-style: italic;
+}
