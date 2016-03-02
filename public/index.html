@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inspiration</title>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js'></script>
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+    
+    </style>
+</head>
+
+<body>
+    <blockquote class="quote">
+        Click for inpiration
+    </blockquote>
+    <h2 class="author"></h2>
+    <script>
+    document.body.addEventListener('click', function(){
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        document.body.style.backgroundColor = 'rgb('+ r + ','+ g + ',' + b + ')';
+        
+    $.ajax({
+        url: '/api/quote',
+        success: function (quote) {
+            $('.quote').html(quote.content);
+            $('.author').html(quote.author);
+        }
+    });
+
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
