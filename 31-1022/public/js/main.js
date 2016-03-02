@@ -1,4 +1,4 @@
-$(document).ready(function()
+ $(document).ready(function()
 {
     $("div").mouseenter(function()
     {
@@ -15,7 +15,7 @@ $(document).ready(function()
         url: 'api/quote',
         success: function (quote) {
 
-            $('div').html(quote.text);
+            $('h1').html(quote.text);
             $('#author').html(quote.author);
         }
         

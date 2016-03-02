@@ -4,23 +4,6 @@ var express = require('express');
 var router = express.Router();
 var database;
 
-router.get('/api/quotes', function(req, res, next) {
-    getQuotesFromDB(function(err,quotes)
-    {
-        if (err) return next(err);
-        res.send(quotes);
-    });
-});
-
-router.get('/api/quote', function(req, res, next) {
-    
-    getQuoteFromDB(function(err,quote)
-    	{
-    		if (err) return next(err);
-        	res.send(quote);
-    	});  
-        
-    });
 
 // router.get('/api/post', function(req, res, next) {
 //     database.collection('quotes').findOne(function(err, post) {
@@ -57,26 +40,34 @@ var getQuoteFromJSON= function(index)
 
 var seed = function(cb)
 {
-	dbFile.clearDB(function(err)
-	{
+	
+	//if(dbFile.db().collection('quotes').count()!==0)
+	//{
+		dbFile.clearDB(function(err)
+		{
 		//database= dbFile.db();
 		//database.createCollection('quotes');
 		//collec=database.collection('quotes');
-		assert.equal(null, err);
-        dbFile.db().collection('quotes').insert(getQuotesFromJSON(), function(err, seeded) {
+			assert.equal(null, err);
+        	dbFile.db().collection('quotes').insert(getQuotesFromJSON(), function(err, seeded) {
                 if(err)
 				{
 					cb(err,false);
 				}
 				else
-				{
 					cb(err,true);
-				}
+				
             });
 
 	});
+}	
+	// else
+	// {
+	// 	cb(err,true);
+	// }
+	
 	//console.log(database.collection('quotes').find());
-}
+
 // dbFile.connect(function(err,db)
 // {
 // 	seed(function(err,seeded){

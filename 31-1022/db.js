@@ -11,12 +11,10 @@ var connect = function(cb) {
     // You do this one
     mongo.connect(dbURL,function (err,db) 
     {
-        if(!err) 
-        {
+      
             console.log("Connected to database");
             DB=db;
-        }
-        cb(err,DB);
+            cb(err,DB);
     });
     
 };
