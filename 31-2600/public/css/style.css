@@ -1,0 +1,34 @@
+
+body{
+      text-align: center;
+      height: 50px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+     cursor: pointer;
+    font-size: 4ex;
+   }
+   .qoutes{
+      text-align: center;
+      height: 50px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      font-size: 30px;
+      cursor: pointer;
+
+     }
+  .author{
+
+      position:absolute;
+    bottom:0;
+    right:0;
+
+
+  }
