@@ -1,0 +1,27 @@
+body 
+{background-color: yellow;
+    background-position: center no-repeat;
+    text-align: center;
+    font-style: italic;
+    font-size: 500%;
+
+
+}
+div{
+	text-align: center;
+	font-style: bold;
+	    padding: 50px 30px 50px 80px;
+
+	font-size: 100%;
+
+}
+h1{
+    text-align: right;
+    position: absolute;
+   bottom: 0;
+   right: 10;
+    font-size: 70%;
+    padding: 50px 30px 50px 10px;
+
+
+}
