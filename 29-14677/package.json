@@ -15,7 +15,7 @@
   "express-handlebars":"*",
     "chai": "*",
     "express": "*",
-    "istanbul": "^0.4.2",
+    "istanbul": "*",
     "mocha": "^2.4.5",
     "mongodb": "*",
     "supertest": "*",

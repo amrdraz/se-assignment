@@ -16,10 +16,11 @@ var app = module.exports = express.createServer();
  database.connect(function(err, db) {
 
 
- //console.log("here2");
-    // database.clearDB(function(err, suc2){
-    //   console.log(suc2? 'cleared successfuly' : 'failed to clear');
-    // });
+
+    database.clearDB(function(err, suc2){
+    //  console.log(suc2);
+      console.log(suc2? 'cleared successfuly' : 'failed to clear');
+    });
 
 
 //   quotes.getQuotesFromJSON(function(err, qu){
@@ -27,14 +28,16 @@ var app = module.exports = express.createServer();
 //   console.log("here");
 // });
 
-  //
+
   quotes.seed(function(err, seeded) {
-    if(err)  // throw err;
+  //  if(err)  // throw err;
 
 if(!seeded){
     console.log('failed to seed');
+    seeded= false ;
 return;}
     console.log('Seeded successfuly');
+        seeded= true ;
 
 
   });

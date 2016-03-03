@@ -47,10 +47,11 @@ collection.find({} , {} , function(err,res){
 		for(var i = 0 ; i<quotes.length ; i++){
 	collection.insert(quotes[i]);
 
-	seeded = true;
+
 }
+seeded = true;
 	}else{
-		error = "quotes are inserted before";
+		error = "quotes have been inserted before";
 		}
 
 	}else{
@@ -63,8 +64,10 @@ collection.find({} , {} , function(err,res){
 
 }
 
+
+
 var getQuotesFromDB = module.exports.getQuotesFromDB = function  (cb){
-	var collection = db.get('quotesCollection');
+	var collection = db.get('quotes');
 
 	collection.find({},{},function(err,res){
       var quotes = [];
@@ -89,7 +92,6 @@ var getQuotesFromDB = module.exports.getQuotesFromDB = function  (cb){
 	});
 
 }
-
 
 var getQuoteFromDB = module.exports.getQuoteFromDB =   function  (cb , index){
    var collection = db.get('quotesCollection');

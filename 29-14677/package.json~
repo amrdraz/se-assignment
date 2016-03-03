@@ -4,7 +4,7 @@
   , "private": true,
   "scripts": {
     "start": "nodemon app.js" ,
- "test": "node ./node_modules/mocha/bin/mocha",
+ "test": "nodemon ./node_modules/mocha/bin/mocha",
 "coverage": "istanbul cover node_modules/.bin/_mocha"
   }
   , "dependencies": {

@@ -69,49 +69,41 @@ describe("getQuoteFromJSON", function() {
 
 // quotes collection should be called quotes
 describe('seed', function() {
-  before(db.clearDB);
-  it('should populate the db if db is empty returning true', function(done) {
-    Quote.seed(function(err, seeded) {
-      if(err) throw err;
-      assert.equal(seeded, true);
-      done();
-    });
-  });
 
-  it('should have populated the quotes collection with 102 document', function(done) {
-    var database = db.db();
-    var collection = database.collection('quotes');
 
-    collection.count(function(err, count) {
-      if(err) console.log("ERROR READING COUNT"); //throw err;
-      console.log("COUNT => ", count);
-      assert.equal(count, 102);
-      done();
+    it('should populate the db if db is empty returning true', function(done) {
+             db.clearDB(function(){
+              Quote.seed(function(error, seeded){
+             assert(seeded == true, "seeded returns false when the database is em");
+             done();
+             });
+        })
+
     });
 
-  });
+    it('should have populated the quotes collection with 102 document', function(done) {
+        var Database = db.db();
+        var quotesCollection = Database.get('quotes');
+        quotesCollection.find({},{},function(err , result){
+            assert(result.length == 102 , "Database still not populated");
+            done();
+        });
 
-  it('should not seed db again if db is not empty returning false in the callback', function(done) {
-    Quote.seed(function(err, seeded) {
-      if(err)
-      throw err;
-
-      assert.equal(seeded, false);
-      done();
     });
-  });
-  it('should not seed db again if db is not empty', function(done) {
-    var database = db.db();
-    var collection = database.collection('quotes');
-
-    collection.count(function(err, count) {
-      if(err)
-      throw err;
-
-      assert.equal(count, 102);
-      done();
+    it('should not seed db again if db is not empty returning false in the callback', function(done) {
+             Quote.seed(function(error, seeded){
+             assert(seeded == false, "seeded return true when the database is not empty");
+             done();
+             });
     });
-  });
+    it('should not seed db again if db is not empty', function(done) {
+        var Database = db.db();
+        var quotesCollection = Database.get('quotes');
+        quotesCollection.find({},{},function(err , result){
+            assert(result.length == 102 , "Database is populated again when it was not empty");
+            done();
+        });
+    });
 });
 
 
@@ -161,7 +153,7 @@ describe('getQuoteFromDB', function() {
 describe('API', function() {
   request = request(app);
   it("should return a 404 for urls that don't exist", function(done) {
-    request.get('/kareem').expect(404, done);
+    request.get('/mostafa').expect(404, done);
   });
 
   it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
