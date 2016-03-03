@@ -1,0 +1,23 @@
+body {
+    background-color: #f1f1f1;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:50px;
+}
+div{
+    margin: 50px auto 40px auto;
+    width: 600px;
+    text-align: center;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+p {
+    color: rgba(0, 0, 0, 0.5);
+    margin: 20px 0;
+    line-height: 1.6;
+}

@@ -1,0 +1,77 @@
+var express = require('express');
+var router = express.Router();
+var db = require("./db.js");
+var array = require('../quotes.json');
+
+var q = require("./quotes.js");
+
+// Functions =============================================================
+
+ /*   A random element from the array If index is not passed.
+    The element in the correct index position if it is.
+*/
+
+exports.getElementByIndexElseRandom = function getElementByIndexElseRandom(a , index){
+	if(index!=null){		
+		var element = array[index];
+	}
+	else{	
+		var element = array[Math.floor(Math.random()*array.length)];
+
+	}
+return element;
+
+};
+//========================================================================
+
+/*returns all the quotes as JSON
+as a whole object
+*/
+
+exports.getQuotesFromJSON = function getQuotesFromJSON(){
+	var parsedData = JSON.parse(array);
+	return parsedData;
+
+};
+
+//========================================================================
+/*returns a random quote from the quotes.json file if index 
+is not passed else the on int the index position.
+*/
+exports.getQuoteFromJSON = function getQuoteFromJSON(index){
+
+	var quotes = getQuotesFromJSON();
+	var element = getElementByIndexElseRandom(quotes , index);
+	return element;
+};
+
+//=======================================================================
+/*Populate the database with quotes from quotes.json,
+ seed should call the call back when done with an error, seeded set of arguments.*/
+ exports.seed = function seed(cb){
+     var collection = db.db().collection("quotes");
+     collection.count( function ( err , c) { //check thier count
+       if(c ==0)
+         collection.insert(array , function(err, result) {cb(err,true)});
+        else
+            cb(err, false);
+      });
+  };
+ //=========================================================================
+exports.getQuotesFromDB = function getQuotesFromDB(){
+ 	return db.db().collection("quotes").find.toArray();	
+};
+//=========================================================================
+
+exports.getQuoteFromDB = function getQuoteFromDB(index) {
+ 	return q.getElementByIndexElseRandom(q.getQuotesFromJSON,index);
+ }
+
+//======================================================================
+
+
+
+
+
+
+//module.exports = router;
