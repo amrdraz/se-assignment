@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var hjs = require('hjs');
 
 var quotes = require ('./quotes.js');
@@ -30,8 +29,7 @@ app.use(function(req,res,next){
     next(); 
 });
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', routes); 
 app.get('/', function (req, res) {
       res.sendfile(__dirname + '/public/index.html');
 });

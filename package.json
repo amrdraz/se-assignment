@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "start": "node ./server.js",
-    "test": "node test/superTest.js | tap-spec"
+    "test":   "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -21,6 +21,8 @@
   "devDependencies": {
     "supertest": "^0.15.0",
     "tap-spec": "^2.2.1",
-    "tape": "^3.5.0"
+    "tape": "^3.5.0",
+    "istanbul": "^0.4.2",
+      "mocha": "^2.4.5"
   }
 }
