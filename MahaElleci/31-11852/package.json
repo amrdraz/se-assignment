@@ -1,0 +1,15 @@
+{
+    "name": "MyQuotesApp",
+    "version": "0.0.1",
+    "author": "Maha Elleci",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.13.4", 
+         "mongodb": "~2.0.33",
+         "monk": "~1.0.1", 
+         "mocha": "0.4.0", 
+         "chai": "0.4.0"
+    }
+}
