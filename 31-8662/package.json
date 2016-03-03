@@ -1,0 +1,22 @@
+{
+  "name": "31-8662",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "istanbul": "^0.4.2",
+    "mongodb": "^2.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "start": "node server.js",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
