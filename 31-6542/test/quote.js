@@ -144,27 +144,29 @@ describe('API', function() {
     request = request(app);
     it("should return a 404 for urls that don't exist", function(done) {
         // TODO: test with supertest
-        request.get('/hamada').expect('Content-Type', /json/).expect(404).end(function (err, res) {
-      done();
+        request.get('/hamada').expect(404).end(function (err, res) {
+      done(err);
     });
     });
 
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
         // TODO: test with supertest
-        request.get('/hamada').expect('Content-Type', /json/).expect(function (err, res) {
-            assert.property(res, 'author', 'Test passed ');
-            assert.property(res, 'text', 'Test passed ');
-            assert.property(res, '_id', 'Test passed '); 
-            
+        request.get('/api/quote').expect('Content-Type', /json/).end(function (err, res) {
+            var result = res.body;
+            assert.property(result, 'author');
+            assert.property(result, 'text');
+            assert.property(result, '_id'); 
+            done(err);
         });
-        done();
+        
     });
 
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
         // TODO: test with supertest
-        request.get('/hamada').expect('Content-Type', /json/).expect(function (err, res) {
-            assert.isArray(res, 'Test passed ');
+        request.get('/api/quotes').expect('Content-Type', /json/).end(function (err, res) {
+            assert.isArray(res.body, 'Test passed ');
+            done(err);
         });
-        done();
+        
     });
 });
