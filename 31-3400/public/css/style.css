@@ -1,0 +1,43 @@
+
+body{
+	
+  background: 	#20B2AA;
+ background-size: cover;
+ 
+ 
+}
+  
+div{
+	
+  max-width: 1000px;
+  height: 200px;
+  line-height: 750px;
+}
+
+p{
+	height: 200px;
+  line-height: 600px; 
+  vertical-align: middle;
+}
+
+#quote {
+
+	font-size: 40;
+	color: black; 
+	text-align: center;
+	
+
+}
+#author{
+	color: black;
+	text-align: right;
+	vertical-align: bottom;
+	font-size: 25;
+	visibility: hidden;
+}
+
+
+
+
+
+
