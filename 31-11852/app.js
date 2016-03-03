@@ -19,6 +19,18 @@ app.get('/api/quote', function(req,res) {
 }
     }); 
   
+});    
+app.get('/api/quotes', function(req,res) { 
+  quotes.getQuotesFromDB(function(err,quotes){ 
+    if(err){  
+    	res.send("ERROR");
+    }
+    else{
+    //console.log(quote);
+    res.send(quotes);  
+}
+    }); 
+  
 });   
 
 app.use(express.static(__dirname + '/public'));

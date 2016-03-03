@@ -6,10 +6,9 @@ var db = require('../db.js');
 
 before(function(done) {
     // use this after you have completed the connect function
-    // db.connect(function(err, db) {
-    //    if (err) return done(err);
-    //    else done();
-    // });
+    db.connect(function(db) {
+    done(); 
+});
 });
 
 describe("getElementByIndexElseRandom", function() {
@@ -50,14 +49,15 @@ describe("getQuoteFromJSON", function() {
        var quotes = Quote.getQuotesFromJSON(); 
        var aquote = Quote.getQuoteFromJSON(); 
        var exist = false; 
-      for(int i=0; i<quotes.length; i++){ 
-         if(aquote.author===quotes[i].author && aquote.text==quotes[i].text){ 
+      for(var i=0; i<quotes.length; i++){ 
+         if(aquote.author===quotes[i].author && aquote.text==quotes[i].text) 
             exist = true;
-         }
-      } 
+        } 
+       
       assert(exist,"The returned quotes is not in the JSON file");
 
-           });
+           }); 
+
     it('should return the first quote if we pass 0', function() {
         var quotes = Quote.getQuotesFromJSON();
         var aquote = Quote.getQuoteFromJSON(0);  
@@ -110,8 +110,9 @@ describe('getQuotesFromDB', function() {
 
 describe('getQuoteFromDB', function() {
     it('should return a random quote document', function(done) {
+        // TODO: see if it returns on of the quotes from all quotes
         Quote.getQuotesFromDB(function(err,quotes){
-            Quote.getQuoteFromDB(function(err2,quote){
+            Quote.getQuoteFromDB(function(err1,quote){
                 var exists = false;
                 for(var i = 0; i < quotes.length; i++){
                     if(quotes[i].author == quote.author && quotes[i].text == quote.text){
@@ -158,7 +159,9 @@ describe('API', function() {
     }); 
 
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
-         request.get('/api/quotes')
+        // TODO: test with supertest
+
+        request.get('/api/quotes')
         .end(function(err, res){
             var quotes = res.body;
             assert.isArray(quotes, 'Returned body is not an array');
@@ -167,4 +170,8 @@ describe('API', function() {
             assert.property(quote, 'author');
             assert.property(quote, 'text');
             done();
+        });
+    });
 });
+
+

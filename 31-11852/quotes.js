@@ -3,14 +3,14 @@ var DB = require('./db.js');
 
 exports.getElementByIndexElseRandom = function (arr, index){  
     var element = null;
-   if(index === undefined){ 
-     element= arr[Math.floor(Math.random()*arr.length)];
+   if(index != null){  
+    element= arr[index];
+     
    } 
    else{ 
-     element= arr[index];
+    element= arr[Math.floor(Math.random()*arr.length)];
 
    }
-
      return element;
 } 
 
@@ -24,13 +24,13 @@ var alldata = JSON.parse(fs.readFileSync('./quotes.json'));
 
 exports.getQuoteFromJSON = function(index){  
      var quote = null;
-	
-        if(index === undefined){ 
-     var alldata = exports.getQuotesFromJSON();
-     quote = alldata[Math.floor(Math.random()*data.length)];
+	    var alldata =exports.getQuotesFromJSON();
+        if(index != null){  
+           quote = alldata[index];
              } 
         else{ 
-     quote = alldata[index];
+   
+     quote = alldata[Math.floor(Math.random()*alldata.length)];
 
         } 
             return quote;
@@ -62,7 +62,7 @@ exports.seed = function(cb){
 
   }
   
- function  getQuotesFromDB(cb){   
+exports.getQuotesFromDB=function(cb){   
            
            DB.db().collection('QuotesDB').find().toArray(function  (err, alldata) {
              if(err){
@@ -85,17 +85,18 @@ exports.seed = function(cb){
 
 exports.getQuoteFromDB = function(cb,index){  
  //console.log(alldata[0]);
-  getQuotesFromDB(function(err,result){ 
+  exports.getQuotesFromDB(function(err,result){ 
   if(err){
      cb(err,null);
   } 
   else{ 
-  if(index === undefined){
-      element=result[Math.floor(Math.random()*result.length)]; 
+  if(index != null){ 
+    element = result[index];
+       
   }  
   else { 
 
-     element = result[index];
+     element=result[Math.floor(Math.random()*result.length)]; 
   } 
 }
   
