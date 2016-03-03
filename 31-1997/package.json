@@ -1,0 +1,20 @@
+{
+  "name": "se-assignment",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha test/quote.js",
+    "coverage": "./node_modules/.bin/istanbul cover _mocha"
+  },
+  "dependencies": {
+    "supertest": "~1.2.0",
+    "express": "~4.13.1",
+    "chai": "~3.5.0",
+    "mongodb": "~2.1.7",
+    "mocha": "~2.4.5",
+    "istanbul": "^0.4.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.2"
+  }
+}
