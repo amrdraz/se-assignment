@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> 404 Not Found ! </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet', href='/css/error.css'></link>
+  </head>
+  <body>
+    <div class = "wrap">
+
+      <div class="message">
+        <p> OOPS ! , Could not find this page </p>
+      </div>
+
+    <div class="logo">
+      <img src="/images/404-1.png">
+    </div>
+
+
+      <button type="button" class="btn btn-danger" onClick="history.go(-1);" > Go back ! </button>
+
+    </div>
+  </body>
+</html>

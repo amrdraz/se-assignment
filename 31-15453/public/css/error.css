@@ -1,0 +1,38 @@
+body {
+font-family: 'Shadows Into Light', cursive;
+background-color: grey;
+}
+
+
+
+.wrap {
+  text-align: center;
+  margin: 0 auto;
+  /*margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;*/
+  width: 1000px;
+}
+
+
+
+
+
+.message {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.message p{
+    color: rgb(147, 186, 9);
+    font-size: 65px;
+    margin-top: 1px;
+}
+
+
+.wrap button{
+  width: 200px;
+  height: 100px;
+  margin-top: 50px;
+}
