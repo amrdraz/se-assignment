@@ -1,0 +1,67 @@
+
+.quote
+{	
+	text-shadow: 2px 2px black;
+	border-radius: 5px;
+	color:darkorange ;
+	position:absolute;
+	text-decoration: none;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-40%);
+    font-size:45px;
+    font-family:cursive;
+}
+.background
+{
+
+	background-size: cover no-repeat;
+  	
+}
+
+html
+{
+	height:100%;
+	margin:0%;
+}
+body
+{
+	height:100%;
+	margin:0%;
+	background-image: url("http://photos2.meetupstatic.com/photos/theme_body/4/a/c/d/full_6799149.jpeg");
+	cursor:pointer;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	display: flex;
+	
+
+}
+
+
+
+.author
+{
+	text-shadow: 2px 2px black;
+	color:darkorange ;
+	position:absolute;
+	font-size: 30px;
+    bottom:0px;
+    right:20px;
+	align-self:flex-end;
+	text-align: right;
+	font-family:cursive;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
