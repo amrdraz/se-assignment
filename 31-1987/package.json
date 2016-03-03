@@ -1,0 +1,23 @@
+{
+  "name": "diary",
+  "version": "0.0.0",
+  "author": "Mostafa El-Messiry",
+  "scripts": {
+    "start": "node server.js",
+    "coverage":"istanbul cover _mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mostafamesiry/se-assignment"
+  },
+  "dependencies": {
+    "chai": "*",
+    "express": "^4.13.4",
+    "hjs": "0.0.6",
+    "istanbul": "*",
+    "mocha": "*",
+    "mongodb": "*",
+    "supertest": "*"
+  }
+
+}
