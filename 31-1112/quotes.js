@@ -14,7 +14,7 @@ function getElementByIndexElseRandom(array, index) {
 function getQuotesFromJSON() {
 	var fs = require('fs');
 	var v = fs.readFileSync('./quotes.json');
-	return JSON.parse(v);
+	return v;
 }
 
  console.log(getQuotesFromJSON()); 
