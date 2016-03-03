@@ -1,0 +1,56 @@
+* {box-sizing: border-box;}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    color: #fff;
+    line-height: 1.5;
+    background: #E6E6FA;
+    
+    
+   /*padding: 200px 160px;*/
+
+ /*text-shadow: 2px 2px rgba(0, 0, 0, 0.3);*/
+}
+.header {
+    height: 500px;
+    margin-top: 200px;
+   
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: cover;
+    margin-bottom: 10px;
+    /* https://css-tricks.com/perfect-full-page-background-image/ */
+   /* background: url(../img/header.jpeg) no-repeat center center fixed;
+    background-size: cover;
+
+    
+}
+/*.header h1 {
+    max-width: 50%;
+    color: #fff;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 9em;
+    font-weight: 200;
+    font-family: cursive;
+}
+.post-list {
+    margin: 0 auto;
+}*/
+.post{
+   max-width: 50%; 
+    color: black;
+    font-size: 1em; 
+    font-weight: 200; 
+    font-family: arial;
+}
+/*.post-list-item-header {
+    padding: 0 0 10px 10px;
+    font-weight: 200;
+    font-size: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    margin-top: 10px;
+}
+*/
