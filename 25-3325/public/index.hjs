@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Inspire Me!</title>
+
+ 	<script src="js/jquery.min.js"></script> 
+ 	<script src="js/main.js"></script> 
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+	
+		<h1 id="quote">Click or tap on the page to get inspired!</h1>
+		
+		<h1 id="author"></h1>
+
+</body>
+</html>
