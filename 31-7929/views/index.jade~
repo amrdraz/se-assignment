@@ -1,5 +1,0 @@
-extends layout
-
-block content
-  title Inspire Me
-  p Welcome to #{title}
