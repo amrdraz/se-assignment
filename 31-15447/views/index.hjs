@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+  <body>
+    <h1 class="quote" id="quote">{{ quote }}</h1>
+    <h2 class="author" id="author">{{ author }}</h2>
+  </body>
+</html>
