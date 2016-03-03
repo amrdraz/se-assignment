@@ -1,0 +1,26 @@
+{
+  "name": "31-1112",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "~4.13.4",
+    "mongodb": "^2.1.7"
+
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "supertest": "^1.2.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+     ,"test" :   "mocha ./ test/quote.js"
+ 
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
+}
