@@ -1,0 +1,19 @@
+{
+    "name": "application-name"
+  , "version": "0.0.1"
+  , "private": true
+  ,"scripts":{
+    "start" :  " node ./server.js"
+    ,"test" :   "mocha ./ test/quote.js"
+    ,"coverage" : "istanbul"
+  }
+  , "dependencies": {
+    "mocha": "latest",
+     "supertest": "latest",
+     "chai": "latest",
+     "istanbul": "latest",
+     "express": "latest",
+     "mongodb": "latest"
+ 
+  }
+}
