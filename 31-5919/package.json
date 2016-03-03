@@ -1,0 +1,16 @@
+{
+	"name": "inspire-app",
+	"version" : "1.0.0",
+	"description": "giving you inspirational quotes with every click",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"mocha": "2.4.5",
+		"supertest": "1.2.0",
+		"chai": "3.5.0",
+		"istanbul": "0.4.2",
+		"express": "4.13.4",
+		"mongodb": "2.1.7"
+	}
+}
