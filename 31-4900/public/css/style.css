@@ -1,0 +1,21 @@
+body {
+    background-color: green;
+}
+.txt{
+	position: absolute;
+	font-weight: bold;
+	font-size: 40px;
+	color: black;
+	margin-top: 270px;
+	margin-left: 300px;
+}
+
+
+
+.author{
+	position: absolute;
+	font-size: 30px;
+	color: black;
+	margin-top: 600px;
+	margin-left: 1100px;
+}
