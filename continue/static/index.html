@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Diary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script language="javascript">
+  
+    
+ $(document).ready(function(){
+
+$('text').click(function (event) {
+  
+   $.ajax({
+        url: '/api/quote',
+        success: function (json) {
+       //alert(json.text);
+            $('text').html(json.text);
+            $('.post-list-item-body').html(json.author);
+        }
+    });
+});
+
+}); 
+  </script>
+</head>
+<body>
+   <header class="header">
+        <h1>Your Quotes App</h1>
+    </header>
+    <section class="post-list">
+        <article class="post-list-item">
+            <h3 id="post-list-item-header"> </h3>
+            <section class="post-list-item-body">
+                
+            </section>
+            <text id="text">Please tap here for quotes</text>
+        </article>
+        
+    </section>
+</body>
+</html>
