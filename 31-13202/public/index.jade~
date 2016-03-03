@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Funny Quotes
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,300', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='./css/style.css', type='text/css' )
+    script(type='text/javascript', src='./js/jquery.min.js')
+  body
+    blockquote.quote 
+      | Click on the text for a funny quote 
+    h2.author
+    script(src='./js/main.js')
+

@@ -1,0 +1,125 @@
+
+/**
+ * Module dependencies.
+ */
+var cons = require('consolidate');
+var express = require('express')
+  , routes = require('./routes');
+var engine = require('ejs-locals');
+var db = require('./db');
+var quotes = require('./quotes');
+var json = require('../quotes.json'); //(with path)
+
+
+// var quotes = require('./quotes');
+// var arr = [1,2,3];
+// console.log(quotes.getElementByIndexElseRandom(arr,2));
+
+
+var app = module.exports = express.createServer();
+
+// Configuration
+app.configure(function(){
+  //app.engine('html', cons.swig)
+  app.set('views', __dirname + '/public');
+  // app.engine('html', require('ejs').renderFile);
+  //app.engine('html', require('./htmlEngine'));
+  //app.engine('ejs', engine);
+  app.set('view engine', 'jade');
+  //app.set('view engine', 'html');
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
+});
+
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function(){
+  app.use(express.errorHandler());
+});
+
+db.connect(function(dbs) 
+{
+  quotes.seed(function(err, seed)
+  { if(err)
+    {
+      throw err
+    }
+    else
+    {
+      if(!seed)
+    {
+                console.log("DB was seeded before."); 
+
+    }
+      else
+    {
+                console.log("Seeded DB."); 
+
+    }
+        
+
+        quotes.getQuoteFromDB(function(err,quotes)
+      {
+        if(err)
+          {
+           throw err
+          }
+        else
+          {
+         passed = quotes;
+         //console.log(passed);
+          }
+        });
+      }
+  });
+});
+// Routes
+
+//app.get('/', routes.index);
+app.get('/api/quote', function(req, res)
+{
+  quotes.getQuoteFromDB(function(err, quote)
+   {
+      res.end(JSON.stringify(quote.text +"   **   " +"        (     " +quote.author)+"         )       "); 
+   
+      // res.render('index', { title: passed.text , author: passed.author} );};   
+  });
+
+});
+
+app.get('/api/quotes', function(req, res)
+{
+  quotes.getQuotesFromDB(function(err, quotes)
+   {
+      res.end(JSON.stringify(quotes)); 
+   
+      // res.render('index', { title: passed.text , author: passed.author} );};   
+  });
+
+});
+app.get('/index', function (req, res)
+{
+  res.render('index');
+});
+app.get('/index.html', function (req, res)
+{
+  res.render('index');
+});
+
+
+app.get('/', function (req, res)
+{
+  res.render('index');
+});
+
+//app.get('/', function (req, res) {
+// res.sendfile(__dirname + '/index.html');
+//});
+
+// app.listen(3000, function(){
+//   console.log("Express server listening on port %d ", app.address().port, app.settings.env);
+// });
