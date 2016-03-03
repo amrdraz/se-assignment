@@ -1,0 +1,21 @@
+
+{
+    "name": "31-2140",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon server.js",
+        "test":"mocha ./tests/quotes.js",
+        "coverage":"istanbul cover _mocha ./tests/quotes.js"
+    },
+    "dependencies": {
+        "express": "~4.12.4",
+        "mongodb": "~2.1",
+        "consolidate": "~0.14.0",
+        "swig": "~1.4.2",
+        "mocha": "~2.3.0",
+           "supertest": "~1.2.0",
+       "chai": "~3.5.0",
+       "istanbul": "~0.4.2"
+    }
+} 
