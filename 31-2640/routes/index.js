@@ -28,12 +28,19 @@ router.get('/api/quotes',function(req,res){
 	});
 });
 
-	router.get('/index',function(req , res){
-			console.log("indeeeeex");
+	router.get('/',function(req , res){
+			res.render('index.hjs');
+
+	});
+router.get('/index.html',function(req , res){
 			res.render('index.hjs');
 
 	});
 
+router.get('/index',function(req , res){
+			res.render('index.hjs');
+
+	});
 
 
 module.exports = router;

@@ -67,7 +67,6 @@ describe("getQuoteFromJSON", function() {
         var f = Quote.getQuotesFromJSON()[0];
         var s = Quote.getQuoteFromJSON(0);
         assert.equal(f,s,"return the first quote if we pass 0");
-
     });
 });
 
@@ -82,19 +81,21 @@ describe('seed', function() {
 
      })   });
 
+
     it('should have populated the quotes collection with 102 document', function(done) {
         // TODO: check that the database contains 102 document
             Quote.getQuotesFromDB(function(error , docs){
-               var x =  Quote.getQuotesFromJSON()
-                assert.include(docs,x,"contain 102 document");
+               // var x =  Quote.getQuotesFromJSON();
+                assert.lengthOf(docs,102,"contain 102 document");
+  		done();
             })
-             done();
+           
     });
     it('should not seed db again if db is not empty returning false in the callback', function(done) {
         // TODO: assert that seeded is false
         se(function (err, seed){
         assert.isNotTrue(seed, 'db is empty');
-        done(false);
+        done();
 
      }) 
 
@@ -105,10 +106,10 @@ describe('seed', function() {
     it('should not seed db again if db is not empty', function(done) {
         // TODO: The database should have 102 quote still
         Quote.getQuotesFromDB(function(error , docs){
-               var x =  Quote.getQuotesFromJSON()
-                assert.include(docs,x,"contain 102 document");
+                assert.lengthOf(docs,102,"contain 102 document");
+         		done();
             })
-             done();
+            
 
     })
 });
@@ -117,10 +118,10 @@ describe('getQuotesFromDB', function() {
     it('should return all quote documents in the database', function(done) {
         // TODO: there should be 102 documents in the db
         Quote.getQuotesFromDB(function(error , docs){
-               var x =  Quote.getQuotesFromJSON()
-                assert.include(docs,x,"contain 102 document");
+                assert.lengthOf(docs,102,"contain 102 document");
+		 done();
             })
-             done();
+            
     });
 });
 
@@ -130,18 +131,19 @@ describe('getQuoteFromDB', function() {
         Quote.getQuoteFromDB(function(error ,quote){
                var x =  Quote.getQuotesFromJSON();
                 assert.include(x,quote,"contain random quote");
+   	done();
             })
-             done();
+          
     });
     it('should return the first quote if passed 0 after callback', function(done) {
      //   TODO: you know the content of object in the file
         Quote.getQuoteFromDB(function(error,quote){
             assert.equal(quote.author,"Kevin Kruse","first author is Kevin Kruse");
             assert.equal(quote.text,"Life isn’t about getting and having, it’s about giving and being","my text");
-
+		done();
 
         },0)
-        done();
+        
     });
 });
 describe('API', function() {

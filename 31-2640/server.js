@@ -16,7 +16,6 @@
 
 
 var app = require('./app');
-console.log("3wwww");
 var debug = require('debug')('31-2640:server');
 var http = require('http');
 

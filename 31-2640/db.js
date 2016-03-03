@@ -12,7 +12,7 @@ exports.connect = function(cb) {
     mongo.connect(dbURL,function(error , db ){
         if (error)
             throw Error("error happened");
-        DB=db;
+        DB = db;
         console.log('connected succesfully');
         cb(db);
 

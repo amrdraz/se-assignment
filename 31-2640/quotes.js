@@ -55,9 +55,9 @@ return array;
     // any of quote object in the database  
     var array = DB.collection('quotes').find().toArray(function(error,docs){
     if(error)
-        cb(error,null);
+        cb(error,docs);
     else
-        cb(null,docs);
+        cb(error,docs);
 
     });
 
