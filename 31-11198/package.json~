@@ -1,0 +1,15 @@
+{
+  "name": "31-11198",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+        "start": "server app.js"
+    },
+  "keywords": [],
+  "author": "Abdelrahman Khaled 31-11198",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
