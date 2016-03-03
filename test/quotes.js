@@ -126,11 +126,8 @@ describe('getQuoteFromDB', function() {
         // TODO: you know the content of object in the file
 Quote.getQuoteFromDB(function(error,quote)
 	   	  {
-	   	  	console.log(quote._id);
-	   	  	console.log(quotes[0]._id);
-console.log(quotes[0]._id== quote._id);
-	   	  
-	   	  		assert.equal(quotes[0]._id,quote.id);
+	   	 
+	   	  		assert.equal( JSON.stringify(quotes[0]),JSON.stringify(quote));
                 done();
        
                
@@ -143,16 +140,32 @@ describe('API', function() {
     request = request(app);
     it("should return a 404 for urls that don't exist", function(done) {
         // TODO: test with supertest
+         request.get('/notValidUrl').expect(404, done);
 
     });
 
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
         // TODO: test with supertest
+     request.get('/api/quote').expect('Content-Type', /json/)
+        .expect(function(res){
 
+            if (res.body.author == undefined || res.body.text == undefined ||
+            res.body._id == undefined )
+              throw new Error("key not found");
+       }).expect(200, done);
         
     });
 
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
-        // TODO: test with supertest
+        request.get('/api/quotes').expect('Content-Type', /json/)
+        .expect(function(res){
+            for(var i = 0; i < res.body.length; i++)
+            {
+                if (res.body[i].author == undefined || res.body[i].text == undefined ||
+                  res.body[i]._id == undefined )
+                       throw new Error("not a quote");
+            }
+        })
+        .expect(200, done);
     });
 });

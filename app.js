@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var hjs = require('hjs');
 
 var quotes = require ('./quotes.js');
 var mongoClient;
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/styles",  express.static(__dirname + '/public/css'));
 app.use("/scripts", express.static(__dirname + '/public/js'));
-
+app.set('view engine', 'jade');
 app.use(function(req,res,next){
     req.quotes = quotes;
     next(); 
@@ -39,9 +39,7 @@ app.get('/index', function (req, res) {
       res.sendfile(__dirname + '/public/index.html');
 });
 
-app.get('/index', function (req, res) {
-      res.sendfile(__dirname + '/public/index.html');
-});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

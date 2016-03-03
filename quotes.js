@@ -10,6 +10,7 @@ var jsonData = require('./quotes.json');
 db.connect(function databaseConnected()
 {
 	dbClient = db.db();
+	seed(function(){});
 });
 
 function getElementByIndexElseRandom(array,n)
@@ -23,7 +24,7 @@ exports.getElementByIndexElseRandom = getElementByIndexElseRandom;
 
 exports.getQuotesFromJSON = function()
 {
-return jsonData;
+	return jsonData;
 }
 
 
@@ -66,7 +67,7 @@ exports.getQuoteFromDB = function(cb,index)
 
 
 
-exports.seed = function(cb)
+function seed(cb)
 {
 
 	var col = dbClient.collection('quotes');
@@ -91,3 +92,5 @@ exports.seed = function(cb)
 };
 
 
+
+exports.seed = seed;
