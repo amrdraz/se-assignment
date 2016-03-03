@@ -184,7 +184,7 @@ describe('API', function() {
            expect(200).
            end(function(err,res){
            expect(res.body).to.have.property("_id");
-           expect(res.body).to.have.property("text");
+           expect(res.body).to.have.prxoperty("text");
            expect(res.body).to.have.property("author");
 
 
@@ -198,8 +198,14 @@ describe('API', function() {
     it('/api/quotes should return an array of JSON object when I visit', function(done) {
         // TODO: test with supertest
         api.get('/api/quotes').
-        set('Accept','application/json').
-        expect(200);
+        set('Accept','application/json').expect(200).end(function(err,res){
+           var arr =res.body;
+            var obj=arr[0];
+            assert.equal(((obj[0]=='_id')&&(obj[1]=='author')&&(obj[2]=='text')),true);
+            done();
+        });
+
+
         done();
 
 
