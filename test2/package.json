@@ -1,0 +1,14 @@
+{
+  "name": "test2",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+  ,"author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.4"
+  }
+}
