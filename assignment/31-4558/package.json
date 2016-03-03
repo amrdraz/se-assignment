@@ -1,0 +1,21 @@
+{
+  "name": "inspire",
+  "version": "0.0.1",
+  "author": "Aya Khaled <ayajodo@gmail.com>",
+  "script": {
+    "start": "node server.js",
+    "coverage": "istanbul cover _mocha",
+    "test": "mocha ./test/quotes.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "mocha": "~2.4.5",
+    "supertest": "~1.2.0",
+    "istanbul": "~0.4.2",
+    "chai": "~3.5.0",
+    "mongodb": "~2.1.7"
+  },
+  "devDependencies": {
+    "supertest": "~1.2.0"
+  }
+}
