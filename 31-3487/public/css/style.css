@@ -1,0 +1,29 @@
+
+body{
+	cursor: pointer;
+	padding-top: 20%;
+	padding-left: 10%;
+	padding-right: 10%;
+/*	padding-left: 50px;
+	padding-right: 50px;*/
+	background-color: #156639;
+	text-align: center;
+	cursor: pointer;
+}
+#quote{
+	text-align: center;
+	font : serif;
+	font-size: 5ex;
+	color: white;
+}
+
+#author{
+	font: serif;
+	text-align: right;
+	font-style: italic;
+	/*position: absolute;*/
+	/*left: 40px;*/
+	/*bottom: 40px;*/
+	font-size: 3ex;
+	color: white;
+}
