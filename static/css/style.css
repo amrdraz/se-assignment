@@ -1,0 +1,48 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@keyframes example {
+    0%   {background-color: lightpink; left:200px; top:0px;}
+    25%  {background-color: yellow; left:200px; top:0px;}
+    50%  {background-color: lightblue; left:200px; top:200px;}
+    75%  {background-color: lightgreen; left:200px; top:300px;}    
+    100% {background-color: maroon; left:200px; top:200px;}
+}
+body {
+    width: 800px;
+    height: 200px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: 100;
+    animation-direction: alternate-reverse;
+
+}
+body {
+background: lightblue;
+background-size: 100%;
+font-size: 30px;
+text-align: center;
+font-weight: bolder;
+}
+.post-load-btn {
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    width: 50%;
+    font-size: 2em;
+    background: #3C3C3C;
+    color: #fff;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(49, 21, 4, 0.4);
+}
+.post-load-btn:hover {
+    background-color: #555;
+}
