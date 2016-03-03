@@ -1,0 +1,19 @@
+{
+    "name": "31-11381",
+    "version": "0.0.1",
+    "author": "Mohamed Abouzeid",
+    "scripts": {
+        "start": "node app.js",
+	"test":"node_modules/.bin/mocha -w",
+	"coverage":"istanbul cover _mocha"
+    },
+    "dependencies": {
+        "express": "^4.13.4",
+	"mongodb": "~2.0.33",
+	"chai":"*",
+	"hjs":"*",
+	"istanbul":"*",
+	"supertest":"*",
+	"mocha":"*"
+    }
+}

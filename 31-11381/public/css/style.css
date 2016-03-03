@@ -1,0 +1,30 @@
+body{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%, -50%);
+    background-color:red;
+    width: 100%;
+    min-height: 100%
+}
+h1{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: arial;
+    font-weight: 100;
+    color: white;
+}
+h2{
+    position: fixed;
+    top: 90%;
+    left: 85%;
+     transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: times;
+    font-weight: 200;
+    color: white;
+    font-size: 20pt;
+}
