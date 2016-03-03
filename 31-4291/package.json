@@ -1,0 +1,29 @@
+{
+  "name": "se-assignment",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "chai": "latest",
+    "express": "^4.13.4",
+    "istanbul": "latest",
+    "mocha": "latest",
+    "mongodb": "^1.4.40",
+    "supertest": "latest",
+    "mongoose":"^3.8.21",  
+    "monk":"latest",
+    "bson":"latest"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha",
+    "cover": "istanbul cover _mocha"
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "author": "Rana Tarek",
+  "license": "ISC",
+  "description": ""
+}
