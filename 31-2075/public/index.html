@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inspire Me</title>
+    <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script type="text/javascript" src="/quotes.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    
+
+    <style>
+    html,
+    body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    body {
+        text-align: center;
+        font-family: 'Bree Serif', serif;
+        font-size: 150%;
+        cursor: pointer;
+        background: hsl(240, 64%, 27%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .quote {
+        font-weight: 400;
+        color: #fff;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+        font-size: 5ex;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5;
+        max-width: 90%;
+    }
+    
+    .author {
+        position: absolute;
+        bottom: 0px;
+        right: 20px;
+        font-weight: 300;
+        font-size: 3ex;
+        color: #fff;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        max-width: 60%;
+        align-self: flex-end;
+    }
+    </style>
+  
+</head>
+
+
+
+<body class='body'>
+    
+    <blockquote class="quote">
+        Click or tap on the page to get inspired.
+    </blockquote>
+    
+    <h2 class="author"></h2>    
+    
+    <script>
+    $(document).on('click', function (event) {
+    $.ajax({
+        url: 'api/quote',
+        success: function (post) {
+            $('.quote').html(post.text);
+            $('.author').html(post.author);
+        }
+    });
+    document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 64%, 27%)'
+})
+    </script>
+    
+
+</body>
+
+</html>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+
