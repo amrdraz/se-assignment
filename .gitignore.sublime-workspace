@@ -1,0 +1,223 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getQuoteFromJSON"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"b",
+				"border-color"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"siz",
+				"background-size"
+			],
+			[
+				"mong",
+				"mongo"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"te",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/loayelzobeidy/nodetest2/views/index.jade",
+		"/home/loayelzobeidy/nodetest2/public/stylesheets/style.css",
+		"/home/loayelzobeidy/nodetest2/views/layout.jade",
+		"/home/loayelzobeidy/inspiqe/package.json",
+		"/home/loayelzobeidy/nodetest2/routes/index.js",
+		"/home/loayelzobeidy/Desktop/untitled.json",
+		"/home/loayelzobeidy/nodetest2/server2.js",
+		"/home/loayelzobeidy/workspace2/se-assignment/quotes.json",
+		"/home/loayelzobeidy/nodetest2/server.js",
+		"/home/loayelzobeidy/nodetest2/main.html",
+		"/home/loayelzobeidy/nodetest2/app.js",
+		"/home/loayelzobeidy/untitled.cpp",
+		"/media/loayelzobeidy/442EA68A2EA67518/work/semester 6/Data Bases 2/Lectures/DBApp_20197.java",
+		"/media/loayelzobeidy/442EA68A2EA67518/work/semester 6/Data Bases 2/project/Main_20213.java",
+		"/home/loayelzobeidy/Desktop/M1/bootload.asm",
+		"/media/loayelzobeidy/UUI/DB/Page.java",
+		"/media/loayelzobeidy/UUI/DB/Table.java",
+		"/media/loayelzobeidy/UUI/DB/DBApp.java",
+		"/home/loayelzobeidy/Desktop/Main_20213.java",
+		"/media/loayelzobeidy/442EA68A2EA67518/untitled.html"
+	],
+	"find":
+	{
+		"height": 50.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" \n",
+			"mongodb",
+			"err",
+			"throw",
+			"insert",
+			"itera",
+			");"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": ".gitignore.sublime-project",
+	"replace":
+	{
+		"height": 536.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
