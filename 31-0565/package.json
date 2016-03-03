@@ -1,0 +1,19 @@
+{
+  "name": "31-0565",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js",
+    "test": "node ./test/quotes.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.4",
+    "express": "~4.13.1",
+    "mongodb": "~1.4.4",
+    "mocha" : "latest",
+    "supertest":"latest",
+    "chai":"latest",
+    "istanbul":"latest"
+
+  }
+}
