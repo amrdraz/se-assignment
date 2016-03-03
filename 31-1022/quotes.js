@@ -40,14 +40,8 @@ var getQuoteFromJSON= function(index)
 
 var seed = function(cb)
 {
-	
-	//if(dbFile.db().collection('quotes').count()!==0)
-	//{
 		dbFile.clearDB(function(err)
 		{
-		//database= dbFile.db();
-		//database.createCollection('quotes');
-		//collec=database.collection('quotes');
 			assert.equal(null, err);
         	dbFile.db().collection('quotes').insert(getQuotesFromJSON(), function(err, seeded) {
                 if(err)
@@ -61,26 +55,10 @@ var seed = function(cb)
 
 	});
 }	
-	// else
-	// {
-	// 	cb(err,true);
-	// }
 	
-	//console.log(database.collection('quotes').find());
-
-// dbFile.connect(function(err,db)
-// {
-// 	seed(function(err,seeded){
-// 		console.log(seeded);
-// 	});
-	
-// });
-
-//console.log(getQuoteFromJSON(0));
-
 var getQuotesFromDB= function(cb)
 {
-	//seed(function(err,seeded){
+	
 	var allQuotes= dbFile.db().collection('quotes').find().toArray(function(err,allQuotes)
 	{
 		if(!err)
@@ -93,8 +71,6 @@ var getQuotesFromDB= function(cb)
 		}
 
 	});
-	return allQuotes;
-	//});
 	
 }
 
