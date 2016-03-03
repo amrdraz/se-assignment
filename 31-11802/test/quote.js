@@ -153,17 +153,33 @@ describe('API', function() {
     request = request(app);
     it("should return a 404 for urls that don't exist", function(done) {
         // TODO: test with supertest
-      request.get('/api/test').expect(404);
+      request.get('/api/balabezo').expect(404);
       done();
     });
 
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
-        // TODO: test with supertest
-        done();
-    });
+      // TODO: test with supertest
+      request.get('/api/quote')
+      .expect('Content-Type', /json/)
+      .end(function(err, result){
+          var quote = result.body;
+          assert.property(quote, 'author');
+          assert.property(quote, 'text');
+          done();
+      });
+  });
 
-    it('/api/quotes should return an array of JSON object when I visit', function(done) {
-        // TODO: test with supertest
-        done();
-    });
+  it('/api/quotes should return an array of JSON object when I visit', function(done) {
+      request.get('/api/quotes')
+      .expect('Content-Type', /json/)
+      .end(function(err, result){
+          var quotes = result.body;
+          assert.isArray(quotes, 'Returned body is not an array');
+          var quote = quotes[0];
+          //to make sure returned array is correct of property author and text
+          assert.property(quote, 'author');
+          assert.property(quote, 'text');
+          done();
+      });
+  });
 });
