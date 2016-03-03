@@ -1,0 +1,20 @@
+var http = require('http');
+var fs = require('fs');
+
+var handleRequest = function handleRequest(request, response){
+        if (request.url==='/index.html') {
+            response.writeHeader(200, {'Content-type':'text/html'});
+            fs.readFile('./public/index.html', function (err, file) {
+                //if (err) //throw err;
+                response.end(file);
+            });
+        } else {
+            response.writeHeader(404);
+            response.end('404 Nothing to see here: ' + request.url);
+        }
+}
+var server = http.createServer(handleRequest);
+var PORT = 8080; 
+server.listen(PORT, function(){
+    console.log("Server listening on: http://localhost:%s", PORT);
+});
