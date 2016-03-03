@@ -10,13 +10,12 @@ exports.getElementByIndexElseRandom = function(array, index)
 
 exports.getQuotesFromJSON = function()
 {
-	return JSON.parse(quotes);
+	return quotes;
 }
 
 exports.getQuoteFromJSON = function(index)
 {
-	var quotes = getQuotesFromJSON();
-	return getElementByIndexElseRandom(quotes, index);
+	return exports.getElementByIndexElseRandom(quotes, index);
 }
 
 exports.seed = function(cb){
@@ -25,7 +24,7 @@ exports.seed = function(cb){
 			cb(err, false);
 		}
 		else{
-			Database.db().collection("inspire-me").insertMany(quotes);
+			Database.db().collection("inspire-me").insert(quotes);
 			cb(err, true);
 		}
 	});

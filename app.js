@@ -24,6 +24,7 @@ exports.app.get('/api/quotes' ,function (req, res)
 });
 
 exports.app.get('*', function(req, res){
+	res.status(404);
   res.sendFile(__dirname + '/public/404Page.html', 404);
 });
 

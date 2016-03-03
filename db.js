@@ -15,7 +15,7 @@ exports.connect = function(cb) {
     });
 }
 
-  exports.db = function db() {
+exports.db = function db() {
     if (DB === null) 
     	throw Error('DB Object has not yet been initialized');
     return DB;
