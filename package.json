@@ -1,0 +1,15 @@
+{
+  "name": "31-8495",
+  "version": "1.0.0",
+  "description": "\"assignment 1\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Mahi Ismail <mahi-samir@hotmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {}
+}
