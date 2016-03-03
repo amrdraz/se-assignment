@@ -1,8 +1,16 @@
 var assert = require('chai').assert;
 var app = require('../app.js');
-var request = require('supertest');
+var request = require("supertest");
 var Quote = require('../quotes.js');
 var db = require('../db.js');
+
+before(function(done) {
+    db.connect(function(err, db) {
+        if (err) return done(err);
+        else done();
+    });
+});
+
 
 describe("getElementByIndexElseRandom", function() {
     var arr = [1, 2, 3, 43, 5];
@@ -55,12 +63,6 @@ describe("getQuoteFromJSON", function() {
 });
 
 describe('seed', function() {
-    before(function(done) {
-        db.connect(function(err, db) {
-            if (err) return done(err);
-            else done();
-        });
-    });
     before(db.clearDB);
     it('should populate the db if db is empty returning true', function(done) {
         Quote.seed(function (err, seeded){
@@ -141,9 +143,13 @@ describe('API', function() {
     it("should return a 404 for urls that don't exist", function(done) {
         request.get('/api/quotation').expect(404,done);
     });
-    // it('/api/quotes should return an array of JSON object when I visit', function(done) {
-    //     request.get('/api/quotes').set('Accept', 'application/json').expect('Content-Type', /json/).expect(200, done);
-    // });
+
+ //    it('/api/quotes should return an array of JSON object when I visit', function(done) {
+ //        request.get('/api/quotes').set('Accept', 'application/json').expect(200).end(function(err,result){
+ // //         result.should.have.property('text')
+ //            done();
+ //        });
+ //    });
 
     // it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
     //     request.get('/api/quote').set('Accept', 'application/json').expect('Content-Type', /json/).expect(200, done);
