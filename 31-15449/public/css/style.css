@@ -1,0 +1,19 @@
+.container{
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+    font-family: 'Denk One';
+}
+
+body{
+    background-color: rgb(55, 156, 43);
+}
+
+.footer{
+    position: float;
+    margin-top: 200px;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    text-align: right;
+    font-family: 'Denk One';
+}

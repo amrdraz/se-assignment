@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+         <link href='https://fonts.googleapis.com/css?family=Denk+One' rel='stylesheet' type='text/css'>
+        <title></title>
+
+        <script src="js/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+                <h1>Do you want a quote?</h1>
+        </div>
+
+        <div class="footer">
+            <h2></h2>
+        </div>
+
+    </body>
+
+
+    <script src="js/main.js"></script>
+
+
+</html>
