@@ -1,0 +1,18 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "author": "Fatma Hassanein <fatma.hassanein129@gmail.com>",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha ./test/quote.js",
+    "coverage": "istanbul cover _mocha"
+  },
+  "dependencies": {
+    "express": "~4.13.4",
+    "mocha": "~2.4.5",
+    "supertest": "~1.2.0",
+    "chai": "~3.5.0",
+    "istanbul": "~0.4.2",
+    "mongodb": "~2.1.7"
+  }
+}
