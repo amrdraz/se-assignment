@@ -104,7 +104,7 @@ You will find in this repo the `.gitignore` and `quotes.json` files everything e
 
 - The app must serve the data from a mongodb database.
 - The app should implement a simple GET API for getting quotes.
-- quotes.js should impliment the functions bellow
+- quotes.js should implement the functions bellow
 
 #### quotes.js
 
