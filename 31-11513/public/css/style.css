@@ -1,0 +1,17 @@
+body {
+  background-color: #FAEBD7;
+}
+
+.sentence {
+	color: #800000;
+	text-align: center;
+	font-size:300%;
+    margin-top: 250px;
+}
+
+.author {
+	color: #FFFFFF;
+	text-align: right;
+	font-size: 100%;
+	margin-bottom: 100px;
+}
