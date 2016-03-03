@@ -68,6 +68,9 @@ function getQuoteFromDB(cb,index) {
     })
 
 }
+function clearQuotesFromDB(cb){
+  quotesCollection.removeMany();
+}
 // console.log(quotesCollection.findOne());
 // console.log(getQuoteFromJSON(0));
 exports.getElementByIndexElseRandom=getElementByIndexElseRandom;
@@ -76,3 +79,4 @@ exports.getQuoteFromJSON=getQuoteFromJSON;
 exports.seed=seed;
 exports.getQuotesFromDB=getQuotesFromDB;
 exports.getQuoteFromDB=getQuoteFromDB;
+exports.clearQuotesFromDB=clearQuotesFromDB;

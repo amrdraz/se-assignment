@@ -18,7 +18,7 @@ function connect(cb){
   else{
     console.log("Connection established at: "+dbURL)  ;
     DB=db;
-   cb(db);
+   cb(db,err);
   }
 
 });
@@ -41,6 +41,7 @@ exports.db = function() {
     return DB;
 };
 
+//obsolte replaced with clearQuotesFromDB (at quotes)
 /**
  * clears all collections in the database calling the callback when done
  * @param  {Function} done callback indicating the operation is complete

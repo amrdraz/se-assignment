@@ -56,5 +56,6 @@ app.get('/index', function (req, res) {
 
 //incase not found
 app.get('*', function(req, res) {
+  res.sendStatus(404);
     res.send("Error 404 ! Page not found!")
 });
