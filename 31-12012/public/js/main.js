@@ -1,4 +1,17 @@
+
 $(document).ready(function() {
+
+   
+
+    $('body').on('click', function (event) {
+        $.ajax({
+            url: '/api/quote',
+            success: function (quote) {
+                $(".author").html(quote.author);
+                $(".quote").html(quote.text);
+            }
+        });
+    });
 
     // Populate the user table on initial page load
     // populateTable();

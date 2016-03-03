@@ -5,7 +5,9 @@
   "private": true,
   
   "scripts": {
-    "start": "node ./bin/www"
+   "start": "node server.js",
+   "test": "mocha test/quotes.js",
+   "coverage": "istanbul cover test/quotes.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,6 +18,10 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "mongodb": "~1.4",
-    "monk": "~1.0.1"
+    "monk": "~1.0.1",
+    "mocha": "~1.20.1",
+    "supertest": "~1.2.0",
+    "chai": "~3.5.0",
+    "istanbul": "~0.4.2"
   }
 }

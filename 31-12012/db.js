@@ -15,7 +15,7 @@ var DB = {
         assert.notEqual(null, _db);
         return _db;
     },
-    clearDb: function clearDb(done) {
+    clearDB: function clearDB(done) {
 
     	_db.collection("quotes").remove({}, function(err, after){
     		assert.equal(null, err);

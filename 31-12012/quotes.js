@@ -11,7 +11,7 @@ var dbURL = 'mongodb://localhost:27017/inspire-me';
 
 module.exports.getElementByIndexElseRandom = function(array , index){
 
-    if(index && index<array.length)
+    if(typeof index !== 'undefined' && index<array.length)
         return array[index];
 
     var i =  parseInt(Math.random()*array.length, 10);
@@ -26,7 +26,7 @@ module.exports.getQuotesFromJSON =function(){
 
 module.exports.getQuotesFromJSON2 = function(index){
     var array = module.exports.getQuotesFromJSON();
-    if(index && index<array.length){
+    if(typeof index !== 'undefined' && index<array.length){
         return array[index];
     }
     var i = parseInt(Math.random()*array.length);
@@ -82,16 +82,26 @@ module.exports.getQuotesFromDB = function(callback) {
 
  //}
 
-//  module.exports.getQuoteFromDB=function getQuoteFromDB(cb , index){
+ module.exports.getQuoteFromDB=function(cb , index){
 
-// var array = module.exports.getQuotesFromDB;
-//      if(index && index<array.length){
-//         return array[index];
-//     }
-//      var i = parseInt(Math.random()*array.length);
-//      return array[i];
+// var array = module.exports.getQuotesFromDB(cb);
+//       if(index && index<array.length){
+//          return array[index];
+//      }
+//       var i = parseInt(Math.random()*array.length);
+//       return array[i];
 
-//  }
+//leeh laama 7ghayert quotes li qoutes2 msln manf3sh ?
+    DB.db().collection('quotes').find({}).toArray(function(err, quote){
+    if (index === undefined)
+ 
+                cb(err, quote[Math.floor(Math.floor(Math.random()*quote.length))] );
+ 
+               else
+                 cb(err, quote[index]);
+        // cb(err, getElementByIndexElseRandom(arrayOfquotes , index ));
+    });
+  };
 
 
 
