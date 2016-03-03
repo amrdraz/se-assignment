@@ -1,0 +1,40 @@
+
+/*html {*/
+/*    height: 100%;*/
+/*}*/
+body {
+    
+    min-height: 100%;
+    color: #222;
+    line-height: 1.5;
+     padding-top:20%;
+    background-color: lightblue;
+    
+}
+.quote {
+  font-weight: 400;
+    color: #fff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    font-size:7ex;
+    text-align:center;
+   
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 90%;
+   
+}
+
+.author {
+   
+     
+      position: absolute;
+    bottom: 0px;
+    right: 20px;
+    font-weight: 300;
+    font-size: 4ex;
+    color: #fff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    max-width: 60%;
+    align-self: flex-end;
+}
