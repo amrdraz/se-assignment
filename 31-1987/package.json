@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "author": "Mostafa El-Messiry",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "coverage":"istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -18,4 +19,5 @@
     "mongodb": "*",
     "supertest": "*"
   }
+
 }

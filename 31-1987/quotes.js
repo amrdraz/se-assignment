@@ -32,7 +32,7 @@ var seed = function (cb){
 	var data = db.db();
 	data.collection('quotes').count(function(err,count)
 		{
-      
+
       if(count==0)
 			{
 				var dbquotes = getQuotesFromJSON();

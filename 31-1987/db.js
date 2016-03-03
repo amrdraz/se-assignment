@@ -15,9 +15,7 @@ var DB = {
 
             cb();
             }
-            else{
-              console.log("error couldn't connect to db inspire me");
-            }
+
 
         });
 
@@ -29,11 +27,7 @@ var DB = {
 
 
     },
-    connected: function connected()
-    {
-      return flag;
-    }
-    ,
+
 
     clearDB: function clearDB(done) {
         _db.listCollections().toArray().then(function(collections) {
