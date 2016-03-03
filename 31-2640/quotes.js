@@ -39,7 +39,7 @@ return array;
 
       var array = getQuotesFromJSON();  
       DB.collection('quotes').count(function(error,count){
-        if(count==0){
+        if(count===0){
         DB.collection('quotes').insert(array,function(error,seed){cb(error,true)})
     }else
     cb(error,false);
