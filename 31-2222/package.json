@@ -1,0 +1,17 @@
+{
+	"name": "inspiration",
+	"version": "0.0.0",
+	"description": "My very own inspirational quote app",
+	"scripts": {
+		"start": "node server.js",
+		"test": "mocha ./test/quote.js"
+	},
+	"dependencies": {
+		"mocha": "2.4.5",
+		"supertest": "1.2.0",
+		"chai": "3.5.0",
+		"istanbul": "0.4.2",
+		"express": "4.13.4",
+		"mongodb": "2.1.7"
+	}
+}
