@@ -6,10 +6,10 @@ var db = require('../db.js');
 
 before(function(done) {
     // use this after you have completed the connect function
-    // db.connect(function(err, db) {
-    //    if (err) return done(err);
-    //    else done();
-    // });
+    db.connect(function(err, db) {
+       if (err) return done(err);
+       else done();
+    });
 });
 
 describe("getElementByIndexElseRandom", function() {

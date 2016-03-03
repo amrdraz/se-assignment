@@ -24,8 +24,8 @@ function httpGetAsync(theUrl, callback)
 
 myFirstLine.onclick = function() 
 {
-	var quote = httpGet('www.localhost:8080/api/quote');
-	console.log(quote);
+	var quote = httpGet('api/quote');
+	quote = JSON.parse(quote);
 	var Author = quote.author;
 	var Text = quote.text;
 	myFirstLine.innerHTML = Text;
