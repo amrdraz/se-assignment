@@ -1,0 +1,19 @@
+{
+    "name": "31-13528",
+    "version": "0.0.1",
+    "author": "aisha",
+    "scripts": {
+        "start": "node server.js",
+        "test": "test/quote.js"
+    },
+    "dependencies": {
+        "express": "latest",
+        "mocha":"latest",
+       "mongodb":"latest",
+       "chai":"latest",
+       "istanbul" : "latest",
+       "supertest" :"latest"
+
+
+    }
+}
