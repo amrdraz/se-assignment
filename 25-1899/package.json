@@ -1,0 +1,16 @@
+{
+  "name": "quotesApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hjs": "0.0.6",
+    "mongodb": "^2.1.7"
+  }
+}
