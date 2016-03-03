@@ -106,7 +106,7 @@ You will find in this repo the `.gitignore` and `quotes.json` files everything e
 - The app should implement a simple GET API for getting quotes.
 - quotes.js should impliment the functions bellow
 
-#### quotes.js
+#### getElementByIndexElseRandomgetElementByIndexElseRandomgetElementByIndexElseRandom
 
 Export the following functions
 
@@ -194,7 +194,7 @@ Returns the instantiated db object.
 ##### `clearDb(cb)`
 Clears the database used largely in testing. then call callback.
 
-#### API
+#### api
 
 The server needs to serve index.html when we visit `/index.html`, `index`, or just `/`. Any other url not supported should return a 404 not found.
 
