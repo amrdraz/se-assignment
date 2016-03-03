@@ -18,29 +18,34 @@ describe("getElementByIndexElseRandom", function() {
     var arr = [1, 2, 3, 43, 5];
     it("should return a random element that is included in the array if we omit the index", function() {
         // TODO
-        ///
+        exports.getElementByIndexElseRandom(arr);
     });
     it("should return the first element if we also pass the index 0", function() {
         // TODO
+        exports.getElementByIndexElseRandom(arr, 0);
     });
 
      it("should return the last element if we also pass the index", function() {
         // TODO
+        exports.getElementByIndexElseRandom(arr, (arr.length - 1));
     });
 });
 
 describe("getQuotesFromJSON", function() {
     it("should return an array of 102 quote", function() {
         // TODO: you know how many quotes are there
+        exports.getQuotesFromJSON();
     });
     it("first quote in the array's author should be Kevin Kruse", function() {
         // TODO: you know the content of first quote
+        exports.getQuotesFromJSON()[0];
     });
 });
 
 describe("getQuoteFromJSON", function() {
     it('should return a quote object with an author and text property', function() {
         // TODO: check that the returned quote has text and author
+        
     });
     it('should return a random quote if index not specified', function() {
        // TODO: is the returned quote in the all quotes array?
