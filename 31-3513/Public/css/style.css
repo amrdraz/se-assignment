@@ -1,0 +1,40 @@
+<style> 
+html,
+    body {
+        text-align: center;
+        font-family:"Times New Roman", Georgia, Serif;
+        font-size: 100%;
+        cursor: nw-resize;
+        background: hsl(400, 60%, 68%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    blockquote {
+     position: center;
+         align-items: center;
+    justify-content: center;
+        font-weight: 400;
+        color: #000;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+        font-size: 5ex;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5;
+        max-width: 90%;
+        text-align: center;
+    }
+    
+    h2{
+        position: absolute;
+        bottom: 0px;
+        right: 20px;
+        font-weight: 300;
+        font-size: 5ex;
+        color: #000;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        max-width: 60%;
+        align-self: flex-end;
+    }
+    </style>
