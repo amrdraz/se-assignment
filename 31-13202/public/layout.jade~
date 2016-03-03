@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    title Quote App
+    link(rel='stylesheet', href='/stylesheets/style.css')
+      script(type='text/javascript', src='./js/jquery.min.js')
+  body
+    blockquote.quote
+      |     h2.author
+    h2.author
+    script(src='./js/main.js')
+  body
+    div!= body
