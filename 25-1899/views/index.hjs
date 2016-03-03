@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head lang='en'>
+    <title>Inspirational Quotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header class="header flex-align">
+        <h1 class="align-item">Quotes-Generator</h1>
+    </header>
+    <button class="post-load-btn">Click here to get inspired</button>
+    <section class="post-list">
+        {{#posts}}
+        <article class="post-list-item">
+            <h3 class="post-list-item-header">{{quote}}</h3>
+            <section class="post-list-item-body">
+                {{author}}
+            </section>
+        </article>
+        {{/posts}}
+    </section>
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
