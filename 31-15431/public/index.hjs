@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ -->        <script  type="text/javascript" src="./javascripts/jquery.js"></script>
+		 <style type="text/css">
+         body {
+            font-size:40px;
+            
+        }
+        html{
+            background:rgb(128,128,128);
+        }
+
+        #posts{
+        	/*position:fixed;*/
+    
+   
+            margin-top: 300px;
+        	text-align: center;
+        }
+
+        #author{
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+        }
+        </style>
+	</head>
+	<body  >
+	<div id='posts' class="my-block">
+      tap to get new qoute
+    </div>
+    <div id="author"></div>
+		 <!-- // <script type="text/javascript"> -->
+   <!-- //          function ran_col() { //function name -->
+   <!-- //              var color = '#'; // hexadecimal starting symbol -->
+   <!-- //              var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; //Set your colors here -->
+   <!-- //              color += letters[Math.floor(Math.random() * letters.length)]; -->
+   <!-- //              document.getElementById('posts').style.background = color; // Setting the random color on your div element. -->
+
+   <!-- //          } -->
+
+
+        <!-- // </script> -->
+
+        <script>
+            $(document).ready(function(){
+                $("html").click(function(){
+
+
+                    var color = '#'; // hexadecimal starting symbol \
+                    var r = Math.floor(Math.random()*255);
+                    var g = Math.floor(Math.random()*255);
+                    var b = Math.floor(Math.random()*255);
+                    
+                    var color = "rgb("+r+","+g+","+b+")";
+                    $("html").css("background-color", color);
+                    $.ajax({
+                        url: '/api/quote',
+                        dataType: 'json',
+                        success: function(data){
+                            $('#posts').html(data.text);
+                            $('#author').html(data.author);
+                        }
+                    });
+                });
+            });
+
+        </script>
+	</body>
+</html>
