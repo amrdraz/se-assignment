@@ -165,9 +165,6 @@ describe('API', function() {
     it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
 
         request.get('/api/quote').expect(200).end(function(err, res) {
-
-            console.log(res.body);
-            console.log(done);
             expect(res.body).to.have.property("_id");
             expect(res.body).to.have.property("author");
             expect(res.body).to.have.property("text");

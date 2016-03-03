@@ -37,9 +37,8 @@ module.exports.seed = function seed(cb) {
     var array = module.exports.getQuotesFromJSON();
 
     DB.db().collection('quotes').count(function(err, count){
-        if(err != null){
-            cb(err, false);
-        } else if(count == 0){
+      assert.equal(err, null);
+         if(count == 0){
             DB.db().collection('quotes').insert(array, function(err2, result) {
                 assert.equal(null, err2);
                 cb(err2, true);
