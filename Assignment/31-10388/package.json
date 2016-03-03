@@ -1,0 +1,22 @@
+{
+  "name": "inspirationApp",
+  "version": "0.10.25",
+  "description": "Simple inspirational app",
+  "directories": {
+    "public": "./public"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "coverage": "istanbul cover _mocha"
+  },
+  "dependencies": {
+    "express": "~4.12.4",
+    "jquery": "^2.2.1",
+    "mocha": "^2.4.5",
+    "mongodb": "~1.4",
+    "supertest": "^1.2.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.2"
+  }
+}
