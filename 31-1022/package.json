@@ -1,0 +1,26 @@
+{
+  "name": "31-1022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node_modules/.bin/mocha -w",
+    "coverage": "istanbul cover _mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.7",
+    "should": "^8.2.2",
+    "supertest": "^1.2.0"
+  }
+}
