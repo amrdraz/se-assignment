@@ -25,26 +25,16 @@ else{
 }
 };
 
-var clearDB = module.exports.clearDB = function(done , flag) {
-  var collection = DB.get('quotes');
-var flag = false ;
+var clearDB = module.exports.clearDB = function(done) {
        if (DB == null){
    connect(function(db){
     DB = db;
     });
    }
-if(DB.get('quotes') != 0 ){
-  flage = false ;
-}else {
-flag  = true ;
 
-}
-  console.log(collection.find() );
-
+  var collection = DB.get('quotes');
     collection.drop();
-
-      console.log(collection );
-      done(null ,flag);
+      done();
 
 
 

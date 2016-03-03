@@ -12,15 +12,14 @@ var express = require('express')
 var app = module.exports = express.createServer();
 
 
-
  database.connect(function(err, db) {
 
 
-
-    database.clearDB(function(err, suc2){
-    //  console.log(suc2);
-      console.log(suc2? 'cleared successfuly' : 'failed to clear');
-    });
+    //
+    // database.clearDB(function(err, suc2){
+    //   console.log(suc2);
+    //   console.log(suc2? 'cleared successfuly' : 'failed to clear');
+    // });
 
 
 //   quotes.getQuotesFromJSON(function(err, qu){

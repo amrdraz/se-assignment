@@ -94,7 +94,7 @@ var getQuotesFromDB = module.exports.getQuotesFromDB = function  (cb){
 }
 
 var getQuoteFromDB = module.exports.getQuoteFromDB =   function  (cb , index){
-   var collection = db.get('quotesCollection');
+   var collection = db.get('quotes');
 
    getQuotesFromDB(function(err,quotes){
     var quote = getElementByIndexElseRandom(quotes,index);
