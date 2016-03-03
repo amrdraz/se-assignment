@@ -1,0 +1,12 @@
+{
+  "name": "InspirationApp",
+  "version": "0.0.1",
+  "author": "Omar Kamel <oak.kamel@gmail.com",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7"
+  }
+}
