@@ -1,0 +1,33 @@
+
+
+
+@keyframes example {
+    from {background-color: pink;}
+    to {background-color: purple;}
+}
+
+/* The element to apply the animation to */
+body {
+    
+    background-color: yellow
+;
+   
+    animation-name: example;
+    animation-duration: 20s;
+}
+
+
+
+
+h1 {
+	 
+    text-align: center;
+  color:black;
+  font: 20px;
+  text-indent: 0px;
+  
+}
+#b{
+ text-align: center ;  
+}
+
