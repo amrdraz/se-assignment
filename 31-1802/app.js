@@ -1,12 +1,15 @@
 var express = require('express');
 var app = express();
+var routes = require('./routes/routes.js');
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
+app.use(express.static('./public/'));
 
-app.use(express.static('./public'));
+app.use(express.static('../quotes.JSON'));
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
-});
+//app.use(require('./routes/routes.js'));
+
+app.use('/', routes);
+app.use('/api', routes);
+
+
+module.exports = app;
