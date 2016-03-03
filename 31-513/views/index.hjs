@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head lang='en'>
+    <title>Inspirational Quotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<div class="click-msg">click on the page to get inspired</div>
+    <section class="post-list">
+        {{#posts}}
+        <article class="post-list-item">
+            <h3 class="post-list-item-header">{{header}}</h3>
+            <section class="post-list-item-body">
+                {{content}}
+            </section>
+        </article>
+        {{/posts}}
+    </section>
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
