@@ -1,0 +1,12 @@
+{
+  "name": "diary",
+  "version": "0.0.1",
+  "author": "ayazz",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7"
+  }
+}
