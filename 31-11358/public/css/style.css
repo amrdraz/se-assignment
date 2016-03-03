@@ -1,0 +1,19 @@
+.author {
+    float: right;
+    color: rgb(80, 80, 80);
+    font-size: 30px;
+    margin-top: 10%;
+}
+
+.quote {
+    color: rgb(180, 180, 180);
+    width: 90%;
+    margin-left: 5%;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.container {
+    background-color: black;
+}
