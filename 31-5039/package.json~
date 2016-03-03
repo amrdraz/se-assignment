@@ -1,0 +1,15 @@
+{
+  "name": "31-5039",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+"dependencies": {
+  "chai": "~1.4.2",
+    "mocha": "*",
+  "istanbul" : "~0.4.2",
+ "supertest" : "~1.2.0"
+     
+}
+}
