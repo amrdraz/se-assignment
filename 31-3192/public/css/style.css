@@ -1,0 +1,36 @@
+html {
+  background-color: #FF6644;
+}
+
+h1 {
+  background-color: #FF6644;
+  color: rgba(255, 255, 255, 1);
+  padding: 30px 100px 100px 100px;
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+}
+
+#quote{
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: serif;
+  padding: 20px;
+
+}
+
+#author{
+  text-align: right;
+  position: relative;
+  top: 30px;
+  right: 20px;
+  font-weight: bold;
+  padding: 0px 50px 50px 10px;
+}
+
+p {
+   background-color: #FF6644;
+   font-family: sans-serif;
+   color: white;
+}
