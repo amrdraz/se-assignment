@@ -161,12 +161,13 @@ describe('API', function() {
       // TODO: test with supertest
       request.get('/api/quote')
       .expect('Content-Type', /json/)
-      .end(function(err, result){
-          var quote = result.body;
-          assert.property(quote, 'author');
-          assert.property(quote, 'text');
-          done();
-      });
+      .end(function(err, res){
+        expect(err).to.be.null;
+        expect(res.body).to.have.property('_id');
+        expect(res.body).to.have.property('author');
+        expect(res.body).to.have.property('text');
+        done();
+    });
   });
 
   it('/api/quotes should return an array of JSON object when I visit', function(done) {
@@ -174,11 +175,13 @@ describe('API', function() {
       .expect('Content-Type', /json/)
       .end(function(err, result){
           var quotes = result.body;
-          assert.isArray(quotes, 'Returned body is not an array');
+          expect(quotes).to.be.a('array');
+          expect(quotes).to.have.lengthOf(102);
           var quote = quotes[0];
-          //to make sure returned array is correct of property author and text
-          assert.property(quote, 'author');
-          assert.property(quote, 'text');
+          //to make sure returned array objects are of correct property author and text
+          expect(quote).to.have.property('_id');
+          expect(quote).to.have.property('author');
+          expect(quote).to.have.property('text');
           done();
       });
   });
