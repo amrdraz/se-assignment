@@ -6,7 +6,7 @@ var Quotes = require('../quotes.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Inspire Me', author: '', quote:'Click or Tap on the page to get inspired' });
+  res.render('index', { title: 'Inspire Me', author: 'Ahmed Omran', quote:'Click or Tap on the page to get inspired' });
 });
 
 /*
