@@ -1,4 +1,11 @@
-// Complete Package.json
-// Supertest for testing the api, copy documentation
-// chai for assertion
-// 
+{
+  "name"         : "Motivate Me",
+  "version"      : "0.0.0",
+  "description"  : "Simple Quotes app.",
+  "main"         : "app.js",
+  "author"       : "Bassem",
+  "dependencies" : {
+    "express"    : "~4.7.2",
+    "mongoose"   : "~3.6.2"
+    }
+}
