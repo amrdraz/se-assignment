@@ -8,7 +8,7 @@ Sample quote
 ![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspiration.png)
 
 
-A simple web app to try:
+A simple web app for a Software Engineering course to try:
 
 - running nodejs
 - setting up a mongodb database
