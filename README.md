@@ -1,6 +1,13 @@
 # Inspire-me
 Get a random quote on each click to get inspired!
 
+Landing page:
+![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspire-me-start.png)
+
+Sample quote
+![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspiration.png)
+
+
 A simple web app to try:
 
 - running nodejs
