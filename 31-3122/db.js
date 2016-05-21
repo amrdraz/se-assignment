@@ -12,6 +12,7 @@ exports.connect = function(cb) {
   mongo.connect(dbURL,function(err,db){
     if(!err){
       DB=db;
+      console.log("Connected successfully!");
       cb(err,db);
     }
     else {
