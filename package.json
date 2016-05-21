@@ -1,0 +1,16 @@
+{ "name": "Inspire-Me",
+  "author":"Hagar",
+  "description": "Our sample app to try Node",
+  "main": "server.js",
+  "scripts": {
+    "start": "node 31-3122/server.js"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.7",
+    "supertest": "^1.2.0"
+  }
+}
