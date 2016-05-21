@@ -1,7 +1,9 @@
 // db.js
 var mongo = require('mongodb').MongoClient;
 var DB = null;
-var dbURL = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/quotes';
+var dbURL = process.env.MONGOLAB_URI  ||
+            process.env.MONGOHQ_URL   ||
+            'mongodb://localhost:27017/quotes';
 
 /**
 * function that connects to the mongodb instance initialized.
