@@ -1,4 +1,10 @@
-{
+{ "name": "Inspire-Me",
+  "author":"Hagar",
+  "description": "Our sample app to try Node",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "chai": "^3.5.0",
     "express": "^4.13.4",
