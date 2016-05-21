@@ -11,14 +11,12 @@ https://inspireme-se.herokuapp.com/
 - connecting to the database
 - responding with a file
 - responding with JSON
-- node module syntax (require/export) using the module design pattern
-- npm
 - testing code
     - unit
     - end to end
 - some html
 - some css
-- jquery or just javacript in the browser
+- jquery
 - ajax
 
 
