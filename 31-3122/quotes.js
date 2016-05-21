@@ -24,12 +24,11 @@ function getQuoteFromJSON (index)
 }
 
 function seed (cb)
-{	mongo.connect(function(err1,db1){
+{
 	var db= mongo.db;
 	var seeded=false;
 	var collection= db().collection('quotes');
 
-	//TODO seeded mystery!
 	collection.findOne({}, function(err0, result) {
 
 		if (!result) {
@@ -46,7 +45,6 @@ function seed (cb)
 			cb(err0,seeded);
 		}
 	});
-});
 }
 
 function getQuotesFromDB (cb)
