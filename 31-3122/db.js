@@ -1,7 +1,7 @@
 // db.js
 var mongo = require('mongodb').MongoClient;
 var DB = null;
-var dbURL = process.env.MONGOLAB_URI  ||
+var dbURL = process.env.MONGODB_URI  ||
             'mongodb://localhost:27017/quotes';
 
 /**
