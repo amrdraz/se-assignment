@@ -10,8 +10,13 @@ var dbURL = 'mongodb://localhost:27017/quotes';
  exports.connect = function(cb) {
 	// You do this one
 	mongo.connect(dbURL,function(err,db){
+        if(!err){
         DB=db;
         cb(err,db);
+      }
+      else {
+        console.log(err);
+      }
     });
 }
 
@@ -20,7 +25,7 @@ var dbURL = 'mongodb://localhost:27017/quotes';
  * throws an error if db not initialized.
  * example use case assuming you required the module as db
  *     db.db().find(.... etc
- * @return {MongoDBObject} 
+ * @return {MongoDBObject}
  */
  exports.db = function() {
     if (DB === null) throw Error('DB Object has not yet been initialized');
@@ -34,7 +39,7 @@ var dbURL = 'mongodb://localhost:27017/quotes';
  exports.clearDB = function(done) {
     DB.listCollections().toArray().then(function (collections) {
         collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();   
+            DB.collection(c.name).removeMany();
         });
         done();
     }).catch(done);
