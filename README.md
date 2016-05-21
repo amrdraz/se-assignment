@@ -1,14 +1,9 @@
 # Inspire-me
-Get a random quote on each click to get inspired!
 
-Landing page:
-![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspire-me-start.png)
+*Deployment*
+https://inspireme-se.herokuapp.com/
 
-Sample quote
-![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspiration.png)
-
-
-A simple web app for a Software Engineering course to try:
+**A simple web app for a Software Engineering course to try:**
 
 - running nodejs
 - setting up a mongodb database
@@ -25,5 +20,17 @@ A simple web app for a Software Engineering course to try:
 - some css
 - jquery or just javacript in the browser
 - ajax
+
+
+Get a random quote on each click to get inspired!
+
+Landing page:
+![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspire-me-start.png)
+
+Sample quote
+![alt tag](https://raw.githubusercontent.com/hagary/Inspire-Me/master/assets/inspiration.png)
+
+
+
 
 
