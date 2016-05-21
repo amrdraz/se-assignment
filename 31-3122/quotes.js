@@ -10,13 +10,13 @@ function getQuotesFromJSON (){
 
 	var data=require("../quotes.json");
 	return data;
-	
+
 
 }
 
 function getQuoteFromJSON (index)
 {
-	var data=require("../quotes.json");  
+	var data=require("../quotes.json");
 
 	return getElementByIndexElseRandom(data,index);
 
@@ -28,19 +28,19 @@ function seed (cb)
 	var db= mongo.db;
 	var seeded=false;
 	var collection= db().collection('quotes');
-	
+
 	//TODO seeded mystery!
 	collection.findOne({}, function(err0, result) {
 
 		if (!result) {
 			collection.insert(getQuotesFromJSON(), function(err,data){
 				if(!err)
-					seeded=true;
+				seeded=true;
 				cb(err,seeded);
 			});
 
 		}
-		else 
+		else
 		{
 			seeded=false;
 			cb(err0,seeded);
@@ -50,18 +50,18 @@ function seed (cb)
 }
 
 function getQuotesFromDB (cb)
-{	mongo.connect(function(){
+{
 	var db 			= mongo.db;
 	var collection	= db().collection('quotes');
 	collection.find({}).toArray(function(err,result){
 		cb(err,result);
-	})});
+	});
 }
 function getQuoteFromDB (cb, index)
 {
 	getQuotesFromDB(function(err,result){
 		cb(err,getElementByIndexElseRandom(result,index));
-		
+
 	});
 
 }
@@ -71,4 +71,3 @@ exports.getQuotesFromDB=getQuotesFromDB;
 exports.getQuoteFromJSON=getQuoteFromJSON;
 exports.getQuotesFromJSON=getQuotesFromJSON;
 exports.getElementByIndexElseRandom=getElementByIndexElseRandom;
-

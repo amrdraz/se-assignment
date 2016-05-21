@@ -5,6 +5,7 @@ var port = process.env.PORT || 8080;
 
 
 
+
 quoteFunctions.seed(function(err,seeded){
 	if(seeded)
 	{
@@ -16,4 +17,4 @@ quoteFunctions.seed(function(err,seeded){
 	app.listen(port, function(){
 		console.log("Server up & listening on "+port);
 	});
-});
+})
