@@ -77,6 +77,11 @@ You will find in this repo the `.gitignore` and `quotes.json` files everything e
     - the test script runs the mocha tests.
     - the coverage script runs istanbul.
 
+### Hint
+
+it would be helpfull to install nodemon as it can referesh every time you make a change
+``` $ sudo npm install -g nodemon ```
+
 ### Features
 
 - The app must serve the data from a JSON file.
