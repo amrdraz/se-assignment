@@ -5,18 +5,12 @@
 Demonstrate your mastery of:
 
 - running nodejs
-- setting up a mongodb database
 - using express
 - connecting to the database
 - responding with a file
 - responding with JSON
 - node module syntax (require/export) using the module design pattern
 - npm
-- testing your code
-    - unit
-    - end to end
-- some html
-- some css
 - jquery or just javacript in the browser
 - ajax
 
@@ -25,19 +19,11 @@ Demonstrate your mastery of:
 
 - Internet
 - Google chrome
-- A plain text editor (preferably sublime)
-- mongodb
 - nodejs
 - git
 - A github account
 
-## Motivation
-
-We feel SE students will go through harsh trials in the near future, accordingly we thought of having you build an inspirational quote app. May it lift your spirit in your time of need.
-
 ## Task
-
-You are to __fork__ this repository and submit a pull request when you are done
 
 Your job is to create a simple test driven inspirational quotes application that will show you a new inspirational quote every-time you click on the page as well as the author of the quote in the bottom right, the quote should be loaded using ajax.
 
@@ -45,7 +31,15 @@ The application should inform the user somehow on how he can use it, in my case 
 
 __A demo that will only work in chrome and basically just looks like what we want you to do can be found [here](http://amrdraz.github.io/inspire-me/)__
 
-> If you want to have fun you can modify the data we give you and create your own set of quotes - for example make it an Arabic movie quotes app.
+### First Setup Hint
+
+
+I would recommend doing these steps to install express globally and setup a express package
+- ` $ npm update`
+- ` $ sudo npm install -g express`
+- ` $ sudo apt install node-express-generator`
+- ` $ express task`
+
 
 ### UI
 
@@ -55,12 +49,11 @@ __A demo that will only work in chrome and basically just looks like what we wan
 
 ### File structure
 
-After you  __fork__ the assignment repo, add your own folder with your id.
+After you  __clone__ the assignment repo.
 
 You should minimally windup with the following structure.
 
 ```
-|- 16-5240/
 |  |- public/
 |  |  |- js/
 |  |  |  |- jquery.min.js  <------ you can optionally not use this.
@@ -71,13 +64,9 @@ You should minimally windup with the following structure.
 |  |  |  
 |  |  |- index.html 
 |  |
-|  |- test/
-|  |  |- quote.js          <------ see how kind we are bellow
-|  |
 |  |- app.js
 |  |- server.js
 |  |- quotes.js
-|  |- db.js                <------ this is partially provided, love us
 |  |- package.json
 |  
 |- quotes.json
@@ -93,16 +82,20 @@ You will find in this repo the `.gitignore` and `quotes.json` files everything e
 - `app.js` contains code that handles the routes and exports the express app.
 - `server.js` contains code that runs the app.
 - `/quotes.js` should contain the functionality related to quotes
-- `test/quotes.js` should contain the tests that make sure all functionality in the quotes.js file work.
-- `db.js` In my example this is a file that hold functions for connecting and accessing the database.
 - `package.json` should contain all your dependencies in addition to your npm scripts; start, test, and coverage.
     - the start script runs the database.
     - the test script runs the mocha tests.
     - the coverage script runs istanbul.
 
+### Hint
+
+it would be helpfull to install nodemon as it can referesh every time you make a change
+``` $ sudo npm install -g nodemon ```
+then just run your server using ``` $ nodemon server.js ```
+
 ### Features
 
-- The app must serve the data from a mongodb database.
+- The app must serve the data from a JSON file.
 - The app should implement a simple GET API for getting quotes.
 - quotes.js should impliment the functions bellow
 
@@ -138,62 +131,6 @@ getQuotesFromJSON() // basically returns the whole object.
 getQuoteFromJSON()           // any of quote object in the quotes.json file
 getQuoteFromJSON(0).author   // Kevin Kruse
 ```
-
-##### `seed(cb)`
-
-Populate the database with quotes from quotes.json, seed should call the call back when done with an `error, seeded` set of arguments.
-
-seeded is a boolean value that is true if the database was empty (and thus seeded) or no error occurred but the database already contains records.
-
-```js
-seed(function (err, seeded) {
-    // seeded is true when quotes are added to the database
-    // seeded is false when nothing is added to the db
-})
-```
-
-
-##### `getQuotesFromDB(cb)`
-
-- Will call the callback function passed __cb__ with arguments `error, quotes`
-    - error will be null if no error occurred
-    - quotes is a list of all quotes
-    
-```js
-getQuotesFromDB(function (err, quotes) {
-    // any of quote object in the database  
-})
-```
-
-##### `getQuoteFromDB(cb [, index])`
-
-- Will call the callback function passed __cb__ with arguments `error, quote`
-    - error will be null if no error occurred
-    - quote should contain a random quote document returned from the database
-- Optional argument index if present will select a specific quote by index from the quotes documents returned.
-
-```js
-getQuoteFromDB(function (err, quote) {
-    // any of quote object in the database  
-})
-getQuoteFromDB(function (err, quote) {
-    // is Kevin Kruse assuming it's the first document in the database
-    quote.author;  
-}, 0)
-```
-
-
-#### db.js
-
-##### `connect(cb)`
-Connects to database then call callback passing db.
-
-##### `db()`
-Returns the instantiated db object.
-
-##### `clearDb(cb)`
-Clears the database used largely in testing. then call callback.
-
 #### API
 
 The server needs to serve index.html when we visit `/index.html`, `index`, or just `/`. Any other url not supported should return a 404 not found.
@@ -238,202 +175,97 @@ returns a JSON array as response containing all quotes in the database.
 
 When a user clicks on the page on index.html; a script should send a `GET` request  to `/api/quote`, returning a random quote form the database as JSON, which in turn is then used to update the html page.
 
+### Front End Code
 
-### Test Requirements
+```html
 
-You need to write tests as well as run a coverage test on your app to know it is working.
+<!DOCTYPE html>
+<html>
 
-We will run our tests against your project as well as your tests against our project, see test file bellow.
+<head>
+    <title>Inspire Me</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+    <style>
+    html,
+    body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
 
-We will run the coverage test using the istanbul npm package.
+    body {
+        text-align: center;
+        font-family: Lato, Arial, sans-serif;
+        font-size: 100%;
+        cursor: pointer;
+        background: hsl(400, 60%, 68%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-You should achieve a coverage level that looks like this.
+    .quote {
+        font-weight: 400;
+        color: #fff;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+        font-size: 5ex;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5;
+        max-width: 90%;
+    }
 
-![coverage](./assets/coverage.png)
+    .author {
+        position: absolute;
+        bottom: 0px;
+        right: 20px;
+        font-weight: 300;
+        font-size: 5ex;
+        color: #fff;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        max-width: 60%;
+        align-self: flex-end;
+    }
+    </style>
+</head>
 
-You can find this html file in a folder called coverage after you run instanbul.
+<body>
+    <blockquote class="quote">
+        Click or tap on the page to get inspired
+    </blockquote>
+    <h2 class="author"></h2>
+    <script>
+    
+    //I recomend your write this script on your own to get use to JQ
+    
+    var $quote = document.querySelector('.quote');
+    var $author = document.querySelector('.author');
 
+  
+    document.body.addEventListener('click', function() {
+    document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 80%)'
+  
+    $quote.innerHTML = ""; //item returned from getElementByIndexElseRandom
+  
+    $author.innerHTML = ""; //item returned from getElementByIndexElseRandom
+        });
+    });
+    </script>
+</body>
 
-### Some Hint and Suggestions
+</html>
 
-
-#### Strategy
-
-As a development strategy I encourage you to build the project following the order in the test file bellow.
-
-First without the database and server then think about connecting to the database then do the server then build the front end that connects to it.
+```
 
 #### Other Hints
 
 - You will need to add your dependencies in package.json
 
 - For this assignment you will as a minimum use the npm packages
-    - mocha - for testing
-    - supertest - for testing the api
-    - chai - for assertion
-    - istanbul - for coverage
     - express - for managing your api
-    - mongodb - for connecting to the database.
 
 - You can look up the documentation of each of these modules and how to use them on your own.
 
-- You don't need to declare a rout for each resource in express you can simply declare a static file directory to server your public folder.
-
-> The quote test should test all functions in quote.js
-
-To test the random selection you can assert that the returned quote is included in one of the quotes you can get from getQuotesFromJSON or when testing the db from getQuotesFromDB
+- You don't need to declare a route for each resource in express you can simply declare a static file directory to server your public folder.
 
 You can read a json file using require `require('../quotes.js')` here I'm assuming quotes.json is one directory up
-
-You will need to clear the database before you run the seed test, you can do this by calling `before(db.clearDB)` which is provided by us.
-
-This should be your db.js file
-
-```js
-// db.js
-var mongo = require('mongodb').MongoClient;
-var DB = null;
-var dbURL = 'mongodb://localhost:27017/inspire-me';
-
-/**
- * function that connects to the mongodb instance initialized.
- * @param  {Function} cb callback for when connection is complete
- */
-exports.connect = function(cb) {
-    // You do this one
-};
-
-/**
- * used to get access to the db object to query the database
- * throws an error if db not initialized.
- * example use case assuming you required the module as db
- *     db.db().find(.... etc
- * @return {MongoDBObject} 
- */
-exports.db = function() {
-    if (DB === null) throw Error('DB Object has not yet been initialized');
-    return DB;
-};
-
-/**
- * clears all collections in the database calling the callback when done
- * @param  {Function} done callback indicating the operation is complete
- */
-exports.clearDB = function(done) {
-    DB.listCollections().toArray().then(function (collections) {
-        collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();   
-        });
-        done();
-    }).catch(done);
-};
-```
-
-This is how your tests/quotes.js should look like
-
-```js
-// tests/quotes.js
-
-var assert = require('chai').assert;
-var app = require('../app.js');
-var request = require('supertest');
-var Quote = require('../quotes.js');
-var db = require('../db.js');
-
-before(function(done) {
-    // use this after you have completed the connect function
-    // db.connect(function(err, db) {
-    //    if (err) return done(err);
-    //    else done();
-    // });
-});
-
-describe("getElementByIndexElseRandom", function() {
-    var arr = [1, 2, 3, 43, 5];
-    it("should return a random element that is included in the array if we omit the index", function() {
-        // TODO
-    });
-    it("should return the first element if we also pass the index 0", function() {
-        // TODO
-    });
-    it("should return the last element if we also pass the index", function() {
-        // TODO
-    });
-});
-
-describe("getQuotesFromJSON", function() {
-    it("should return an array of 102 quote", function() {
-        // TODO: you know how many quotes are there
-    });
-    it("first quote in the array's author should be Kevin Kruse", function() {
-        // TODO: you know the content of first quote
-    });
-});
-
-describe("getQuoteFromJSON", function() {
-    it('should return a quote object with an author and text property', function() {
-        // TODO: check that the returned quote has text and author
-    });
-    it('should return a random quote if index not specified', function() {
-       // TODO: is the returned quote in the all quotes array?
-    });
-    it('should return the first quote if we pass 0', function() {
-        // TODO: you know the content of first quote
-    });
-});
-
-// quotes collection should be called quotes
-describe('seed', function() {
-    before(db.clearDB);
-    it('should populate the db if db is empty returning true', function(done) {
-        // TODO: assert that seeded is true
-    });
-    it('should have populated the quotes collection with 102 document', function(done) {
-        // TODO: check that the database contains 102 document
-    });
-    it('should not seed db again if db is not empty returning false in the callback', function(done) {
-        // TODO: assert that seeded is false
-    });
-    it('should not seed db again if db is not empty', function(done) {
-        // TODO: The database should have 102 quote still
-    });
-});
-
-describe('getQuotesFromDB', function() {
-    it('should return all quote documents in the database', function(done) {
-        // TODO: there should be 102 documents in the db
-    });
-});
-
-describe('getQuoteFromDB', function() {
-    it('should return a random quote document', function(done) {
-        // TODO: see if it returns on of the quotes from all quotes
-    });
-    it('should return the first quote if passed 0 after callback', function(done) {
-        // TODO: you know the content of object in the file
-    });
-});
-
-describe('API', function() {
-    request = request(app);
-    it("should return a 404 for urls that don't exist", function(done) {
-        // TODO: test with supertest
-    });
-
-    it('/api/quote should return a quote JSON object with keys [_id, text, author]', function(done) {
-        // TODO: test with supertest
-    });
-
-    it('/api/quotes should return an array of JSON object when I visit', function(done) {
-        // TODO: test with supertest
-    });
-});
-
-```
-
-
-### Meta
-
-The assignment is worth 3% of your project grade
-It is individual
-Deadline Sunday the 28th of Feb
