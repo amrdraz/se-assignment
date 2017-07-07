@@ -91,6 +91,7 @@ You will find in this repo the `.gitignore` and `quotes.json` files everything e
 
 it would be helpfull to install nodemon as it can referesh every time you make a change
 ``` $ sudo npm install -g nodemon ```
+then just run your server using ``` $ nodemon server.js ```
 
 ### Features
 
@@ -234,21 +235,19 @@ When a user clicks on the page on index.html; a script should send a `GET` reque
     </blockquote>
     <h2 class="author"></h2>
     <script>
+    
+    //I recomend your write this script on your own to get use to JQ
+    
     var $quote = document.querySelector('.quote');
     var $author = document.querySelector('.author');
 
-    function getElementByIndexElseRandom(array, index) {
-        index = index === undefined ? Math.floor(Math.random() * array.length) : index;
-        return array[index];
-    }
-    fetch('./quotes.json').then(function(res) {
-        return res.json();
-    }).then(function(quotes) {
-        document.body.addEventListener('click', function() {
-            var quote = getElementByIndexElseRandom(quotes);
-            document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 80%)'
-            $quote.innerHTML = quote.text;
-            $author.innerHTML = quote.author;
+  
+    document.body.addEventListener('click', function() {
+    document.body.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 55%, 80%)'
+  
+    $quote.innerHTML = ""; //item returned from getElementByIndexElseRandom
+  
+    $author.innerHTML = ""; //item returned from getElementByIndexElseRandom
         });
     });
     </script>
@@ -267,10 +266,6 @@ When a user clicks on the page on index.html; a script should send a `GET` reque
 
 - You can look up the documentation of each of these modules and how to use them on your own.
 
-- You don't need to declare a rout for each resource in express you can simply declare a static file directory to server your public folder.
-
-> The quote test should test all functions in quote.js
-
-To test the random selection you can assert that the returned quote is included in one of the quotes you can get from getQuotesFromJSON or when testing the db from getQuotesFromDB
+- You don't need to declare a route for each resource in express you can simply declare a static file directory to server your public folder.
 
 You can read a json file using require `require('../quotes.js')` here I'm assuming quotes.json is one directory up
