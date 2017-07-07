@@ -35,10 +35,10 @@ __A demo that will only work in chrome and basically just looks like what we wan
 
 
 I would recommend doing these steps to install express globally and setup a express package
-- `npm update`
-- `sudo npm install -g express`
-- `sudo apt install node-express-generator`
-- `express task`
+- ` $ npm update`
+- ` $ sudo npm install -g express`
+- ` $ sudo apt install node-express-generator`
+- ` $ express task`
 
 
 ### UI
